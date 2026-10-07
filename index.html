@@ -6,7 +6,10 @@
 <meta name="theme-color" content="#1a3c34">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>فلش‌کارت‌های Goethe A1 – Fit in Deutsch 1</title>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{--btn:#1a3c34;--btn2:#2d5a4e;--g:#1a3c34;--bg:#f7f3eb;--surf:#fff;--tx:#1a1a1a;--mu:#6b6b6b;--ln:rgba(26,60,52,.14);--ok:#3d7a5a;--ok-bg:#e8f5ef;--no:#c45c4a;--no-bg:#fdecea;--rd:#5b8def;--rd-bg:#eef4ff;--back:#1a3c34;--sh:0 8px 30px rgba(26,60,52,.1);
@@ -1281,6 +1284,15 @@ idbOpen().then(async()=>{
   updStore();
 });
 if(navigator.storage&&navigator.storage.persist)navigator.storage.persist().then(g=>{persisted=g;updStore()}).catch(()=>{});
+</script>
+<script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./sw.js")
+        .then(reg => console.log("Service Worker registered:", reg.scope))
+        .catch(err => console.log("Service Worker registration failed:", err));
+    });
+  }
 </script>
 </body>
 </html>
