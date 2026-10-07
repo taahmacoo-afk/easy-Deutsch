@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#1a3c34">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>فلش‌کارت‌های Goethe A1 – Fit in Deutsch 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--btn:#1a3c34;--btn2:#2d5a4e;--g:#1a3c34;--bg:#f7f3eb;--surf:#fff;--tx:#1a1a1a;--mu:#6b6b6b;--ln:rgba(26,60,52,.14);--ok:#3d7a5a;--ok-bg:#e8f5ef;--no:#c45c4a;--no-bg:#fdecea;--rd:#5b8def;--rd-bg:#eef4ff;--back:#1a3c34;--sh:0 8px 30px rgba(26,60,52,.1);
+--der:#2563eb;--der-bg:#dbeafe;--die:#dc2626;--die-bg:#fee2e2;--das:#16a34a;--das-bg:#dcfce7}
+[data-theme=dark]{--btn:#2d5a4e;--btn2:#3a7364;--g:#9fd9c3;--bg:#0f1715;--surf:#18231f;--tx:#eef2ef;--mu:#9aa8a2;--ln:rgba(255,255,255,.13);--ok:#5fc08f;--ok-bg:#16342a;--no:#e2806f;--no-bg:#3a1f1b;--rd:#7ea6ff;--rd-bg:#1b2742;--back:#0b2a22;--sh:0 8px 30px rgba(0,0,0,.45);
+--der:#8bb4ff;--der-bg:#1c2b52;--die:#ff9a9a;--die-bg:#4a2020;--das:#7fe0a0;--das-bg:#1a3d2a}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;overscroll-behavior:none}
+body{font-family:'Vazirmatn',Tahoma,system-ui,sans-serif;background:var(--bg);color:var(--tx);height:100dvh;display:flex;justify-content:center;padding:max(10px,env(safe-area-inset-top)) 12px max(10px,env(safe-area-inset-bottom))}
+.wrap{width:100%;max-width:560px;height:100%;display:flex;flex-direction:column;min-height:0}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;flex:none}
+h1{font-size:1.15rem;color:var(--g);font-weight:700}
+.sub{font-size:.72rem;color:var(--mu)}
+.top>div:first-child{min-width:0}
+.sub{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.wrap>*{flex:none}
+.icons{display:flex;gap:6px}
+button{font-family:inherit;cursor:pointer;border:0;transition:transform .15s,background .2s}
+button:active{transform:scale(.97)}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--rd);outline-offset:2px}
+.ic{width:40px;height:40px;border-radius:50%;background:var(--surf);color:var(--g);font-size:1.05rem;border:1px solid var(--ln)}
+#panel,#pg,#dk,#df,#rs,#qz,#ob{position:fixed;inset:0;z-index:30;background:var(--bg);padding:max(16px,env(safe-area-inset-top)) 16px 16px;overflow:auto;display:flex;flex-direction:column;gap:12px;font-size:.9rem;align-items:center}
+#panel[hidden],#pg[hidden],#dk[hidden],#df[hidden],#rs[hidden],#qz[hidden],#ob[hidden]{display:none}
+#panel>*,#pg>*,#dk>*,#df>*,#rs>*,#qz>*,#ob>*{width:100%;max-width:560px}
+.ph{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:1.05rem}
+#panel label{display:flex;justify-content:space-between;align-items:center;gap:10px}
+select{font-family:inherit;padding:6px 8px;border-radius:8px;border:1px solid var(--ln);background:var(--bg);color:var(--tx)}
+.row{display:flex;gap:8px;flex-wrap:wrap}
+.sm{padding:8px 12px;border-radius:10px;background:var(--bg);color:var(--tx);border:1px solid var(--ln);font-size:.8rem}
+.sm.danger{color:var(--no)}
+.daily{background:var(--surf);border:1px solid var(--ln);border-radius:12px;padding:6px 10px;margin-bottom:6px;font-size:.76rem}
+.daily .l{display:flex;justify-content:space-between;margin-bottom:4px;color:var(--mu)}
+.daily b{color:var(--tx)}
+.meter{height:4px;border-radius:6px;background:var(--ln);overflow:hidden}
+.meter i{display:block;height:100%;background:var(--ok);width:0;transition:width .4s}
+.bar{display:flex;height:6px;border-radius:6px;overflow:hidden;background:var(--ln);margin:0 0 6px}
+.bar i{display:block;height:100%;transition:width .4s}
+.stats{display:none!important;gap:5px;margin-bottom:6px;font-size:.72rem;overflow-x:auto;scrollbar-width:none}
+.stat{flex:none;padding:3px 9px;border-radius:20px;font-weight:500;background:var(--surf);color:var(--mu)}
+.stat.rd{background:var(--rd-bg);color:var(--rd)}.stat.ok{background:var(--ok-bg);color:var(--ok)}.stat.no{background:var(--no-bg);color:var(--no)}
+input[type=text]{width:100%;padding:7px 12px;border-radius:12px;border:1px solid var(--ln);background:var(--surf);color:var(--tx);font-family:inherit;font-size:.85rem;margin-bottom:6px}
+.chips{display:flex;gap:6px;overflow-x:auto;padding-bottom:2px;margin-bottom:2px;scrollbar-width:none}
+.chip{flex:none;padding:11px 13px;border-radius:20px;background:var(--surf);color:var(--tx);border:1px solid var(--ln);font-size:.8rem}
+.chip.on{background:var(--btn);color:#f7f3eb;border-color:transparent}
+.prog{text-align:center;font-weight:700;color:var(--g);margin:2px 0 6px;font-size:.85rem}
+.wrap>.stage{flex:1 1 0;min-height:140px}
+.stage{position:relative;margin-bottom:10px;perspective:1200px;touch-action:pan-y;user-select:none;transition:transform .18s,opacity .18s}
+.card{width:100%;height:100%;position:relative;transform-style:preserve-3d;transition:transform .5s cubic-bezier(.4,0,.2,1);cursor:pointer}
+.card.flipped{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;border-radius:22px;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:30px 22px;text-align:center;box-shadow:var(--sh)}
+.front{background:var(--surf);border:2px solid var(--ln)}
+.front.s-learned{border-color:var(--ok);background:var(--ok-bg)}
+.front.s-unknown{border-color:var(--no);background:var(--no-bg)}
+.front.s-read{border-color:var(--rd);background:var(--rd-bg)}
+.back{background:var(--back);color:#f7f3eb;transform:rotateY(180deg)}
+.back.s-learned{background:#3d7a5a}.back.s-unknown{background:#c45c4a}
+.de{font-size:clamp(1.7rem,7vw,2.8rem);font-weight:700;direction:ltr;color:var(--g);line-height:1.25;margin-top:6px}
+.back .de{color:#f7f3eb}
+.fa{font-size:clamp(1.3rem,5.5vw,2rem);font-weight:700;line-height:1.6}
+.ex{font-size:clamp(.85rem,3.4vw,1.05rem);opacity:.85;line-height:1.6;direction:ltr;margin-top:12px;max-width:95%}
+.art{display:inline-block;font-size:1.05rem;font-weight:700;padding:1px 12px;border-radius:8px;direction:ltr}
+.a-der{color:var(--der);background:var(--der-bg)}.a-die{color:var(--die);background:var(--die-bg)}.a-das{color:var(--das);background:var(--das-bg)}
+.a-der-die{color:var(--der);background:linear-gradient(90deg,var(--der-bg) 50%,var(--die-bg) 50%)}
+.badge{position:absolute;top:14px;left:14px;font-size:.72rem;padding:3px 10px;border-radius:20px;font-weight:700;color:#fff}
+.badge.learned{background:var(--ok)}.badge.unknown{background:var(--no)}.badge.read{background:var(--rd)}
+.speak{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;background:var(--surf);color:var(--tx);border:1px solid var(--ln);z-index:5;font-size:.95rem}
+.sw{position:absolute;top:50%;margin-top:-26px;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:#fff;opacity:0;pointer-events:none;z-index:6}
+.sw.r{left:14px;background:var(--ok)}.sw.l{right:14px;background:var(--no)}
+.stage[data-dir=r] .sw.r,.stage[data-dir=l] .sw.l{opacity:var(--p,0)}
+.ctrl{display:flex;gap:8px;margin-bottom:8px}
+.ctrl button{flex:1;padding:13px 4px;border-radius:14px;background:var(--btn);color:#f7f3eb;font-size:.9rem;font-weight:700}
+.ctrl button:hover{background:var(--btn2)}
+.ctrl .rd{background:var(--rd)}.ctrl .ok{background:var(--ok)}.ctrl .no{background:var(--no)}
+.ctrl .ghost{background:var(--surf);color:var(--tx);border:1px solid var(--ln);font-weight:500}
+.hint{font-size:.8rem;color:var(--mu);line-height:2}
+#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(20px);background:#1a1a1a;color:#fff;padding:9px 16px;border-radius:20px;font-size:.82rem;opacity:0;pointer-events:none;transition:.25s;z-index:20}
+#toast.on{opacity:1;transform:translateX(-50%)}
+#pg{gap:10px}
+.seg{display:flex;background:var(--ln);border-radius:12px;padding:3px}
+.seg button{flex:1;padding:8px 4px;border-radius:10px;background:transparent;color:var(--tx);font-size:.82rem}
+.seg button.on{background:var(--btn);color:#f7f3eb}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.tile{background:var(--surf);border:1px solid var(--ln);border-radius:14px;padding:10px 12px}
+.tile small{display:block;color:var(--mu);font-size:.75rem}.tile b{font-size:1.45rem}
+.tile.ok b{color:var(--ok)}.tile.no b{color:var(--no)}.tile.rd b{color:var(--rd)}
+.cbox{background:var(--surf);border:1px solid var(--ln);border-radius:14px;padding:10px}
+.cbox h3{font-size:.85rem;margin-bottom:6px;font-weight:700}
+.cbox svg{width:100%;height:auto;display:block}
+.cbox text{fill:var(--mu);font-size:10px;font-family:inherit}
+.tb{width:100%;border-collapse:collapse;font-size:.82rem}
+.tb th,.tb td{padding:7px 4px;text-align:center;border-bottom:1px solid var(--ln)}
+.tb th{color:var(--mu);font-weight:500}
+.emp{color:var(--mu);font-size:.82rem;text-align:center;padding:14px 0}
+#rs{z-index:32;justify-content:center;text-align:center}
+.row2{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--surf);border:1px solid var(--ln);border-radius:14px;padding:10px 12px;cursor:pointer;margin-bottom:8px}
+.row2.cur{border:2px solid var(--ok)}.row2>div{flex:1}.row2 small{display:block;color:var(--mu);font-size:.75rem;margin:2px 0 5px}.row2 b{font-size:.92rem}
+.tile.no{cursor:pointer}
+input[type=text][hidden]{display:none}
+.big{width:100%;padding:14px;border-radius:14px;background:var(--btn);color:#f7f3eb;font-size:1rem;font-weight:700;margin-bottom:8px}
+.big[hidden],.g4[hidden]{display:none}
+#ob{z-index:31;justify-content:center}
+.tyc{display:table;margin:0 auto 8px;font-size:.7rem;color:var(--mu);border:1px solid var(--ln);border-radius:20px;padding:1px 10px}
+.back .tyc{color:#f7f3eb;border-color:rgba(255,255,255,.35)}
+.subs{display:flex;flex-wrap:wrap;gap:6px;margin:-2px 0 10px}
+.subs .chip{font-size:.76rem;padding:5px 10px}
+.dfs{background:var(--no-bg);color:var(--no);border-radius:14px;padding:12px;text-align:center;margin-bottom:8px}
+.dfs b{font-size:1.6rem}
+#cf{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:33}
+#cf i{position:absolute;top:-16px;width:8px;height:14px;border-radius:2px;animation:fall 2s ease-in forwards}
+@keyframes fall{to{transform:translateY(105vh) rotate(540deg)}}
+
+.g4 button{display:flex;flex-direction:column;gap:1px;font-size:.9rem;padding:8px 2px}
+.g4 small{font-size:.68rem;font-weight:400;opacity:.92}
+.ctrl .am{background:#e0a93b;color:#2a1f05}
+.qcard{background:var(--surf);border:1px solid var(--ln);border-radius:18px;padding:26px 14px;text-align:center}
+.qcard .de{margin-top:8px}
+#qzOpts{margin-top:6px}
+#qzOpts button{font-size:1.2rem;padding:16px 4px;border:2px solid transparent}
+#qzOpts .qo[data-a=der]{color:var(--der);background:var(--der-bg)}
+#qzOpts .qo[data-a=die]{color:var(--die);background:var(--die-bg)}
+#qzOpts .qo[data-a=das]{color:var(--das);background:var(--das-bg)}
+#qzOpts .qo.right{border-color:var(--ok)}#qzOpts .qo.wrong{border-color:var(--no);opacity:.6}
+#qzFb{min-height:1.6em;margin-top:10px;font-weight:700}
+@media (prefers-reduced-motion:reduce){#cf{display:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <div><h1>Goethe A1</h1><div class="sub" id="clock"></div></div>
+    <div class="icons">
+      <button class="ic" id="srchBtn" aria-label="جستجو">🔍</button>
+      <button class="ic" id="qzBtn" aria-label="آزمون آرتیکل">🎯</button>
+      <button class="ic" id="pgBtn" aria-label="پیشرفت">📊</button>
+      <button class="ic" id="setBtn" aria-label="تنظیمات">⚙</button>
+    </div>
+  </div>
+
+  <div id="panel" hidden>
+    <div class="ph"><span>تنظیمات</span><button class="ic" id="closeP" aria-label="بستن">✕</button></div>
+    <div class="hint" id="storInfo"></div>
+    <label>جهت کارت
+      <select id="revSel"><option value="0">آلمانی ← فارسی</option><option value="1">فارسی ← آلمانی</option></select></label>
+    <label>کارت جدید در هر روز
+      <select id="goalSel"><option>10</option><option>20</option><option>30</option><option>50</option></select></label>
+    <label>ترتیب صف امروز
+      <select id="ordSel"><option value="0">مرورها اول</option><option value="1">کارت‌های جدید اول</option></select></label>
+    <label>تقویم
+      <select id="calSel"><option value="persian">شمسی</option><option value="gregory">میلادی</option></select></label>
+    <label>رفتن خودکار به کارت بعدی بعد از علامت‌زدن
+      <input type="checkbox" id="autoChk"></label>
+    <div class="row">
+      <button class="sm" id="themeBtn">حالت تاریک / روشن</button>
+      <button class="sm" id="fsBtn">تمام‌صفحه</button>
+      <button class="sm" id="shufB">به‌هم‌ریختن کارت‌ها</button>
+      <button class="sm" id="expBtn">خروجی گرفتن از پیشرفت</button>
+      <button class="sm" id="impBtn">وارد کردن پیشرفت</button>
+      <button class="sm danger" id="clrBtn">پاک کردن همه علامت‌ها</button>
+      <input type="file" id="impFile" accept="application/json" hidden>
+    </div>
+    <div class="hint">
+      کارت را به راست بکشید = خوب · به چپ = دوباره<br>
+      Space = برگرداندن · ← → = قبلی/بعدی · ۱ تا ۴ = دوباره، سخت، خوب، آسان · Z = بازگردانی<br>
+      «دوباره» همان جلسه برمی‌گردد؛ «سخت» ۱ روز، «خوب» و «آسان» با فاصله‌های ۱، ۳، ۷، ۱۴ و ۳۰ روز در «مرور امروز» می‌آیند.<br>
+      روی گوشی آیفون: Share ← Add to Home Screen تا برنامه تمام‌صفحه باز شود.
+    </div>
+  </div>
+
+  <div id="qz" hidden>
+    <div class="ph"><span>آزمون آرتیکل</span><button class="ic" id="closeQz" aria-label="بستن">✕</button></div>
+    <div id="qzBody"></div>
+  </div>
+  <div id="dk" hidden>
+    <div class="ph"><span>درس‌ها · Starten wir! A1</span><button class="ic" id="closeDk" aria-label="بستن">✕</button></div>
+    <div id="dkList"></div>
+  </div>
+  <div id="df" hidden>
+    <div class="ph"><span>کارت‌های سخت</span><button class="ic" id="closeDf" aria-label="بستن">✕</button></div>
+    <div class="dfs"><b id="dfN">۰</b><br>کارت به تمرین بیشتر نیاز دارد</div>
+    <button class="sm" id="dfGo" style="background:var(--no);color:#fff;border:0;padding:12px">مرور کارت‌های سخت</button>
+    <div id="dfList"></div>
+  </div>
+  <div id="ob" hidden>
+    <h2 style="text-align:center">خوش آمدید 👋</h2>
+    <div class="row2" style="cursor:default"><div><b>۱ · کارت را لمس کنید</b><small>تا معنی و جملهٔ مثال را ببینید</small></div></div>
+    <div class="row2" style="cursor:default"><div><b>۲ · درجه بدهید</b><small>دوباره، سخت، خوب یا آسان؛ زمان مرور را برنامه تنظیم می‌کند</small></div></div>
+    <div class="row2" style="cursor:default"><div><b>۳ · یا کارت را بکشید</b><small>به راست = خوب، به چپ = دوباره</small></div></div>
+    <div class="row2" style="cursor:default"><div><b>«امروز» هر روز آماده است</b><small>کارت‌های موعد مرور و چند کارت جدید</small></div></div>
+    <button class="sm" id="obImp">پشتیبان دارم؛ وارد کردن پیشرفت قبلی</button>
+    <button class="sm" id="obGo" style="background:var(--btn);color:#f7f3eb;border:0;padding:14px">شروع</button>
+  </div>
+  <div id="rs" hidden>
+    <div style="font-size:4rem;color:var(--ok)">✓</div>
+    <h2 id="rsT"></h2>
+    <div id="rsS" class="emp" style="font-size:.95rem"></div>
+    <div class="tile"><small>مرور بعدی</small><b id="rsN"></b></div>
+    <button class="sm" id="rsMore">+۱۰ کارت جدید دیگر</button>
+    <button class="sm" id="rsBk">⬇ ذخیرهٔ پشتیبان در دستگاه</button>
+    <button class="sm" id="rsPg">مشاهدهٔ پیشرفت</button>
+    <button class="sm" id="rsOk" style="background:var(--btn);color:#f7f3eb;border:0;padding:12px">ادامه</button>
+  </div>
+  <div id="cf"></div>
+  <div id="pg" hidden>
+    <div class="ph"><span>پیشرفت شما</span><button class="ic" id="closePg" aria-label="بستن">✕</button></div>
+    <div class="seg" id="seg"><button class="on" data-t="0">نمای کلی</button><button data-t="1">منحنی یادگیری</button><button data-t="2">جزئیات</button></div>
+    <div id="pgBody"></div>
+  </div>
+
+  <div class="daily">
+    <div class="l"><span>کارت جدید امروز: <b id="dayN">۰</b> از <b id="dayG">۲۰</b></span><span id="streak"></span></div>
+    <div class="meter"><i id="dayBar"></i></div>
+  </div>
+
+  <div class="bar" aria-hidden="true"><i id="bOk" style="background:var(--ok)"></i><i id="bRd" style="background:var(--rd)"></i><i id="bNo" style="background:var(--no)"></i></div>
+  <div class="stats">
+    <span class="stat ok">یادگرفته: <b id="cOk">0</b></span>
+    <span class="stat rd">خواندم: <b id="cRd">0</b></span>
+    <span class="stat no">بلد نیستم: <b id="cNo">0</b></span>
+    <span class="stat">باقیمانده: <b id="cLeft">0</b></span>
+  </div>
+
+  <input type="text" id="q" hidden placeholder="جستجوی کلمه آلمانی یا فارسی..." aria-label="جستجو">
+  <div class="chips" id="chips">
+    <button class="chip" id="deckChip">📚 همهٔ درس‌ها</button>
+    <button class="chip on" data-f="today">امروز (<span id="cToday">0</span>)</button>
+    <button class="chip" data-f="all">همه</button>
+    <button class="chip" data-f="fav">⭐ ذخیره‌ها</button>
+    <button class="chip" data-f="new">جدید</button>
+    <button class="chip" data-f="unknown">بلد نیستم</button>
+    <button class="chip" data-f="learned">یادگرفته‌ها</button>
+  </div>
+
+  <div class="prog" id="prog" aria-live="polite"></div><span id="cDue" hidden>0</span>
+
+  <div class="stage" id="stage">
+    <div class="card" id="card" role="button" tabindex="0" aria-label="کارت واژه؛ برای دیدن پاسخ لمس کنید">
+      <div class="face front" id="front"><span class="badge" id="badge" hidden></span><div id="fHtml"></div></div>
+      <div class="face back" id="back"><div id="bHtml"></div></div>
+    </div>
+    <button class="speak" id="favB" aria-label="ذخیره" style="right:54px">☆</button>
+    <button class="speak" id="speak" aria-label="تلفظ">🔊</button>
+    <div class="sw r">✓</div><div class="sw l">✗</div>
+  </div>
+
+  <button class="big" id="showB" hidden>نمایش پاسخ</button>
+  <div class="ctrl g4" id="g4" hidden>
+    <button class="no" data-g="again"><b>دوباره</b><small></small></button>
+    <button class="am" data-g="hard"><b>سخت</b><small></small></button>
+    <button class="ok" data-g="good"><b>خوب</b><small></small></button>
+    <button class="rd" data-g="easy"><b>آسان</b><small></small></button>
+  </div>
+  <div class="ctrl">
+    <button id="prevB">قبلی</button>
+    <button id="flipB" class="ghost">برگرداندن</button>
+    <button id="nextB">بعدی</button>
+    <button class="ghost" id="undoB" aria-label="بازگردانی" style="flex:.6">↶</button>
+  </div>
+</div>
+<div id="toast" role="status"></div>
+
+<script>
+const cards = [
+  {de:"acht", art:"", fa:"هشت", ex:"", ty:"عدد", l:0, s:4},
+  {de:"antworten", art:"", fa:"جواب دادن", ex:"Warum antwortest du nicht?", ty:"فعل", l:0, s:1, k:"antworten|جواب دادن"},
+  {de:"aus", art:"", fa:"از", ex:"Ich komme aus Deutschland.", ty:"حرف اضافه", l:0, s:6, k:"aus|از"},
+  {de:"Auto", art:"das", fa:"خودرو", ex:"Wir kommen mit dem Auto.", ty:"اسم", l:0, s:0, k:"das|Auto|ماشین"},
+  {de:"Bier", art:"das", fa:"آبجو", ex:"", ty:"اسم", l:0, s:0},
+  {de:"Brasilien", art:"", fa:"برزیل", ex:"", ty:"اسم", l:0, s:0},
+  {de:"buchstabieren", art:"", fa:"هجی کردن", ex:"", ty:"فعل", l:0, s:1},
+  {de:"Bus", art:"der", fa:"اتوبوس", ex:"Sie fährt mit dem Bus.", ty:"اسم", l:0, s:0, k:"der|Bus|اتوبوس"},
+  {de:"Computer", art:"der", fa:"کامپیوتر", ex:"Mein Computer ist schon alt.", ty:"اسم", l:0, s:0, k:"der|Computer|کامپیوتر"},
+  {de:"da", art:"", fa:"این‌جا", ex:"Die Zeitung ist da auf dem Tisch.", ty:"قید", l:0, s:3, k:"da|آنجا / اینجا"},
+  {de:"danke", art:"", fa:"ممنون", ex:"", ty:"عبارت", l:0, s:8},
+  {de:"Deutsch", art:"", fa:"زبان آلمانی", ex:"", ty:"اسم", l:0, s:0},
+  {de:"Deutschkurs", art:"der", fa:"کلاس آلمانی", ex:"", ty:"اسم", l:0, s:0},
+  {de:"Deutschland", art:"", fa:"آلمان", ex:"", ty:"اسم", l:0, s:0},
+  {de:"drei", art:"", fa:"سه", ex:"", ty:"عدد", l:0, s:4},
+  {de:"du", art:"", fa:"تو", ex:"Wie heißt du?", ty:"ضمیر", l:0, s:5, k:"du|تو"},
+  {de:"ein bisschen", art:"", fa:"کمی", ex:"", ty:"عبارت", l:0, s:8},
+  {de:"eins", art:"", fa:"یک", ex:"", ty:"عدد", l:0, s:4},
+  {de:"E-Mail", art:"die", fa:"ایمیل", ex:"", ty:"اسم", l:0, s:0},
+  {de:"Englisch", art:"", fa:"انگلیسی", ex:"", ty:"اسم", l:0, s:0},
+  {de:"Entschuldigung", art:"", fa:"ببخشید", ex:"", ty:"عبارت", l:0, s:8},
+  {de:"er", art:"", fa:"او", ex:"Was macht er jetzt?", ty:"ضمیر", l:0, s:5, k:"er|او (مذکر)"},
+  {de:"Frage", art:"die", fa:"سوال", ex:"Wiederholen Sie bitte die Frage.", ty:"اسم", l:0, s:0, k:"die|Frage|سؤال"},
+  {de:"fragen", art:"", fa:"سوال پرسیدن", ex:"Ich möchte etwas fragen.", ty:"فعل", l:0, s:1, k:"fragen|پرسیدن"},
+  {de:"Französisch", art:"", fa:"(زبان) فرانسوی", ex:"", ty:"اسم", l:0, s:0},
+  {de:"Frau", art:"die", fa:"زن", ex:"Das ist Frau Bergner.", ty:"اسم", l:0, s:0, k:"die|Frau|خانم / زن"},
+  {de:"fünf", art:"", fa:"پنج", ex:"", ty:"عدد", l:0, s:4},
+  {de:"gern", art:"", fa:"ترجیحاً", ex:"Wir sehen gern Krimis.", ty:"قید", l:0, s:3, k:"gern|با لذت / دوست داشتن"},
+  {de:"Gruppe", art:"die", fa:"گروه", ex:"", ty:"اسم", l:0, s:0},
+  {de:"grüßen", art:"", fa:"سلام کردن", ex:"", ty:"فعل", l:0, s:1},
+  {de:"gut", art:"", fa:"خوب", ex:"Das Essen ist hier immer sehr gut.", ty:"صفت", l:0, s:2, k:"gut|خوب"},
+  {de:"Guten Tag", art:"", fa:"روز به‌خیر", ex:"", ty:"عبارت", l:0, s:8},
+  {de:"hallo", art:"", fa:"سلام", ex:"Hallo! Bist du Michael Schmidt?", ty:"عبارت", l:0, s:8, k:"hallo|سلام"},
+  {de:"heißen", art:"", fa:"نام داشتن", ex:"Wie heißt du?", ty:"فعل", l:0, s:1, k:"heißen|نام داشتن"},
+  {de:"Herr", art:"der", fa:"آقا", ex:"Sind Sie Herr Braunmüller?", ty:"اسم", l:0, s:0, k:"der|Herr|آقا"},
+  {de:"hier", art:"", fa:"اینجا", ex:"Wir wohnen hier.", ty:"قید", l:0, s:3, k:"hier|اینجا"},
+  {de:"hinten", art:"", fa:"پشت", ex:"", ty:"قید", l:0, s:3},
+  {de:"in", art:"", fa:"در", ex:"in Spanien / in der Stadt", ty:"حرف اضافه", l:0, s:6, k:"in|در"},
+  {de:"Italien", art:"", fa:"ایتالیا", ex:"", ty:"اسم", l:0, s:0},
+  {de:"Jacke", art:"die", fa:"کاپشن", ex:"Du brauchst eine Jacke, es ist kalt.", ty:"اسم", l:0, s:0, k:"die|Jacke|کت"},
+  {de:"Jeans", art:"die", fa:"شلوار جین", ex:"Sie trägt heute Jeans und ein Hemd.", ty:"اسم", l:0, s:0, k:"die|Jeans|شلوار جین"},
+  {de:"Kaffee", art:"der", fa:"قهوه", ex:"Möchtest du eine Tasse Kaffee?", ty:"اسم", l:0, s:0, k:"der|Kaffee|قهوه"},
+  {de:"Karte", art:"die", fa:"کارت‌پستال", ex:"Wir können unseren Freunden eine Karte schicken.", ty:"اسم", l:0, s:0, k:"die|Karte|کارت / نقشه"},
+  {de:"kennen", art:"", fa:"شناختن", ex:"Kennst du Manuela?", ty:"فعل", l:0, s:1, k:"kennen|شناختن"},
+  {de:"kommen", art:"", fa:"آمدن", ex:"Ich komme aus Polen.", ty:"فعل", l:0, s:1, k:"kommen|آمدن"},
+  {de:"Liste", art:"die", fa:"فهرست", ex:"", ty:"اسم", l:0, s:0},
+  {de:"machen", art:"", fa:"انجام دادن", ex:"Am Samstag machen wir einen Ausflug.", ty:"فعل", l:0, s:1, k:"machen|انجام دادن / درست کردن"},
+  {de:"mein", art:"", fa:"مال من", ex:"Meine Freundin heißt Gaby.", ty:"ضمیر", l:0, s:5, k:"mein|مال من"},
+  {de:"möchten", art:"", fa:"میل داشتن", ex:"", ty:"فعل", l:0, s:1},
+  {de:"Name", art:"der", fa:"نام", ex:"Mein Name ist Peter Niemöller.", ty:"اسم", l:0, s:0, k:"der|Name|اسم"},
+  {de:"nein", art:"", fa:"خیر", ex:"Kommst du mit? – Nein, leider nicht.", ty:"عبارت", l:0, s:8, k:"nein|نه"},
+  {de:"null", art:"", fa:"صفر", ex:"", ty:"عدد", l:0, s:4},
+  {de:"Österreich", art:"", fa:"اتریش", ex:"", ty:"اسم", l:0, s:0},
+  {de:"Polen", art:"", fa:"لهستان", ex:"", ty:"اسم", l:0, s:0},
+  {de:"Russisch", art:"", fa:"زبان روسی", ex:"", ty:"اسم", l:0, s:0},
+  {de:"Schweiz", art:"die", fa:"سوئیس", ex:"", ty:"اسم", l:0, s:0},
+  {de:"sechs", art:"", fa:"شش", ex:"", ty:"عدد", l:0, s:4},
+  {de:"sein", art:"", fa:"بودن", ex:"Ich bin 13 Jahre alt.", ty:"فعل", l:0, s:1, k:"sein|بودن"},
+  {de:"sich", art:"", fa:"[ضمیر انعکاسی سوم شخص مفرد و جمع]", ex:"", ty:"ضمیر", l:0, s:5},
+  {de:"sie", art:"", fa:"او", ex:"sie wohnt hier.", ty:"ضمیر", l:0, s:5, k:"sie|او (مؤنث) / آنها"},
+  {de:"Sie", art:"", fa:"شما", ex:"", ty:"ضمیر", l:0, s:5},
+  {de:"sieben", art:"", fa:"هفت", ex:"", ty:"عدد", l:0, s:4},
+  {de:"Spanien", art:"", fa:"اسپانیا", ex:"", ty:"اسم", l:0, s:0},
+  {de:"Sport", art:"der", fa:"ورزش", ex:"Sport ist mein Hobby.", ty:"اسم", l:0, s:0, k:"der|Sport|ورزش"},
+  {de:"Sprache", art:"die", fa:"زبان", ex:"Er spricht fünf Sprachen.", ty:"اسم", l:0, s:0, k:"die|Sprache|زبان"},
+  {de:"sprechen", art:"", fa:"صحبت کردن", ex:"Sie spricht mit dem Lehrer.", ty:"فعل", l:0, s:1, k:"sprechen|صحبت کردن"},
+  {de:"stehen", art:"", fa:"توقف کردن", ex:"", ty:"فعل", l:0, s:1},
+  {de:"studieren", art:"", fa:"درس خواندن", ex:"", ty:"فعل", l:0, s:1},
+  {de:"Taxi", art:"das", fa:"تاکسی", ex:"", ty:"اسم", l:0, s:0},
+  {de:"Tee", art:"der", fa:"چای", ex:"Am Abend trinken wir Tee.", ty:"اسم", l:0, s:0, k:"der|Tee|چای"},
+  {de:"Tomate", art:"die", fa:"گوجه‌فرنگی", ex:"", ty:"اسم", l:0, s:0},
+  {de:"und", art:"", fa:"و", ex:"Karl und Susanne kommen auch.", ty:"حرف ربط", l:0, s:7, k:"und|و"},
+  {de:"vier", art:"", fa:"چهار", ex:"", ty:"عدد", l:0, s:4},
+  {de:"Vorname", art:"der", fa:"نام کوچک", ex:"Wie ist dein Vorname?", ty:"اسم", l:0, s:0, k:"der|Vorname|نام کوچک"},
+  {de:"wer", art:"", fa:"چه کسی", ex:"Wer ist die elegante Frau?", ty:"ضمیر", l:0, s:5, k:"wer|کی"},
+  {de:"werden", art:"", fa:"شدن", ex:"Ich möchte Architekt werden.", ty:"فعل", l:0, s:1, k:"werden|شدن"},
+  {de:"wie", art:"", fa:"چطور", ex:"Wie heißt du?", ty:"قید", l:0, s:3, k:"wie|چگونه / چقدر"},
+  {de:"wiederholen", art:"", fa:"تکرار کردن", ex:"Können Sie das bitte wiederholen?", ty:"فعل", l:0, s:1, k:"wiederholen|تکرار کردن"},
+  {de:"willkommen", art:"", fa:"خوش آمدید", ex:"Willkommen bei uns!", ty:"عبارت", l:0, s:8, k:"willkommen|خوش آمدید"},
+  {de:"wo", art:"", fa:"کجا", ex:"Wo wohnt ihr?", ty:"قید", l:0, s:3, k:"wo|کجا"},
+  {de:"woher", art:"", fa:"از کجا", ex:"Woher kommt der Zug?", ty:"قید", l:0, s:3, k:"woher|از کجا"},
+  {de:"wohnen", art:"", fa:"زندگی کردن", ex:"Wo wohnst du?", ty:"فعل", l:0, s:1, k:"wohnen|ساکن بودن"},
+  {de:"zehn", art:"", fa:"ده", ex:"", ty:"عدد", l:0, s:4},
+  {de:"zeigen", art:"", fa:"نشان دادن", ex:"Zeigst du mir deinen Computer?", ty:"فعل", l:0, s:1, k:"zeigen|نشان دادن"},
+  {de:"zwei", art:"", fa:"دو", ex:"", ty:"عدد", l:0, s:4},
+  {de:"aber", art:"", fa:"اما", ex:"Der Film ist traurig, aber sehr schön.", ty:"حرف ربط", l:1, s:7, k:"aber|اما / ولی"},
+  {de:"achtzehn", art:"", fa:"هجده", ex:"", ty:"عدد", l:1, s:4},
+  {de:"achtzig", art:"", fa:"هشتاد", ex:"", ty:"عدد", l:1, s:4},
+  {de:"alt", art:"", fa:"قدیمی", ex:"Wie alt bist du?", ty:"صفت", l:1, s:2, k:"alt|پیر / قدیمی"},
+  {de:"arbeiten", art:"", fa:"کار کردن", ex:"Mein Vater arbeitet bei einer Autofirma.", ty:"فعل", l:1, s:1, k:"arbeiten|کار کردن"},
+  {de:"Bahnhof", art:"der", fa:"ایستگاه راه‌آهن", ex:"Wir gehen zum Bahnhof.", ty:"اسم", l:1, s:0, k:"der|Bahnhof|ایستگاه قطار"},
+  {de:"Bruder", art:"der", fa:"برادر", ex:"", ty:"اسم", l:1, s:0, k:"der|Bruder|برادر"},
+  {de:"Chef", art:"der", fa:"رئیس", ex:"", ty:"اسم", l:1, s:0},
+  {de:"China", art:"", fa:"چین", ex:"", ty:"اسم", l:1, s:0},
+  {de:"dein", art:"", fa:"مال تو", ex:"Hier ist dein Platz.", ty:"ضمیر", l:1, s:5, k:"dein|مال تو"},
+  {de:"denn", art:"", fa:"چون", ex:"", ty:"حرف ربط", l:1, s:7},
+  {de:"elf", art:"", fa:"یازده", ex:"", ty:"عدد", l:1, s:4},
+  {de:"Eltern", art:"die", fa:"والدین", ex:"Meine Eltern leben in Spanien.", ty:"اسم", l:1, s:0, k:"die|Eltern|والدین"},
+  {de:"es", art:"", fa:"آن", ex:"Heute ist es sehr warm.", ty:"ضمیر", l:1, s:5, k:"es|آن / این"},
+  {de:"es geht", art:"", fa:"می گذره", ex:"", ty:"عبارت", l:1, s:8},
+  {de:"Europa", art:"", fa:"اروپا", ex:"", ty:"اسم", l:1, s:0},
+  {de:"Familie", art:"die", fa:"خانواده", ex:"Er hat eine große Familie.", ty:"اسم", l:1, s:0, k:"die|Familie|خانواده"},
+  {de:"Frankreich", art:"", fa:"فرانسه", ex:"", ty:"اسم", l:1, s:0},
+  {de:"Freund", art:"der", fa:"دوست", ex:"Mein bester Freund heißt Ivan.", ty:"اسم", l:1, s:0, k:"der|Freund|دوست (پسر)"},
+  {de:"Freundin", art:"die", fa:"دوست‌دختر", ex:"Ich habe viele Freundinnen.", ty:"اسم", l:1, s:0, k:"die|Freundin|دوست (دختر)"},
+  {de:"fünfzehn", art:"", fa:"پانزده", ex:"", ty:"عدد", l:1, s:4},
+  {de:"fünfzig", art:"", fa:"پنجاه", ex:"", ty:"عدد", l:1, s:4},
+  {de:"Geschwister", art:"die", fa:"خواهر و برادر", ex:"", ty:"اسم", l:1, s:0, k:"die|Geschwister|خواهر و برادر"},
+  {de:"groß", art:"", fa:"بزرگ", ex:"Unser Haus ist groß.", ty:"صفت", l:1, s:2, k:"groß|بزرگ"},
+  {de:"Großeltern", art:"die", fa:"پدربزرگ و مادربزرگ", ex:"Meine Großeltern wohnen nicht bei uns.", ty:"اسم", l:1, s:0, k:"die|Großeltern|پدربزرگ و مادربزرگ"},
+  {de:"Großmutter", art:"die", fa:"مادربزرگ", ex:"", ty:"اسم", l:1, s:0, k:"die|Großmutter|مادربزرگ"},
+  {de:"Großvater", art:"der", fa:"پدربزرگ", ex:"", ty:"اسم", l:1, s:0, k:"der|Großvater|پدربزرگ"},
+  {de:"Handy", art:"das", fa:"تلفن همراه", ex:"Du kannst mit dem Handy telefonieren.", ty:"اسم", l:1, s:0, k:"das|Handy|موبایل"},
+  {de:"Hobby", art:"das", fa:"سرگرمی", ex:"Meine Hobbys sind Lesen und Tanzen.", ty:"اسم", l:1, s:0, k:"das|Hobby|سرگرمی"},
+  {de:"Hund", art:"der", fa:"سگ", ex:"Hast du einen Hund?", ty:"اسم", l:1, s:0, k:"der|Hund|سگ"},
+  {de:"hundert", art:"", fa:"صد", ex:"", ty:"عدد", l:1, s:4},
+  {de:"ich", art:"", fa:"من", ex:"Ich wohne in Berlin.", ty:"ضمیر", l:1, s:5, k:"ich|من"},
+  {de:"ihr", art:"", fa:"شما", ex:"", ty:"ضمیر", l:1, s:5},
+  {de:"Jahr", art:"das", fa:"سال", ex:"", ty:"اسم", l:1, s:0, k:"das|Jahr|سال"},
+  {de:"Job", art:"der", fa:"شغل", ex:"", ty:"اسم", l:1, s:0},
+  {de:"Junge", art:"der", fa:"پسر", ex:"Der Junge ist neu in unserer Klasse.", ty:"اسم", l:1, s:0, k:"der|Junge|پسر"},
+  {de:"kein", art:"", fa:"هیچ", ex:"Ich habe keine Lust.", ty:"ضمیر", l:1, s:5, k:"kein|هیچ"},
+  {de:"klein", art:"", fa:"کوچک", ex:"Mein Zimmer ist klein.", ty:"صفت", l:1, s:2, k:"klein|کوچک"},
+  {de:"Kollege", art:"der", fa:"همکار", ex:"", ty:"اسم", l:1, s:0},
+  {de:"lieben", art:"", fa:"دوست داشتن", ex:"Ich liebe meinen Hund Toby.", ty:"فعل", l:1, s:1, k:"lieben|دوست داشتن"},
+  {de:"Mädchen", art:"das", fa:"دختر", ex:"Die Mädchen spielen auch Fußball.", ty:"اسم", l:1, s:0, k:"das|Mädchen|دختر"},
+  {de:"Mann", art:"der", fa:"شوهر", ex:"Ein Mann geht mit seinem Hund spazieren.", ty:"اسم", l:1, s:0, k:"der|Mann|مرد"},
+  {de:"Mensch", art:"der", fa:"فرد", ex:"", ty:"اسم", l:1, s:0},
+  {de:"Mutter", art:"die", fa:"مادر", ex:"", ty:"اسم", l:1, s:0, k:"die|Mutter|مادر"},
+  {de:"neunzehn", art:"", fa:"نوزده", ex:"", ty:"عدد", l:1, s:4},
+  {de:"neunzig", art:"", fa:"نود", ex:"", ty:"عدد", l:1, s:4},
+  {de:"oder", art:"", fa:"یا", ex:"Trinkst du Tee oder Kaffee?", ty:"حرف ربط", l:1, s:7, k:"oder|یا"},
+  {de:"Platz", art:"der", fa:"محل", ex:"Das ist mein Platz.", ty:"اسم", l:1, s:0, k:"der|Platz|جا / مکان"},
+  {de:"Post", art:"die", fa:"پست", ex:"Ich gehe zur Post.", ty:"اسم", l:1, s:0, k:"die|Post|پست"},
+  {de:"Schwester", art:"die", fa:"خواهر", ex:"", ty:"اسم", l:1, s:0, k:"die|Schwester|خواهر"},
+  {de:"sechzehn", art:"", fa:"شانزده", ex:"", ty:"عدد", l:1, s:4},
+  {de:"sechzig", art:"", fa:"شصت", ex:"", ty:"عدد", l:1, s:4},
+  {de:"sein", art:"", fa:"[ضمیر ملکی سوم شخص مفرد خنثی و مذکر]", ex:"Er mag seinen Bruder sehr gern.", ty:"ضمیر", l:1, s:5, k:"sein|مال او"},
+  {de:"siebzehn", art:"", fa:"هفده", ex:"", ty:"عدد", l:1, s:4},
+  {de:"siebzig", art:"", fa:"هفتاد", ex:"", ty:"عدد", l:1, s:4},
+  {de:"Stadt", art:"die", fa:"شهر", ex:"Unsere Stadt ist nicht so groß.", ty:"اسم", l:1, s:0, k:"die|Stadt|شهر"},
+  {de:"Vater", art:"der", fa:"پدر", ex:"", ty:"اسم", l:1, s:0, k:"der|Vater|پدر"},
+  {de:"vierzehn", art:"", fa:"چهارده", ex:"", ty:"عدد", l:1, s:4},
+  {de:"vierzig", art:"", fa:"چهل", ex:"", ty:"عدد", l:1, s:4},
+  {de:"zuordnen", art:"", fa:"اختصاص دادن", ex:"", ty:"فعل", l:1, s:1},
+  {de:"zwanzig", art:"", fa:"بیست", ex:"", ty:"عدد", l:1, s:4},
+  {de:"zwölf", art:"", fa:"دوازده", ex:"", ty:"عدد", l:1, s:4},
+  {de:"auf Wiedersehen", art:"", fa:"خداحافظ", ex:"", ty:"عبارت", l:1, s:8},
+  {de:"Adresse", art:"die", fa:"آدرس", ex:"Ich weiß die Adresse nicht.", ty:"اسم", l:2, s:0, k:"die|Adresse|آدرس"},
+  {de:"als", art:"", fa:"به صورت", ex:"", ty:"حرف ربط", l:2, s:7},
+  {de:"ander", art:"", fa:"دیگری", ex:"", ty:"صفت", l:2, s:2},
+  {de:"Angebot", art:"das", fa:"فروش ویژه", ex:"", ty:"اسم", l:2, s:0},
+  {de:"Apfel", art:"der", fa:"سیب", ex:"Schmeckt dir der Apfel?", ty:"اسم", l:2, s:0, k:"der|Apfel|سیب"},
+  {de:"Apfelsaft", art:"der", fa:"آب سیب", ex:"", ty:"اسم", l:2, s:0},
+  {de:"Aussage", art:"die", fa:"گفته", ex:"", ty:"اسم", l:2, s:0},
+  {de:"Banane", art:"die", fa:"موز", ex:"Kann ich eine Banane haben?", ty:"اسم", l:2, s:0, k:"die|Banane|موز"},
+  {de:"beginnen", art:"", fa:"شروع کردن", ex:"", ty:"فعل", l:2, s:1},
+  {de:"billig", art:"", fa:"ارزان", ex:"Die Brötchen sind hier billig.", ty:"صفت", l:2, s:2, k:"billig|ارزان"},
+  {de:"blau", art:"", fa:"آبی", ex:"", ty:"صفت", l:2, s:2, k:"blau|آبی"},
+  {de:"brauchen", art:"", fa:"نیاز داشتن", ex:"Ich brauche einen Taschenrechner.", ty:"فعل", l:2, s:1, k:"brauchen|نیاز داشتن"},
+  {de:"braun", art:"", fa:"قهوه‌ای", ex:"", ty:"صفت", l:2, s:2, k:"braun|قهوه‌ای"},
+  {de:"Brot", art:"das", fa:"نان", ex:"Wir müssen auch Brot kaufen.", ty:"اسم", l:2, s:0, k:"das|Brot|نان"},
+  {de:"Brötchen", art:"das", fa:"نان رول", ex:"Ich esse lieber Brötchen.", ty:"اسم", l:2, s:0, k:"das|Brötchen|نان کوچک / رول"},
+  {de:"Butter", art:"die", fa:"کره", ex:"", ty:"اسم", l:2, s:0},
+  {de:"Cent", art:"der", fa:"سنت", ex:"", ty:"اسم", l:2, s:0, k:"der|Cent|سنت"},
+  {de:"Ei", art:"das", fa:"تخم‌مرغ", ex:"Möchtest du ein Ei zum Frühstück?", ty:"اسم", l:2, s:0, k:"das|Ei|تخم‌مرغ"},
+  {de:"einkaufen", art:"", fa:"خرید کردن", ex:"Wer kauft bei euch ein?", ty:"فعل", l:2, s:1, k:"einkaufen|خرید کردن"},
+  {de:"essen", art:"", fa:"خوردن", ex:"Was wollt ihr essen?", ty:"فعل", l:2, s:1, k:"essen|خوردن"},
+  {de:"Essen", art:"das", fa:"غذا", ex:"Wie war das Essen in Deutschland?", ty:"اسم", l:2, s:0, k:"das|Essen|غذا"},
+  {de:"Euro", art:"der", fa:"یورو (واحد پول)", ex:"", ty:"اسم", l:2, s:0, k:"der|Euro|یورو"},
+  {de:"Farbe", art:"die", fa:"رنگ", ex:"", ty:"اسم", l:2, s:0},
+  {de:"finden", art:"", fa:"پیدا کردن", ex:"Ich finde deinen Pullover schön.", ty:"فعل", l:2, s:1, k:"finden|پیدا کردن / فکر کردن"},
+  {de:"Fisch", art:"der", fa:"ماهی", ex:"Ich mag keinen Fisch.", ty:"اسم", l:2, s:0, k:"der|Fisch|ماهی"},
+  {de:"Flasche", art:"die", fa:"بطری", ex:"Bitte eine Flasche Mineralwasser.", ty:"اسم", l:2, s:0, k:"die|Flasche|بطری"},
+  {de:"Fleisch", art:"das", fa:"گوشت", ex:"Ich esse kein Fleisch.", ty:"اسم", l:2, s:0, k:"das|Fleisch|گوشت"},
+  {de:"Frühstück", art:"das", fa:"صبحانه", ex:"Zum Frühstück trinke ich Milch.", ty:"اسم", l:2, s:0, k:"das|Frühstück|صبحانه"},
+  {de:"frühstücken", art:"", fa:"صبحانه خوردن", ex:"Wir frühstücken nicht zusammen.", ty:"فعل", l:2, s:1, k:"frühstücken|صبحانه خوردن"},
+  {de:"für", art:"", fa:"برای", ex:"Ich kaufe einen Comic für meine Schwester.", ty:"حرف اضافه", l:2, s:6, k:"für|برای"},
+  {de:"Gast", art:"der", fa:"مهمان", ex:"", ty:"اسم", l:2, s:0},
+  {de:"gelb", art:"", fa:"زرد", ex:"", ty:"صفت", l:2, s:2, k:"gelb|زرد"},
+  {de:"Getränk", art:"das", fa:"نوشیدنی", ex:"", ty:"اسم", l:2, s:0},
+  {de:"Gramm", art:"das", fa:"گرم (واحد سنجش وزن)", ex:"", ty:"اسم", l:2, s:0},
+  {de:"grün", art:"", fa:"سبز", ex:"", ty:"صفت", l:2, s:2, k:"grün|سبز"},
+  {de:"haben", art:"", fa:"داشتن", ex:"Wir haben einen Hund und zwei Katzen.", ty:"فعل", l:2, s:1, k:"haben|داشتن"},
+  {de:"Hähnchen", art:"das", fa:"جوجه", ex:"", ty:"اسم", l:2, s:0},
+  {de:"hören", art:"", fa:"شنیدن", ex:"Hörst du gern Musik?", ty:"فعل", l:2, s:1, k:"hören|شنیدن / گوش دادن"},
+  {de:"ihr", art:"", fa:"مال او (مؤنث)", ex:"", ty:"ضمیر", l:2, s:5},
+  {de:"immer", art:"", fa:"همیشه", ex:"Mathe ist immer so langweilig.", ty:"قید", l:2, s:3, k:"immer|همیشه"},
+  {de:"international", art:"", fa:"بین‌المللی", ex:"", ty:"صفت", l:2, s:2},
+  {de:"Käse", art:"der", fa:"پنیر", ex:"Bitte ein Brötchen mit Käse.", ty:"اسم", l:2, s:0, k:"der|Käse|پنیر"},
+  {de:"kaufen", art:"", fa:"خریدن", ex:"Ich möchte einen CD-Player kaufen.", ty:"فعل", l:2, s:1, k:"kaufen|خریدن"},
+  {de:"Kilo", art:"das", fa:"کیلو", ex:"", ty:"اسم", l:2, s:0},
+  {de:"kochen", art:"", fa:"پختن", ex:"Mein Vater kocht für uns.", ty:"فعل", l:2, s:1, k:"kochen|آشپزی کردن"},
+  {de:"kosten", art:"", fa:"قیمت داشتن", ex:"Das kostet 20 Euro.", ty:"فعل", l:2, s:1, k:"kosten|قیمت داشتن"},
+  {de:"kriegen", art:"", fa:"گرفتن", ex:"", ty:"فعل", l:2, s:1},
+  {de:"Leben", art:"das", fa:"زندگی", ex:"", ty:"اسم", l:2, s:0},
+  {de:"Lebensmittel", art:"das", fa:"خواروبار", ex:"", ty:"اسم", l:2, s:0},
+  {de:"Liter", art:"der", fa:"لیتر", ex:"", ty:"اسم", l:2, s:0},
+  {de:"Milch", art:"die", fa:"شیر", ex:"Ich mag keine Milch.", ty:"اسم", l:2, s:0, k:"die|Milch|شیر"},
+  {de:"mit", art:"", fa:"با", ex:"Ich spiele mit Andrea.", ty:"حرف اضافه", l:2, s:6, k:"mit|با"},
+  {de:"nie", art:"", fa:"هرگز", ex:"Ich war noch nie in Frankreich.", ty:"قید", l:2, s:3, k:"nie|هرگز"},
+  {de:"nur", art:"", fa:"فقط", ex:"Ich möchte nur ein Glas Wasser.", ty:"قید", l:2, s:3, k:"nur|فقط"},
+  {de:"Obst", art:"das", fa:"میوه", ex:"Wir essen immer viel Obst.", ty:"اسم", l:2, s:0, k:"das|Obst|میوه"},
+  {de:"oft", art:"", fa:"اغلب", ex:"Wir gehen oft im Park spazieren.", ty:"قید", l:2, s:3, k:"oft|اغلب"},
+  {de:"Öl", art:"das", fa:"روغن", ex:"", ty:"اسم", l:2, s:0},
+  {de:"Party", art:"die", fa:"مهمانی", ex:"", ty:"اسم", l:2, s:0},
+  {de:"Preis", art:"der", fa:"قیمت", ex:"", ty:"اسم", l:2, s:0},
+  {de:"Reis", art:"der", fa:"برنج", ex:"", ty:"اسم", l:2, s:0},
+  {de:"Restaurant", art:"das", fa:"رستوران", ex:"Wir essen heute im Restaurant.", ty:"اسم", l:2, s:0, k:"das|Restaurant|رستوران"},
+  {de:"richtig", art:"", fa:"درست", ex:"Die Antwort ist nicht richtig.", ty:"صفت", l:2, s:2, k:"richtig|درست"},
+  {de:"rot", art:"", fa:"قرمز", ex:"", ty:"صفت", l:2, s:2, k:"rot|قرمز"},
+  {de:"sagen", art:"", fa:"گفتن", ex:"Eva sagt, sie kommt heute nicht.", ty:"فعل", l:2, s:1, k:"sagen|گفتن"},
+  {de:"Salat", art:"der", fa:"سالاد", ex:"Am Abend gibt es immer Salat.", ty:"اسم", l:2, s:0, k:"der|Salat|سالاد"},
+  {de:"Schinken", art:"der", fa:"گوشت ران (گاو یا خوک)", ex:"", ty:"اسم", l:2, s:0},
+  {de:"schmecken", art:"", fa:"مزه داشتن", ex:"Wie schmeckt der Hamburger?", ty:"فعل", l:2, s:1, k:"schmecken|طعم داشتن"},
+  {de:"schreiben", art:"", fa:"نوشتن", ex:"Erika schreibt mir jeden Tag.", ty:"فعل", l:2, s:1, k:"schreiben|نوشتن"},
+  {de:"schwarz", art:"", fa:"سیاه", ex:"", ty:"صفت", l:2, s:2, k:"schwarz|سیاه"},
+  {de:"sehr", art:"", fa:"خیلی", ex:"Ich liebe ihn sehr.", ty:"قید", l:2, s:3, k:"sehr|خیلی"},
+  {de:"Stück", art:"das", fa:"تکه", ex:"Willst du noch ein Stück Kuchen?", ty:"اسم", l:2, s:0, k:"das|Stück|تکه"},
+  {de:"Student", art:"der", fa:"دانشجو", ex:"", ty:"اسم", l:2, s:0},
+  {de:"teuer", art:"", fa:"گران", ex:"Mein neues Kleid war sehr teuer.", ty:"صفت", l:2, s:2, k:"teuer|گران"},
+  {de:"trinken", art:"", fa:"نوشیدن", ex:"Wir trinken gern Saft.", ty:"فعل", l:2, s:1, k:"trinken|نوشیدن"},
+  {de:"Türkei", art:"die", fa:"ترکیه", ex:"", ty:"اسم", l:2, s:0},
+  {de:"viel", art:"", fa:"خیلی", ex:"Hast du viele Freunde?", ty:"قید", l:2, s:3, k:"viel|زیاد"},
+  {de:"Wasser", art:"das", fa:"آب", ex:"Gib mir bitte ein Glas Wasser.", ty:"اسم", l:2, s:0, k:"das|Wasser|آب"},
+  {de:"Wein", art:"der", fa:"شراب", ex:"", ty:"اسم", l:2, s:0},
+  {de:"weiß", art:"", fa:"سفید", ex:"", ty:"صفت", l:2, s:2, k:"weiß|سفید"},
+  {de:"Weißbrot", art:"das", fa:"نان سفید", ex:"", ty:"اسم", l:2, s:0},
+  {de:"wenig", art:"", fa:"کمی", ex:"Ich habe heute wenig Zeit.", ty:"صفت", l:2, s:2, k:"wenig|کم"},
+  {de:"wie viel", art:"", fa:"چقدر", ex:"Wie viel kostet das?", ty:"قید", l:2, s:3, k:"wie viel|چقدر"},
+  {de:"wir", art:"", fa:"ما", ex:"Wir haben eine neue Lehrerin.", ty:"ضمیر", l:2, s:5, k:"wir|ما"},
+  {de:"abholen", art:"", fa:"(رفتن و) گرفتن", ex:"Ich hole dich am Bahnhof ab.", ty:"واژه", l:3, s:9, k:"abholen|به دنبال کسی/چیزی آمدن"},
+  {de:"alle", art:"", fa:"همه", ex:"Sind alle da?", ty:"واژه", l:3, s:9, k:"alle|همه"},
+  {de:"anfangen", art:"", fa:"شروع کردن", ex:"Fängt der Film an?", ty:"واژه", l:3, s:9, k:"anfangen|شروع کردن"},
+  {de:"anmachen", art:"", fa:"روشن کردن", ex:"", ty:"واژه", l:3, s:9},
+  {de:"anrufen", art:"", fa:"تلفن کردن", ex:"Ich rufe dich morgen an.", ty:"واژه", l:3, s:9, k:"anrufen|تماس گرفتن"},
+  {de:"anziehen", art:"", fa:"لباس پوشیدن", ex:"", ty:"واژه", l:3, s:9},
+  {de:"Arbeit", art:"die", fa:"کار", ex:"War die Physikarbeit schwer?", ty:"واژه", l:3, s:9, k:"die|Arbeit|کار / تکلیف"},
+  {de:"arbeitslos", art:"", fa:"بیکار", ex:"Meine Mutter ist arbeitslos.", ty:"واژه", l:3, s:9, k:"arbeitslos|بیکار"},
+  {de:"ausmachen", art:"", fa:"خاموش کردن", ex:"", ty:"واژه", l:3, s:9},
+  {de:"aussteigen", art:"", fa:"پیاده شدن", ex:"Du musst am Marktplatz aussteigen.", ty:"واژه", l:3, s:9, k:"aussteigen|پیاده شدن"},
+  {de:"bedeuten", art:"", fa:"به معنای (چیزی) بودن", ex:"Was bedeutet das?", ty:"واژه", l:3, s:9, k:"bedeuten|معنی دادن"},
+  {de:"bei", art:"", fa:"پیش", ex:"Er wohnt bei seinen Freunden.", ty:"واژه", l:3, s:9, k:"bei|نزد / پیش"},
+  {de:"benutzen", art:"", fa:"استفاده کردن", ex:"", ty:"واژه", l:3, s:9},
+  {de:"Beruf", art:"der", fa:"کار", ex:"Was ist deine Mutter von Beruf?", ty:"واژه", l:3, s:9, k:"der|Beruf|شغل"},
+  {de:"bitte", art:"", fa:"خواهش می‌کنم (در جواب تشکر)", ex:"Können Sie mir bitte helfen?", ty:"واژه", l:3, s:9, k:"bitte|لطفاً / خواهش می‌کنم"},
+  {de:"Büro", art:"das", fa:"دفتر اداری", ex:"", ty:"واژه", l:3, s:9},
+  {de:"Drucker", art:"der", fa:"چاپگر", ex:"", ty:"واژه", l:3, s:9},
+  {de:"duschen", art:"", fa:"دوش گرفتن", ex:"Erst dusche ich, dann gehe ich zum Frühstück.", ty:"واژه", l:3, s:9, k:"duschen|دوش گرفتن"},
+  {de:"einsteigen", art:"", fa:"سوار شدن", ex:"Bitte steigen Sie ein!", ty:"واژه", l:3, s:9, k:"einsteigen|سوار شدن"},
+  {de:"Ende", art:"das", fa:"آخر", ex:"Das Ende war sehr traurig.", ty:"واژه", l:3, s:9, k:"das|Ende|پایان"},
+  {de:"entschuldigen", art:"", fa:"بخشیدن", ex:"Bitte, entschuldigen Sie!", ty:"واژه", l:3, s:9, k:"entschuldigen|عذرخواهی کردن"},
+  {de:"Firma", art:"die", fa:"شرکت", ex:"", ty:"واژه", l:3, s:9},
+  {de:"halb", art:"", fa:"نیم ساعت مانده به", ex:"", ty:"واژه", l:3, s:9},
+  {de:"Herd", art:"der", fa:"اجاق‌گاز", ex:"", ty:"واژه", l:3, s:9},
+  {de:"Internet", art:"das", fa:"اینترنت", ex:"Wir suchen die Informationen im Internet.", ty:"واژه", l:3, s:9, k:"das|Internet|اینترنت"},
+  {de:"Kartoffel", art:"die", fa:"سیب‌زمینی", ex:"Ich möchte keine Kartoffeln.", ty:"واژه", l:3, s:9, k:"die|Kartoffel|سیب‌زمینی"},
+  {de:"Kind", art:"das", fa:"بچه", ex:"Die Kinder sind noch in der Schule.", ty:"واژه", l:3, s:9, k:"das|Kind|کودک"},
+  {de:"Kindergarten", art:"der", fa:"مهدکودک", ex:"", ty:"واژه", l:3, s:9},
+  {de:"Küche", art:"die", fa:"آشپزخانه", ex:"Wir frühstücken in der Küche.", ty:"واژه", l:3, s:9, k:"die|Küche|آشپزخانه"},
+  {de:"Licht", art:"das", fa:"چراغ", ex:"", ty:"واژه", l:3, s:9},
+  {de:"man", art:"", fa:"کسی", ex:"Hier kann man auch Eis essen.", ty:"واژه", l:3, s:9, k:"man|آدم / کسی"},
+  {de:"Monat", art:"der", fa:"ماه", ex:"", ty:"واژه", l:3, s:9},
+  {de:"nach", art:"", fa:"بعد از", ex:"Sie fährt mit dem Bus nach Berlin.", ty:"واژه", l:3, s:9, k:"nach|به / بعد از"},
+  {de:"nehmen", art:"", fa:"گرفتن", ex:"Nehmen Sie den Bus zum Marktplatz.", ty:"واژه", l:3, s:9, k:"nehmen|گرفتن"},
+  {de:"nicht", art:"", fa:"(نشانه منفی‌ساز)", ex:"Ich kann dich nicht verstehen.", ty:"واژه", l:3, s:9, k:"nicht|نه / نیست"},
+  {de:"ohne", art:"", fa:"بدون", ex:"Ein Sonntag ohne meine Freunde ist langweilig.", ty:"واژه", l:3, s:9, k:"ohne|بدون"},
+  {de:"Partner", art:"der", fa:"شریک زندگی", ex:"", ty:"واژه", l:3, s:9},
+  {de:"Pause", art:"die", fa:"زنگ تفریح", ex:"Jetzt machen wir eine Pause.", ty:"واژه", l:3, s:9, k:"die|Pause|استراحت"},
+  {de:"pommes frites", art:"", fa:"سیب‌زمینی سرخ‌کرده", ex:"", ty:"واژه", l:3, s:9},
+  {de:"Radio", art:"das", fa:"رادیو", ex:"Ich habe ein neues Radio.", ty:"واژه", l:3, s:9, k:"das|Radio|رادیو"},
+  {de:"schlafen", art:"", fa:"خوابیدن", ex:"Wo kann ich schlafen?", ty:"واژه", l:3, s:9, k:"schlafen|خوابیدن"},
+  {de:"selbstständig", art:"", fa:"مستقل", ex:"", ty:"واژه", l:3, s:9},
+  {de:"später", art:"", fa:"بعداً", ex:"Ich mache die Hausaufgaben später.", ty:"واژه", l:3, s:9, k:"später|بعداً"},
+  {de:"Tag", art:"der", fa:"روز", ex:"", ty:"واژه", l:3, s:9, k:"der|Tag|روز"},
+  {de:"Telefon", art:"das", fa:"تلفن", ex:"", ty:"واژه", l:3, s:9},
+  {de:"telefonieren", art:"", fa:"تلفنی صحبت کردن", ex:"Ich telefoniere oft mit meiner Freundin.", ty:"واژه", l:3, s:9, k:"telefonieren|تلفن زدن"},
+  {de:"Termin", art:"der", fa:"قرار", ex:"", ty:"واژه", l:3, s:9},
+  {de:"Text", art:"der", fa:"متن", ex:"", ty:"واژه", l:3, s:9},
+  {de:"Uhr", art:"die", fa:"ساعت", ex:"Wie viel Uhr ist es?", ty:"واژه", l:3, s:9, k:"die|Uhr|ساعت"},
+  {de:"Uhrzeit", art:"die", fa:"ساعت", ex:"", ty:"واژه", l:3, s:9},
+  {de:"um", art:"", fa:"در (زمان)", ex:"Um 7.30 Uhr kommt der Zug.", ty:"واژه", l:3, s:9, k:"um|دور / ساعت"},
+  {de:"Viertel", art:"das", fa:"ربع", ex:"", ty:"واژه", l:3, s:9},
+  {de:"vor", art:"", fa:"(زمان) قبل", ex:"Ich treffe Peter vor dem Kino.", ty:"واژه", l:3, s:9, k:"vor|جلوی / قبل از"},
+  {de:"wann", art:"", fa:"چه زمانی", ex:"Wann hast du Geburtstag?", ty:"واژه", l:3, s:9, k:"wann|کی"},
+  {de:"was", art:"", fa:"چی", ex:"Was kann man hier kaufen?", ty:"واژه", l:3, s:9, k:"was|چه"},
+  {de:"ab", art:"", fa:"از", ex:"Ab morgen haben wir Ferien.", ty:"حرف اضافه", l:4, s:6, k:"ab|از / بعد از"},
+  {de:"April", art:"der", fa:"آوریل", ex:"", ty:"اسم", l:4, s:0, k:"der|April|آوریل"},
+  {de:"Arzt", art:"der", fa:"پزشک", ex:"Er war beim Arzt.", ty:"اسم", l:4, s:0, k:"der|Arzt|پزشک (مرد)"},
+  {de:"auch", art:"", fa:"همچنین", ex:"Ich möchte auch mitspielen.", ty:"قید", l:4, s:3, k:"auch|هم / همچنین"},
+  {de:"August", art:"der", fa:"اوت", ex:"", ty:"اسم", l:4, s:0, k:"der|August|اوت"},
+  {de:"Bar", art:"die", fa:"بار", ex:"", ty:"اسم", l:4, s:0},
+  {de:"Beispiel", art:"das", fa:"مثال", ex:"", ty:"اسم", l:4, s:0},
+  {de:"besuchen", art:"", fa:"دیدن کردن", ex:"Im Sommer besuche ich dich.", ty:"فعل", l:4, s:1, k:"besuchen|بازدید کردن"},
+  {de:"Dezember", art:"der", fa:"دسامبر", ex:"", ty:"اسم", l:4, s:0, k:"der|Dezember|دسامبر"},
+  {de:"Dienstag", art:"der", fa:"سه‌شنبه", ex:"", ty:"اسم", l:4, s:0, k:"der|Dienstag|سه‌شنبه"},
+  {de:"Disco", art:"die", fa:"دیسکو", ex:"Sie geht gern in die Diskothek.", ty:"اسم", l:4, s:0, k:"die|Disco|دیسکو"},
+  {de:"Donnerstag", art:"der", fa:"پنج‌شنبه", ex:"", ty:"اسم", l:4, s:0, k:"der|Donnerstag|پنج‌شنبه"},
+  {de:"einkaufen", art:"", fa:"خرید کردن", ex:"Wer kauft bei euch ein?", ty:"فعل", l:4, s:1, k:"einkaufen|خرید کردن#L5"},
+  {de:"einladen", art:"", fa:"دعوت کردن", ex:"Ich lade dich ein.", ty:"فعل", l:4, s:1, k:"einladen|دعوت کردن"},
+  {de:"falsch", art:"", fa:"اشتباه", ex:"", ty:"صفت", l:4, s:2},
+  {de:"Februar", art:"der", fa:"فوریه", ex:"", ty:"اسم", l:4, s:0, k:"der|Februar|فوریه"},
+  {de:"feiern", art:"", fa:"جشن گرفتن", ex:"", ty:"فعل", l:4, s:1},
+  {de:"fernsehen", art:"", fa:"تلویزیون تماشا کردن", ex:"Siehst du viel fern?", ty:"فعل", l:4, s:1, k:"fernsehen|تلویزیون دیدن"},
+  {de:"Flughafen", art:"der", fa:"فرودگاه", ex:"Wir müssen um sieben Uhr am Flughafen sein.", ty:"اسم", l:4, s:0, k:"der|Flughafen|فرودگاه"},
+  {de:"Freitag", art:"der", fa:"جمعه", ex:"", ty:"اسم", l:4, s:0, k:"der|Freitag|جمعه"},
+  {de:"Freizeit", art:"die", fa:"اوقات فراغت", ex:"", ty:"اسم", l:4, s:0},
+  {de:"gehen", art:"", fa:"رفتن", ex:"Wie geht es dir?", ty:"فعل", l:4, s:1, k:"gehen|رفتن / حال داشتن"},
+  {de:"gleich", art:"", fa:"یکسان", ex:"Er kommt gleich.", ty:"صفت", l:4, s:2, k:"gleich|فوراً / یکسان"},
+  {de:"Januar", art:"der", fa:"ژانویه", ex:"", ty:"اسم", l:4, s:0, k:"der|Januar|ژانویه"},
+  {de:"jetzt", art:"", fa:"حالا", ex:"Das ist jetzt nicht mehr wichtig.", ty:"قید", l:4, s:3, k:"jetzt|الان"},
+  {de:"Juli", art:"der", fa:"ژوئیه", ex:"", ty:"اسم", l:4, s:0, k:"der|Juli|ژوئیه"},
+  {de:"Juni", art:"der", fa:"ژوئن", ex:"", ty:"اسم", l:4, s:0, k:"der|Juni|ژوئن"},
+  {de:"können", art:"", fa:"توانستن", ex:"Er kann gut kochen.", ty:"فعل", l:4, s:1, k:"können|توانستن"},
+  {de:"kurz", art:"", fa:"کوتاه", ex:"Seine Haare sind kurz.", ty:"صفت", l:4, s:2, k:"kurz|کوتاه"},
+  {de:"lang", art:"", fa:"دراز", ex:"Das Kleid ist zu lang.", ty:"صفت", l:4, s:2, k:"lang|بلند / طولانی"},
+  {de:"lernen", art:"", fa:"یاد گرفتن", ex:"ich muss noch Vokabeln lernen.", ty:"فعل", l:4, s:1, k:"lernen|یاد گرفتن"},
+  {de:"lesen", art:"", fa:"خواندن", ex:"Ich lese viel.", ty:"فعل", l:4, s:1, k:"lesen|خواندن"},
+  {de:"Mai", art:"der", fa:"می", ex:"", ty:"اسم", l:4, s:0, k:"der|Mai|مه"},
+  {de:"März", art:"der", fa:"مارس", ex:"", ty:"اسم", l:4, s:0, k:"der|März|مارس"},
+  {de:"minus", art:"", fa:"منفی", ex:"", ty:"قید", l:4, s:3},
+  {de:"Minute", art:"die", fa:"دقیقه", ex:"", ty:"اسم", l:4, s:0, k:"die|Minute|دقیقه"},
+  {de:"Mittwoch", art:"der", fa:"چهارشنبه", ex:"", ty:"اسم", l:4, s:0, k:"der|Mittwoch|چهارشنبه"},
+  {de:"Montag", art:"der", fa:"دوشنبه", ex:"", ty:"اسم", l:4, s:0, k:"der|Montag|دوشنبه"},
+  {de:"müssen", art:"", fa:"مجبور بودن", ex:"Mein Zimmer muss ich allein aufräumen.", ty:"فعل", l:4, s:1, k:"müssen|باید"},
+  {de:"November", art:"der", fa:"نوامبر", ex:"", ty:"اسم", l:4, s:0, k:"der|November|نوامبر"},
+  {de:"öffnen", art:"", fa:"باز کردن", ex:"", ty:"فعل", l:4, s:1},
+  {de:"Oktober", art:"der", fa:"اکتبر", ex:"", ty:"اسم", l:4, s:0, k:"der|Oktober|اکتبر"},
+  {de:"Park", art:"der", fa:"پارک", ex:"Wir gehen in den Park.", ty:"اسم", l:4, s:0, k:"der|Park|پارک"},
+  {de:"Plus", art:"das", fa:"برتری", ex:"", ty:"اسم", l:4, s:0},
+  {de:"Polizei", art:"die", fa:"پلیس", ex:"", ty:"اسم", l:4, s:0},
+  {de:"Rad fahren", art:"", fa:"دوچرخه‌سواری کردن", ex:"", ty:"عبارت", l:4, s:8},
+  {de:"Rad", art:"das", fa:"چرخ", ex:"Ich fahre mit dem Rad in die Schule.", ty:"اسم", l:4, s:0, k:"das|Rad|دوچرخه"},
+  {de:"Samstag", art:"der", fa:"شنبه", ex:"", ty:"اسم", l:4, s:0, k:"der|Samstag|شنبه"},
+  {de:"schließen", art:"", fa:"بستن", ex:"", ty:"فعل", l:4, s:1},
+  {de:"schwimmen", art:"", fa:"شنا کردن", ex:"Ich kann gut schwimmen.", ty:"فعل", l:4, s:1, k:"schwimmen|شنا کردن"},
+  {de:"Sekunde", art:"die", fa:"ثانیه", ex:"", ty:"اسم", l:4, s:0},
+  {de:"September", art:"der", fa:"سپتامبر", ex:"", ty:"اسم", l:4, s:0, k:"der|September|سپتامبر"},
+  {de:"Sonntag", art:"der", fa:"یکشنبه", ex:"", ty:"اسم", l:4, s:0, k:"der|Sonntag|یکشنبه"},
+  {de:"spielen", art:"", fa:"بازی کردن", ex:"Willst du mit uns spielen?", ty:"فعل", l:4, s:1, k:"spielen|بازی کردن"},
+  {de:"Stunde", art:"die", fa:"ساعت [60 دقیقه]", ex:"", ty:"اسم", l:4, s:0, k:"die|Stunde|ساعت"},
+  {de:"Teil", art:"der", fa:"بخش", ex:"", ty:"اسم", l:4, s:0},
+  {de:"treffen", art:"", fa:"ملاقات کردن", ex:"Am Nachmittag treffe ich meine Freunde.", ty:"فعل", l:4, s:1, k:"treffen|ملاقات کردن"},
+  {de:"wandern", art:"", fa:"پیاده‌روی کردن", ex:"Am Wochenende wandern wir.", ty:"فعل", l:4, s:1, k:"wandern|پیاده‌روی در طبیعت"},
+  {de:"waschen", art:"", fa:"شستن", ex:"Ich will meine Haare waschen.", ty:"فعل", l:4, s:1, k:"waschen|شستن"},
+  {de:"wissen", art:"", fa:"دانستن", ex:"Ich weiß es nicht.", ty:"فعل", l:4, s:1, k:"wissen|دانستن"},
+  {de:"Woche", art:"die", fa:"هفته", ex:"", ty:"اسم", l:4, s:0, k:"die|Woche|هفته"},
+  {de:"Wochenende", art:"das", fa:"آخر هفته", ex:"", ty:"اسم", l:4, s:0, k:"das|Wochenende|آخر هفته"},
+  {de:"wohin", art:"", fa:"به کجا", ex:"Wohin fährt der Bus?", ty:"قید", l:4, s:3, k:"wohin|به کجا"},
+  {de:"zum Beispiel", art:"", fa:"برای مثال", ex:"z. B.", ty:"عبارت", l:4, s:8, k:"zum Beispiel|مثلاً"},
+  {de:"an", art:"", fa:"در", ex:"am Sonntag / am Meer", ty:"حرف اضافه", l:5, s:6, k:"an|در / به / روی"},
+  {de:"auf", art:"", fa:"روی", ex:"auf dem Tisch / auf Deutsch", ty:"حرف اضافه", l:5, s:6, k:"auf|روی / در"},
+  {de:"Bäckerei", art:"die", fa:"نانوایی", ex:"", ty:"اسم", l:5, s:0},
+  {de:"Bad", art:"das", fa:"حمام", ex:"Wo ist das Bad?", ty:"اسم", l:5, s:0, k:"das|Bad|حمام"},
+  {de:"Balkon", art:"der", fa:"بالکن", ex:"", ty:"اسم", l:5, s:0},
+  {de:"Bank", art:"die", fa:"بانک", ex:"", ty:"اسم", l:5, s:0},
+  {de:"Baum", art:"der", fa:"درخت", ex:"Die Bäume sind schon grün.", ty:"اسم", l:5, s:0, k:"der|Baum|درخت"},
+  {de:"Bett", art:"das", fa:"تختخواب", ex:"Wann gehst du ins Bett?", ty:"اسم", l:5, s:0, k:"das|Bett|تخت"},
+  {de:"Bild", art:"das", fa:"عکس", ex:"", ty:"اسم", l:5, s:0},
+  {de:"Dorf", art:"das", fa:"روستا", ex:"", ty:"اسم", l:5, s:0},
+  {de:"Dusche", art:"die", fa:"دوش آب", ex:"", ty:"اسم", l:5, s:0},
+  {de:"ganz", art:"", fa:"حتما", ex:"", ty:"قید", l:5, s:3},
+  {de:"Garten", art:"der", fa:"باغچه", ex:"Wir suchen ein Haus mit Garten.", ty:"اسم", l:5, s:0, k:"der|Garten|باغ"},
+  {de:"Geschäft", art:"das", fa:"مغازه", ex:"Meine Mutter wartet vor dem Geschäft.", ty:"اسم", l:5, s:0, k:"das|Geschäft|مغازه"},
+  {de:"grillen", art:"", fa:"کبابی کردن", ex:"", ty:"فعل", l:5, s:1},
+  {de:"Haus", art:"das", fa:"خانه", ex:"Ich bin zu Hause.", ty:"اسم", l:5, s:0, k:"das|Haus|خانه"},
+  {de:"hell", art:"", fa:"روشن", ex:"", ty:"صفت", l:5, s:2},
+  {de:"Kühlschrank", art:"der", fa:"یخچال", ex:"Im Kühlschrank ist Limonade.", ty:"اسم", l:5, s:0, k:"der|Kühlschrank|یخچال"},
+  {de:"Kurs", art:"der", fa:"کلاس", ex:"In den Ferien mache ich einen Englischkurs.", ty:"اسم", l:5, s:0, k:"der|Kurs|دوره / کلاس"},
+  {de:"Land", art:"das", fa:"کشور", ex:"Österreich ist ein kleines Land.", ty:"اسم", l:5, s:0, k:"das|Land|کشور / زمین"},
+  {de:"laut", art:"", fa:"بلند", ex:"", ty:"صفت", l:5, s:2},
+  {de:"links", art:"", fa:"چپ", ex:"dann sehen Sie links den Bahnhof.", ty:"قید", l:5, s:3, k:"links|چپ"},
+  {de:"Miete", art:"die", fa:"اجاره", ex:"", ty:"اسم", l:5, s:0},
+  {de:"Mitte", art:"die", fa:"وسط", ex:"", ty:"اسم", l:5, s:0},
+  {de:"Möbel", art:"das", fa:"مبلمان", ex:"", ty:"اسم", l:5, s:0},
+  {de:"modern", art:"", fa:"امروزی", ex:"", ty:"صفت", l:5, s:2},
+  {de:"neu", art:"", fa:"جدید", ex:"Ist der Computer neu?", ty:"صفت", l:5, s:2, k:"neu|جدید"},
+  {de:"neun", art:"", fa:"نه", ex:"", ty:"عدد", l:5, s:4},
+  {de:"oben", art:"", fa:"بالا", ex:"", ty:"قید", l:5, s:3},
+  {de:"Person", art:"die", fa:"شخص", ex:"", ty:"اسم", l:5, s:0},
+  {de:"Plan", art:"der", fa:"نقشه", ex:"", ty:"اسم", l:5, s:0},
+  {de:"rechts", art:"", fa:"راست", ex:"Hier rechts ist unsere Schule.", ty:"قید", l:5, s:3, k:"rechts|راست"},
+  {de:"ruhig", art:"", fa:"ساکت", ex:"Seid jetzt bitte ruhig!", ty:"صفت", l:5, s:2, k:"ruhig|آرام"},
+  {de:"S-Bahn", art:"die", fa:"قطار سریع‌السیر", ex:"", ty:"اسم", l:5, s:0},
+  {de:"schicken", art:"", fa:"فرستادن", ex:"", ty:"فعل", l:5, s:1},
+  {de:"Schlafzimmer", art:"das", fa:"اتاق خواب", ex:"", ty:"اسم", l:5, s:0},
+  {de:"schön", art:"", fa:"زیبا", ex:"Mein Zimmer ist sehr schön.", ty:"صفت", l:5, s:2, k:"schön|زیبا"},
+  {de:"Schrank", art:"der", fa:"کمد", ex:"", ty:"اسم", l:5, s:0},
+  {de:"Schule", art:"die", fa:"مدرسه", ex:"", ty:"اسم", l:5, s:0},
+  {de:"Straße", art:"die", fa:"خیابان", ex:"Wir wohnen in der Goethe-Straße.", ty:"اسم", l:5, s:0, k:"die|Straße|خیابان"},
+  {de:"suchen", art:"", fa:"جست‌وجو کردن", ex:"Ich suche meinen Kugelschreiber.", ty:"فعل", l:5, s:1, k:"suchen|جستجو کردن"},
+  {de:"Tisch", art:"der", fa:"میز", ex:"Am Fenster ist ein Tisch.", ty:"اسم", l:5, s:0, k:"der|Tisch|میز"},
+  {de:"unten", art:"", fa:"پایین", ex:"", ty:"قید", l:5, s:3},
+  {de:"weit", art:"", fa:"وسیع", ex:"das ist nicht weit.", ty:"صفت", l:5, s:2, k:"weit|دور"},
+  {de:"wichtig", art:"", fa:"مهم", ex:"die Frage ist wichtig.", ty:"صفت", l:5, s:2, k:"wichtig|مهم"},
+  {de:"Zimmer", art:"das", fa:"اتاق", ex:"Mein Zimmer ist sehr klein.", ty:"اسم", l:5, s:0, k:"das|Zimmer|اتاق"},
+  {de:"Abend", art:"der", fa:"عصر", ex:"", ty:"اسم", l:6, s:0, k:"der|Abend|عصر"},
+  {de:"ausfüllen", art:"", fa:"پر کردن", ex:"", ty:"فعل", l:6, s:1},
+  {de:"Autobahn", art:"die", fa:"بزرگراه", ex:"", ty:"اسم", l:6, s:0},
+  {de:"bekannt", art:"", fa:"معروف", ex:"", ty:"صفت", l:6, s:2},
+  {de:"bis", art:"", fa:"تا", ex:"Wir haben bis ein Uhr Unterricht.", ty:"حرف اضافه", l:6, s:6, k:"bis|تا"},
+  {de:"Buchstabe", art:"der", fa:"حرف (یکی از حروف الفبا)", ex:"", ty:"اسم", l:6, s:0},
+  {de:"Celsius", art:"", fa:"سلسیوس", ex:"", ty:"اسم", l:6, s:0},
+  {de:"Datum", art:"das", fa:"تاریخ", ex:"", ty:"اسم", l:6, s:0},
+  {de:"dreißig", art:"", fa:"سی", ex:"", ty:"عدد", l:6, s:4},
+  {de:"dreizehn", art:"", fa:"سیزده", ex:"", ty:"عدد", l:6, s:4},
+  {de:"Fahrrad", art:"das", fa:"دوچرخه", ex:"Wir kommen mit dem Fahrrad.", ty:"اسم", l:6, s:0, k:"das|Fahrrad|دوچرخه"},
+  {de:"Familienstand", art:"der", fa:"وضعیت تأهل", ex:"", ty:"اسم", l:6, s:0},
+  {de:"Finnland", art:"", fa:"فنلاند", ex:"", ty:"اسم", l:6, s:0},
+  {de:"Flugzeug", art:"das", fa:"هواپیما", ex:"Im Flugzeug hatte meine Mutter Angst.", ty:"اسم", l:6, s:0, k:"das|Flugzeug|هواپیما"},
+  {de:"Frankfurt", art:"", fa:"فرانکفورت (نام شهری در آلمان)", ex:"", ty:"اسم", l:6, s:0},
+  {de:"Fremdsprache", art:"die", fa:"زبان خارجی", ex:"", ty:"اسم", l:6, s:0},
+  {de:"geboren", art:"", fa:"متولد", ex:"Wo bist du geboren?", ty:"صفت", l:6, s:2, k:"geboren|متولد شده"},
+  {de:"Geburtsdatum", art:"das", fa:"تاریخ تولد", ex:"", ty:"اسم", l:6, s:0},
+  {de:"Geburtsort", art:"der", fa:"محل تولد", ex:"", ty:"اسم", l:6, s:0},
+  {de:"Geburtstag", art:"der", fa:"زادروز", ex:"Heute ist mein Geburtstag.", ty:"اسم", l:6, s:0, k:"der|Geburtstag|تولد"},
+  {de:"gestern", art:"", fa:"دیروز", ex:"Gestern war Sonntag.", ty:"قید", l:6, s:3, k:"gestern|دیروز"},
+  {de:"Grad", art:"der", fa:"درجه (دمای هوا)", ex:"", ty:"اسم", l:6, s:0},
+  {de:"grau", art:"", fa:"خاکستری", ex:"", ty:"صفت", l:6, s:2, k:"grau|خاکستری"},
+  {de:"Hausnummer", art:"die", fa:"پلاک خانه", ex:"", ty:"اسم", l:6, s:0},
+  {de:"heute", art:"", fa:"امروز", ex:"Heute kommt meine Freundin aus Italien.", ty:"قید", l:6, s:3, k:"heute|امروز"},
+  {de:"Hotel", art:"das", fa:"هتل", ex:"", ty:"اسم", l:6, s:0},
+  {de:"ICE", art:"der", fa:"قطار تندرو بین‌شهری", ex:"", ty:"اسم", l:6, s:0},
+  {de:"kalt", art:"", fa:"سرد", ex:"Heute ist es sehr kalt.", ty:"صفت", l:6, s:2, k:"kalt|سرد"},
+  {de:"kaputt", art:"", fa:"خراب", ex:"Das Radio ist kaputt.", ty:"صفت", l:6, s:2, k:"kaputt|خراب"},
+  {de:"langsam", art:"", fa:"کند", ex:"Sprich langsam, ich verstehe dich nicht.", ty:"صفت", l:6, s:2, k:"langsam|آهسته"},
+  {de:"leben", art:"", fa:"زندگی کردن", ex:"Er lebt in Berlin.", ty:"فعل", l:6, s:1, k:"leben|زندگی کردن"},
+  {de:"ledig", art:"", fa:"مجرد", ex:"", ty:"صفت", l:6, s:2},
+  {de:"Mittag", art:"der", fa:"ظهر", ex:"", ty:"اسم", l:6, s:0, k:"der|Mittag|ظهر"},
+  {de:"morgen", art:"", fa:"فردا", ex:"Wir gehen morgen ins Schwimmbad.", ty:"قید", l:6, s:3, k:"morgen|فردا"},
+  {de:"Morgen", art:"der", fa:"صبح", ex:"", ty:"اسم", l:6, s:0, k:"der|Morgen|صبح"},
+  {de:"Nachmittag", art:"der", fa:"بعد از ظهر", ex:"", ty:"اسم", l:6, s:0, k:"der|Nachmittag|بعد از ظهر"},
+  {de:"Nacht", art:"die", fa:"شب", ex:"", ty:"اسم", l:6, s:0, k:"die|Nacht|شب"},
+  {de:"Norden", art:"der", fa:"شمال", ex:"", ty:"اسم", l:6, s:0, k:"der|Norden|شمال"},
+  {de:"normal", art:"", fa:"طبیعی", ex:"Eine ganz normale Situation.", ty:"صفت", l:6, s:2, k:"normal|عادی"},
+  {de:"Osten", art:"der", fa:"شرق", ex:"", ty:"اسم", l:6, s:0, k:"der|Osten|شرق"},
+  {de:"Postleitzahl", art:"die", fa:"کد پستی", ex:"", ty:"اسم", l:6, s:0},
+  {de:"Regen", art:"der", fa:"باران", ex:"Ich mag den Regen nicht.", ty:"اسم", l:6, s:0, k:"der|Regen|باران"},
+  {de:"regnen", art:"", fa:"باران آمدن", ex:"Es regnet oft bei uns.", ty:"فعل", l:6, s:1, k:"regnen|باران آمدن"},
+  {de:"Reise", art:"die", fa:"مسافرت", ex:"Wir machen eine Reise.", ty:"اسم", l:6, s:0, k:"die|Reise|سفر"},
+  {de:"scheinen", art:"", fa:"درخشیدن", ex:"", ty:"فعل", l:6, s:1},
+  {de:"schlecht", art:"", fa:"بد", ex:"Mir ist so schlecht.", ty:"صفت", l:6, s:2, k:"schlecht|بد"},
+  {de:"schnell", art:"", fa:"سریع", ex:"Mach schnell!", ty:"صفت", l:6, s:2, k:"schnell|سریع"},
+  {de:"Sonne", art:"die", fa:"خورشید", ex:"", ty:"اسم", l:6, s:0},
+  {de:"Studium", art:"das", fa:"تحصیل", ex:"", ty:"اسم", l:6, s:0},
+  {de:"Süden", art:"der", fa:"جنوب", ex:"", ty:"اسم", l:6, s:0, k:"der|Süden|جنوب"},
+  {de:"über", art:"", fa:"بالای", ex:"Jetzt gehen wir über die Straße.", ty:"حرف اضافه", l:6, s:6, k:"über|روی / درباره"},
+  {de:"unterschreiben", art:"", fa:"امضا کردن", ex:"", ty:"فعل", l:6, s:1},
+  {de:"Unterschrift", art:"die", fa:"امضا", ex:"", ty:"اسم", l:6, s:0},
+  {de:"verheiratet", art:"", fa:"متأهل", ex:"", ty:"صفت", l:6, s:2},
+  {de:"vierte", art:"", fa:"چهارمین", ex:"", ty:"صفت", l:6, s:2},
+  {de:"von", art:"", fa:"[نشانه مالکیت]", ex:"Der Computer ist ein Geschenk von meinem Onkel.", ty:"حرف اضافه", l:6, s:6, k:"von|از"},
+  {de:"Vormittag", art:"der", fa:"پیش‌ از ظهر", ex:"", ty:"اسم", l:6, s:0, k:"der|Vormittag|قبل از ظهر"},
+  {de:"Westen", art:"der", fa:"غرب", ex:"", ty:"اسم", l:6, s:0, k:"der|Westen|غرب"},
+  {de:"Wetter", art:"das", fa:"آب‌و‌هوا", ex:"", ty:"اسم", l:6, s:0},
+  {de:"Wind", art:"der", fa:"باد", ex:"", ty:"اسم", l:6, s:0},
+  {de:"Zentimeter", art:"der", fa:"سانتی‌متر", ex:"", ty:"اسم", l:6, s:0},
+  {de:"zu hause", art:"", fa:"در خانه", ex:"", ty:"قید", l:6, s:3},
+  {de:"zwischen", art:"", fa:"بین", ex:"", ty:"حرف اضافه", l:6, s:6},
+  {de:"abfahren", art:"", fa:"راه افتادن (با ماشین یا قطار)", ex:"Der Zug fährt gleich ab.", ty:"فعل", l:7, s:1, k:"abfahren|حرکت کردن (وسایل نقلیه)"},
+  {de:"Abfahrt", art:"die", fa:"حرکت", ex:"", ty:"اسم", l:7, s:0},
+  {de:"ankommen", art:"", fa:"رسیدن", ex:"Wann kommt ihr in Berlin an?", ty:"فعل", l:7, s:1, k:"ankommen|رسیدن"},
+  {de:"Ankunft", art:"die", fa:"ورود", ex:"", ty:"اسم", l:7, s:0},
+  {de:"bleiben", art:"", fa:"ماندن", ex:"Wir bleiben zu Hause.", ty:"فعل", l:7, s:1, k:"bleiben|ماندن"},
+  {de:"Durchsage", art:"die", fa:"اطلاعیه", ex:"", ty:"اسم", l:7, s:0},
+  {de:"einfach", art:"", fa:"ساده", ex:"Die Übung ist ganz einfach.", ty:"صفت", l:7, s:2, k:"einfach|ساده / آسان"},
+  {de:"erzählen", art:"", fa:"تعریف کردن", ex:"Kannst du die Geschichte erzählen?", ty:"فعل", l:7, s:1, k:"erzählen|تعریف کردن"},
+  {de:"fahren", art:"", fa:"راندن", ex:"Wohin fährt ihr?", ty:"فعل", l:7, s:1, k:"fahren|رفتن (با وسیله)"},
+  {de:"fliegen", art:"", fa:"پرواز کردن", ex:"Wir fliegen nach Athen.", ty:"فعل", l:7, s:1, k:"fliegen|پرواز کردن"},
+  {de:"geradeaus", art:"", fa:"مستقیم", ex:"Gehen Sie hier geradeaus.", ty:"قید", l:7, s:3, k:"geradeaus|مستقیم"},
+  {de:"Gleis", art:"das", fa:"ریل (قطار)", ex:"Der Zug kommt auf Gleis vier an.", ty:"اسم", l:7, s:0, k:"das|Gleis|ریل / خط"},
+  {de:"herzlich", art:"", fa:"صمیمانه", ex:"Herzliche Grüße von Michael.", ty:"صفت", l:7, s:2, k:"herzlich|صمیمی"},
+  {de:"hin", art:"", fa:"به آنجا", ex:"", ty:"قید", l:7, s:3},
+  {de:"Japan", art:"", fa:"ژاپن", ex:"", ty:"اسم", l:7, s:0},
+  {de:"Mal", art:"das", fa:"دفعه", ex:"Ich war zwei Mal in England.", ty:"اسم", l:7, s:0, k:"das|Mal|بار"},
+  {de:"mieten", art:"", fa:"اجاره کردن", ex:"", ty:"فعل", l:7, s:1},
+  {de:"Million", art:"die", fa:"میلیون", ex:"", ty:"اسم", l:7, s:0},
+  {de:"mitkommen", art:"", fa:"به همراه آمدن", ex:"Kommst du auch mit?", ty:"فعل", l:7, s:1, k:"mitkommen|همراه آمدن"},
+  {de:"Moment", art:"der", fa:"لحظه", ex:"", ty:"اسم", l:7, s:0},
+  {de:"nach hause", art:"", fa:"به سمت خانه", ex:"", ty:"قید", l:7, s:3},
+  {de:"nächst", art:"", fa:"بعدی", ex:"", ty:"صفت", l:7, s:2},
+  {de:"reisen", art:"", fa:"مسافرت کردن", ex:"", ty:"فعل", l:7, s:1},
+  {de:"sehen", art:"", fa:"دیدن", ex:"Siehst du das große Haus?", ty:"فعل", l:7, s:1, k:"sehen|دیدن"},
+  {de:"Sehenswürdigkeit", art:"die", fa:"مکان دیدنی", ex:"", ty:"اسم", l:7, s:0},
+  {de:"so", art:"", fa:"به این صورت", ex:"Das schmeckt so gut.", ty:"قید", l:7, s:3, k:"so|این‌طور / خیلی"},
+  {de:"Stadtplan", art:"der", fa:"نقشه (شهر)", ex:"", ty:"اسم", l:7, s:0},
+  {de:"Start", art:"der", fa:"شروع", ex:"", ty:"اسم", l:7, s:0},
+  {de:"Straßenbahn", art:"die", fa:"تراموا", ex:"", ty:"اسم", l:7, s:0},
+  {de:"Supermarkt", art:"der", fa:"سوپر مارکت", ex:"Wir kaufen immer im Supermarkt ein.", ty:"اسم", l:7, s:0, k:"der|Supermarkt|سوپرمارکت"},
+  {de:"tausend", art:"", fa:"هزار", ex:"", ty:"عدد", l:7, s:4},
+  {de:"Umwelt", art:"die", fa:"محیط زیست", ex:"", ty:"اسم", l:7, s:0},
+  {de:"Verkehr", art:"der", fa:"رفت‌وآمد", ex:"", ty:"اسم", l:7, s:0},
+  {de:"Vielen Dank", art:"", fa:"خیلی ممنون", ex:"", ty:"عبارت", l:7, s:8},
+  {de:"warten", art:"", fa:"منتظر بودن", ex:"Wartest du schon lange?", ty:"فعل", l:7, s:1, k:"warten|منتظر ماندن"},
+  {de:"Weg", art:"der", fa:"راه", ex:"", ty:"اسم", l:7, s:0},
+  {de:"zu fuß", art:"", fa:"پیاده", ex:"", ty:"قید", l:7, s:3},
+  {de:"Zug", art:"der", fa:"قطار", ex:"Wir nehmen den Zug.", ty:"اسم", l:7, s:0, k:"der|Zug|قطار"},
+  {de:"alles", art:"", fa:"همه چیز", ex:"", ty:"واژه", l:8, s:9},
+  {de:"also", art:"", fa:"پس", ex:"du kannst also bei uns schlafen.", ty:"واژه", l:8, s:9, k:"also|پس / بنابراین"},
+  {de:"Anfang", art:"der", fa:"شروع", ex:"Am Anfang ist das Buch langweilig.", ty:"واژه", l:8, s:9, k:"der|Anfang|شروع"},
+  {de:"Antwort", art:"die", fa:"پاسخ", ex:"Weißt du die Antwort?", ty:"واژه", l:8, s:9, k:"die|Antwort|جواب"},
+  {de:"Ausflug", art:"der", fa:"گردش", ex:"Wir machen einen Ausflug.", ty:"واژه", l:8, s:9, k:"der|Ausflug|گشت و گذار / گردش"},
+  {de:"Ausland", art:"das", fa:"کشور خارجی", ex:"Mein Vater war lange im Ausland.", ty:"واژه", l:8, s:9, k:"das|Ausland|خارج از کشور"},
+  {de:"bald", art:"", fa:"به‌زودی", ex:"Bis bald!", ty:"واژه", l:8, s:9, k:"bald|به زودی"},
+  {de:"bekommen", art:"", fa:"دریافت کردن", ex:"Was bekommst du zum Geburtstag?", ty:"واژه", l:8, s:9, k:"bekommen|دریافت کردن / گرفتن"},
+  {de:"Besuch", art:"der", fa:"مهمان", ex:"", ty:"واژه", l:8, s:9},
+  {de:"bringen", art:"", fa:"آوردن", ex:"Ich bringe dir die Bücher morgen.", ty:"واژه", l:8, s:9, k:"bringen|آوردن"},
+  {de:"Buch", art:"das", fa:"کتاب", ex:"Die Bücher sind schon im Rucksack.", ty:"واژه", l:8, s:9, k:"das|Buch|کتاب"},
+  {de:"dies", art:"", fa:"این", ex:"", ty:"واژه", l:8, s:9},
+  {de:"dort", art:"", fa:"آن‌جا", ex:"was machst du dort?", ty:"واژه", l:8, s:9, k:"dort|آنجا"},
+  {de:"Durst", art:"der", fa:"تشنگی", ex:"Hast du Durst?", ty:"واژه", l:8, s:9, k:"der|Durst|تشنگی"},
+  {de:"einmal", art:"", fa:"یک‌بار", ex:"Kannst du mir das noch einmal erklären?", ty:"واژه", l:8, s:9, k:"einmal|یک بار"},
+  {de:"Einzelzimmer", art:"das", fa:"اتاق یک‌تخته", ex:"", ty:"واژه", l:8, s:9},
+  {de:"ergänzen", art:"", fa:"تکمیل کردن", ex:"", ty:"واژه", l:8, s:9},
+  {de:"erst", art:"", fa:"تازه", ex:"", ty:"واژه", l:8, s:9},
+  {de:"etwas", art:"", fa:"چیزی", ex:"Ich bringe dir etwas.", ty:"واژه", l:8, s:9, k:"etwas|چیزی"},
+  {de:"etwas", art:"", fa:"مقداری", ex:"", ty:"واژه", l:8, s:9},
+  {de:"Foto", art:"das", fa:"عکس", ex:"Auf dem Foto bin ich mit meinem Hund.", ty:"واژه", l:8, s:9, k:"das|Foto|عکس"},
+  {de:"Fuß", art:"der", fa:"پا (از مچ به پایین)", ex:"Mein Fuß tut weh.", ty:"واژه", l:8, s:9, k:"der|Fuß|پا"},
+  {de:"Fußball", art:"der", fa:"فوتبال", ex:"Am Nachmittag spielen wir Fußball.", ty:"واژه", l:8, s:9, k:"der|Fußball|فوتبال"},
+  {de:"gefallen", art:"", fa:"خوش آمدن", ex:"Das gefällt mir nicht.", ty:"واژه", l:8, s:9, k:"gefallen|خوش آمدن"},
+  {de:"Geld", art:"das", fa:"پول", ex:"Ich habe nicht genug Geld.", ty:"واژه", l:8, s:9, k:"das|Geld|پول"},
+  {de:"Gemüse", art:"das", fa:"سبزیجات", ex:"Ich esse sehr gern Gemüse.", ty:"واژه", l:8, s:9, k:"das|Gemüse|سبزیجات"},
+  {de:"geöffnet", art:"", fa:"باز", ex:"", ty:"واژه", l:8, s:9},
+  {de:"Gespräch", art:"das", fa:"گفت‌وگو", ex:"", ty:"واژه", l:8, s:9},
+  {de:"Glas", art:"das", fa:"لیوان", ex:"Bitte ein Glas Cola.", ty:"واژه", l:8, s:9, k:"das|Glas|لیوان / شیشه"},
+  {de:"Hand", art:"die", fa:"دست (از مچ به پایین)", ex:"", ty:"واژه", l:8, s:9},
+  {de:"Hausaufgabe", art:"die", fa:"تکلیف خانه", ex:"Wir machen zusammen Hausaufgaben.", ty:"واژه", l:8, s:9, k:"die|Hausaufgabe|تکلیف خانه"},
+  {de:"helfen", art:"", fa:"کمک کردن", ex:"Hilf mir bitte!", ty:"واژه", l:8, s:9, k:"helfen|کمک کردن"},
+  {de:"Hunger", art:"der", fa:"گرسنگی", ex:"Wir haben Hunger.", ty:"واژه", l:8, s:9, k:"der|Hunger|گرسنگی"},
+  {de:"Ihr", art:"", fa:"شما", ex:"Ist das Ihr Hund?", ty:"واژه", l:8, s:9, k:"Ihr|مال شما (رسمی)"},
+  {de:"klar", art:"", fa:"معلوم است", ex:"Na klar!", ty:"واژه", l:8, s:9, k:"klar|واضح / البته"},
+  {de:"leider", art:"", fa:"متأسفانه", ex:"Ich kann leider nicht kommen.", ty:"واژه", l:8, s:9, k:"leider|متأسفانه"},
+  {de:"letzte", art:"", fa:"آخرین", ex:"", ty:"واژه", l:8, s:9},
+  {de:"lokal", art:"", fa:"محلی", ex:"", ty:"واژه", l:8, s:9},
+  {de:"Maschine", art:"die", fa:"دستگاه", ex:"", ty:"واژه", l:8, s:9},
+  {de:"mitmachen", art:"", fa:"همراه شدن", ex:"Komm, mach mit!", ty:"واژه", l:8, s:9, k:"mitmachen|شرکت کردن"},
+  {de:"mögen", art:"", fa:"دوست داشتن", ex:"Ich mag gern Spaghetti und Fleisch.", ty:"واژه", l:8, s:9, k:"mögen|دوست داشتن"},
+  {de:"muss", art:"", fa:"ضروری", ex:"", ty:"واژه", l:8, s:9},
+  {de:"nichts", art:"", fa:"هیچ", ex:"Ich möchte nichts essen.", ty:"واژه", l:8, s:9, k:"nichts|هیچ‌چیز"},
+  {de:"Schuh", art:"der", fa:"کفش", ex:"", ty:"واژه", l:8, s:9},
+  {de:"sitzen", art:"", fa:"نشستن", ex:"", ty:"واژه", l:8, s:9},
+  {de:"Sommer", art:"der", fa:"تابستان", ex:"", ty:"واژه", l:8, s:9, k:"der|Sommer|تابستان"},
+  {de:"Tasche", art:"die", fa:"جیب", ex:"Die Tasche ist sehr schwer.", ty:"واژه", l:8, s:9, k:"die|Tasche|کیف"},
+  {de:"vielleicht", art:"", fa:"شاید", ex:"Vielleicht kommt er.", ty:"واژه", l:8, s:9, k:"vielleicht|شاید"},
+  {de:"Winter", art:"der", fa:"زمستان", ex:"", ty:"واژه", l:8, s:9, k:"der|Winter|زمستان"},
+  {de:"wollen", art:"", fa:"خواستن", ex:"Willst du meine Freunde kennenlernen?", ty:"واژه", l:8, s:9, k:"wollen|خواستن"},
+  {de:"zahlen", art:"", fa:"پرداخت کردن", ex:"", ty:"واژه", l:8, s:9},
+  {de:"Zeit", art:"die", fa:"زمان", ex:"Wann hast du Zeit für mich?", ty:"واژه", l:8, s:9, k:"die|Zeit|وقت"},
+  {de:"zu", art:"", fa:"به", ex:"zu groß / zum Frühstück", ty:"واژه", l:8, s:9, k:"zu|به / خیلی"},
+  {de:"zusammen", art:"", fa:"با هم", ex:"Wir machen zusammen Hausaufgaben.", ty:"واژه", l:8, s:9, k:"zusammen|با هم"},
+  {de:"allein", art:"", fa:"تنها", ex:"Er arbeitet gern allein.", ty:"قید", l:9, s:3, k:"allein|تنها"},
+  {de:"arm", art:"", fa:"فقیر", ex:"", ty:"صفت", l:9, s:2},
+  {de:"besichtigen", art:"", fa:"بازدید کردن", ex:"", ty:"فعل", l:9, s:1},
+  {de:"Blick", art:"der", fa:"چشم‌انداز", ex:"", ty:"اسم", l:9, s:0},
+  {de:"Buch", art:"das", fa:"کتاب", ex:"Die Bücher sind schon im Rucksack.", ty:"اسم", l:9, s:0, k:"das|Buch|کتاب#L10"},
+  {de:"Doppelzimmer", art:"das", fa:"اتاق دو‌تخته", ex:"", ty:"اسم", l:9, s:0},
+  {de:"Erwachsene", art:"der/die", fa:"بزرگسال", ex:"Dieser Film ist nur für Erwachsene.", ty:"اسم", l:9, s:0, k:"der/die|Erwachsene|بزرگسال"},
+  {de:"fehlen", art:"", fa:"نبودن", ex:"", ty:"فعل", l:9, s:1},
+  {de:"Film", art:"der", fa:"فیلم", ex:"Wie war der Film?", ty:"اسم", l:9, s:0, k:"der|Film|فیلم"},
+  {de:"Frühling", art:"der", fa:"بهار", ex:"", ty:"اسم", l:9, s:0, k:"der|Frühling|بهار"},
+  {de:"gerade", art:"", fa:"الان", ex:"Was machst du gerade?", ty:"قید", l:9, s:3, k:"gerade|الان / مستقیم"},
+  {de:"Herbst", art:"der", fa:"پاییز", ex:"", ty:"اسم", l:9, s:0, k:"der|Herbst|پاییز"},
+  {de:"jede", art:"", fa:"هر", ex:"", ty:"ضمیر", l:9, s:5},
+  {de:"Kilometer", art:"der", fa:"کیلومتر", ex:"", ty:"اسم", l:9, s:0},
+  {de:"liegen", art:"", fa:"قرار داشتن (به‌صورت افقی)", ex:"", ty:"فعل", l:9, s:1},
+  {de:"Meer", art:"das", fa:"دریا", ex:"", ty:"اسم", l:9, s:0},
+  {de:"Museum", art:"das", fa:"موزه", ex:"", ty:"اسم", l:9, s:0},
+  {de:"nach", art:"", fa:"به", ex:"", ty:"حرف اضافه", l:9, s:6},
+  {de:"Ort", art:"der", fa:"محل", ex:"", ty:"اسم", l:9, s:0},
+  {de:"Regel", art:"die", fa:"قانون", ex:"", ty:"اسم", l:9, s:0},
+  {de:"See", art:"der", fa:"دریاچه", ex:"Der See ist sehr groß.", ty:"اسم", l:9, s:0, k:"der|See|دریاچه"},
+  {de:"übernachten", art:"", fa:"شب (جایی) ماندن", ex:"", ty:"فعل", l:9, s:1},
+  {de:"Übernachtung", art:"die", fa:"اقامت شبانه", ex:"", ty:"اسم", l:9, s:0},
+  {de:"Urlaub", art:"der", fa:"تعطیلات", ex:"", ty:"اسم", l:9, s:0},
+  {de:"verkaufen", art:"", fa:"فروختن", ex:"", ty:"فعل", l:9, s:1},
+  {de:"welch", art:"", fa:"عجب", ex:"", ty:"ضمیر", l:9, s:5},
+  {de:"wie lange", art:"", fa:"چه مدت است که", ex:"", ty:"قید", l:9, s:3},
+  {de:"Wochentag", art:"der", fa:"روز هفته", ex:"", ty:"اسم", l:9, s:0},
+  {de:"ankreuzen", art:"", fa:"علامت زدن", ex:"", ty:"فعل", l:10, s:1},
+  {de:"Anzeige", art:"die", fa:"تبلیغ", ex:"Lies die Anzeige in der Zeitung!", ty:"اسم", l:10, s:0, k:"die|Anzeige|آگهی"},
+  {de:"Arm", art:"der", fa:"بازو", ex:"Mein Arm tut weh.", ty:"اسم", l:10, s:0, k:"der|Arm|بازو"},
+  {de:"aufstehen", art:"", fa:"بلند شدن", ex:"Um acht Uhr stehen wir auf.", ty:"فعل", l:10, s:1, k:"aufstehen|بلند شدن از خواب"},
+  {de:"Auge", art:"das", fa:"چشم", ex:"Seine Augen sind grün.", ty:"اسم", l:10, s:0, k:"das|Auge|چشم"},
+  {de:"aussehen", art:"", fa:"به نظر رسیدن", ex:"Das Buch sieht interessant aus.", ty:"فعل", l:10, s:1, k:"aussehen|به نظر رسیدن / ظاهر داشتن"},
+  {de:"Baby", art:"das", fa:"بچه", ex:"Meine Schwester ist noch ein Baby.", ty:"اسم", l:10, s:0, k:"das|Baby|نوزاد"},
+  {de:"Bauch", art:"der", fa:"شکم", ex:"Mein Bauch tut weh.", ty:"اسم", l:10, s:0, k:"der|Bauch|شکم"},
+  {de:"beide", art:"", fa:"هر دو", ex:"wir beide sind immer zusammen.", ty:"ضمیر", l:10, s:5, k:"beide|هر دو"},
+  {de:"Bein", art:"das", fa:"پا", ex:"", ty:"اسم", l:10, s:0},
+  {de:"danken", art:"", fa:"تشکر کردن", ex:"ich danke dir.", ty:"فعل", l:10, s:1, k:"danken|تشکر کردن"},
+  {de:"dann", art:"", fa:"سپس", ex:"dann schreibe ich dir!", ty:"قید", l:10, s:3, k:"dann|بعد / سپس"},
+  {de:"Doktor", art:"der", fa:"دکتر", ex:"", ty:"اسم", l:10, s:0},
+  {de:"dürfen", art:"", fa:"اجازه داشتن", ex:"", ty:"فعل", l:10, s:1},
+  {de:"Fehler", art:"der", fa:"خطا", ex:"Ich hatte vier Fehler.", ty:"اسم", l:10, s:0, k:"der|Fehler|اشتباه"},
+  {de:"Fenster", art:"das", fa:"پنجره", ex:"Ich möchte einen Platz am Fenster.", ty:"اسم", l:10, s:0, k:"das|Fenster|پنجره"},
+  {de:"Fernsehen", art:"das", fa:"تلویزیون", ex:"Was gibt es heute im Fernsehen?", ty:"اسم", l:10, s:0, k:"das|Fernsehen|تلویزیون"},
+  {de:"Fieber", art:"das", fa:"تب", ex:"", ty:"اسم", l:10, s:0},
+  {de:"geben", art:"", fa:"دادن", ex:"Geben Sie mir bitte zwei Fahrkarten.", ty:"فعل", l:10, s:1, k:"geben|دادن"},
+  {de:"gegen", art:"", fa:"مخالف", ex:"", ty:"حرف اضافه", l:10, s:6},
+  {de:"gehören", art:"", fa:"متعلق بودن", ex:"", ty:"فعل", l:10, s:1},
+  {de:"geschlossen", art:"", fa:"بسته‌شده", ex:"", ty:"صفت", l:10, s:2},
+  {de:"glauben", art:"", fa:"باور داشتن", ex:"Ich glaube, Karin spricht gut Englisch.", ty:"فعل", l:10, s:1, k:"glauben|باور کردن / فکر کردن"},
+  {de:"Haar", art:"das", fa:"مو", ex:"Sie hat lange Haare.", ty:"اسم", l:10, s:0, k:"das|Haar|مو"},
+  {de:"jung", art:"", fa:"جوان", ex:"Meine Eltern sind noch jung.", ty:"صفت", l:10, s:2, k:"jung|جوان"},
+  {de:"klasse", art:"", fa:"عالی", ex:"", ty:"صفت", l:10, s:2},
+  {de:"Kopf", art:"der", fa:"سر", ex:"Mein Kopf tut weh.", ty:"اسم", l:10, s:0, k:"der|Kopf|سر"},
+  {de:"krank", art:"", fa:"بیمار", ex:"Ich war gestern krank.", ty:"صفت", l:10, s:2, k:"krank|بیمار"},
+  {de:"lachen", art:"", fa:"خندیدن", ex:"Lisa lacht immer viel.", ty:"فعل", l:10, s:1, k:"lachen|خندیدن"},
+  {de:"laufen", art:"", fa:"پیاده رفتن", ex:"Wir laufen schnell nach Hause.", ty:"فعل", l:10, s:1, k:"laufen|دویدن / راه رفتن"},
+  {de:"legen", art:"", fa:"گذاشتن", ex:"", ty:"فعل", l:10, s:1},
+  {de:"leicht", art:"", fa:"سبک", ex:"Die Hausaufgaben sind leicht.", ty:"صفت", l:10, s:2, k:"leicht|آسان / سبک"},
+  {de:"meinen", art:"", fa:"نظر داشتن", ex:"", ty:"فعل", l:10, s:1},
+  {de:"Mund", art:"der", fa:"دهان", ex:"", ty:"اسم", l:10, s:0},
+  {de:"Nummer", art:"die", fa:"شماره", ex:"sag mir deine Telefonnummer.", ty:"اسم", l:10, s:0, k:"die|Nummer|شماره"},
+  {de:"Oma", art:"die", fa:"مامان‌بزرگ", ex:"", ty:"اسم", l:10, s:0},
+  {de:"Rauchen", art:"das", fa:"سیگارکشیدن", ex:"", ty:"اسم", l:10, s:0},
+  {de:"Raum", art:"der", fa:"اتاق", ex:"", ty:"اسم", l:10, s:0},
+  {de:"schwer", art:"", fa:"سخت", ex:"Ich finde die Hausaufgaben sehr schwer.", ty:"صفت", l:10, s:2, k:"schwer|سخت / سنگین"},
+  {de:"schwimmen", art:"", fa:"شنا کردن", ex:"Ich kann gut schwimmen.", ty:"فعل", l:10, s:1, k:"schwimmen|شنا کردن#L11"},
+  {de:"seit", art:"", fa:"از (زمان) تا حالا", ex:"", ty:"حرف اضافه", l:10, s:6},
+  {de:"sofort", art:"", fa:"بلافاصله", ex:"Warte, ich komme sofort!", ty:"قید", l:10, s:3, k:"sofort|فوراً"},
+  {de:"sollen", art:"", fa:"مجبور بودن", ex:"", ty:"فعل", l:10, s:1},
+  {de:"Spiel", art:"das", fa:"بازی", ex:"Ich kenne ein neues Spiel.", ty:"اسم", l:10, s:0, k:"das|Spiel|بازی"},
+  {de:"tun", art:"", fa:"انجام دادن", ex:"", ty:"فعل", l:10, s:1},
+  {de:"verboten", art:"", fa:"ممنوع", ex:"", ty:"صفت", l:10, s:2},
+  {de:"wenn", art:"", fa:"اگر", ex:"", ty:"حرف ربط", l:10, s:7},
+  {de:"Deutsche", art:"", fa:"فرد آلمانی", ex:"", ty:"اسم", l:10, s:0},
+  {de:"Alter", art:"das", fa:"سن", ex:"Alter: 15 Jahre", ty:"اسم", l:11, s:0, k:"das|Alter|سن"},
+  {de:"Arbeitsplatz", art:"der", fa:"محل کار", ex:"", ty:"اسم", l:11, s:0},
+  {de:"glücklich", art:"", fa:"شاد", ex:"Ich war in Deutschland sehr glücklich.", ty:"صفت", l:11, s:2, k:"glücklich|خوشبخت"},
+  {de:"Information", art:"die", fa:"اطلاعات", ex:"Hier kann man Informationen bekommen.", ty:"اسم", l:11, s:0, k:"die|Information|اطلاعات"},
+  {de:"lernen", art:"", fa:"یاد گرفتن", ex:"ich muss noch Vokabeln lernen.", ty:"فعل", l:11, s:1, k:"lernen|یاد گرفتن#L12"},
+  {de:"Leute", art:"die", fa:"مردم", ex:"In unserem Haus wohnen viele Leute.", ty:"اسم", l:11, s:0, k:"die|Leute|مردم"},
+  {de:"Liebe", art:"die", fa:"عشق", ex:"", ty:"اسم", l:11, s:0},
+  {de:"Problem", art:"das", fa:"مشکل", ex:"Hast du Probleme?", ty:"اسم", l:11, s:0, k:"das|Problem|مشکل"},
+  {de:"verstehen", art:"", fa:"فهمیدن", ex:"Ich verstehe dich nicht.", ty:"فعل", l:11, s:1, k:"verstehen|فهمیدن"},
+  {de:"Welt", art:"die", fa:"جهان", ex:"", ty:"اسم", l:11, s:0},
+  {de:"Wort", art:"das", fa:"واژه", ex:"Wie viele Wörter hat dein Brief?", ty:"اسم", l:11, s:0, k:"das|Wort|کلمه"},
+];
+const LES=[{"t": "Super!", "f": "اطلاعات شخصی، الفبا، اعداد", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Menschen", "f": "خانواده، افراد، اعداد تا ۱۰۰", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Essen und Trinken", "f": "غذا، نوشیدنی، رنگ، قیمت", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Mein Leben", "f": "شغل، ساعت، کار", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Freizeit", "f": "سرگرمی، روزها، ماه‌ها", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Meine Stadt, meine Wohnung", "f": "شهر و خانه", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Wie, wo und wann?", "f": "آب‌وهوا، تاریخ، آموزش", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Unterwegs", "f": "حمل‌ونقل و جهت‌یابی", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Unter Freunden", "f": "رستوران، خرید، اینترنت", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Ich war noch nie ...", "f": "فصل‌ها و مسافرت", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Bist du fit?", "f": "بدن، سلامتی، ورزش", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Beruf und Leben", "f": "کار و مناسبت‌ها", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}];
+
+const K_ST='goetheA1_status_v2',K_SRS='goetheA1_srs_v3',K_META='goetheA1_meta_v3';
+const HK={again:'no',hard:'ok',good:'ok',easy:'ok'},S={again:'unknown',hard:'learned',good:'learned',easy:'learned'};
+const DAY=864e5,STEPS=[0,1,3,7,14,30];
+const $=id=>document.getElementById(id);
+const fa=n=>Number(n).toLocaleString('fa-IR');
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const load=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))||d}catch(e){return d}};
+let storageOK=(()=>{try{localStorage.setItem('__t','1');localStorage.removeItem('__t');return true}catch(e){return false}})(),persisted=false,idb=null;
+function save(){
+  try{if(meta&&meta.set)meta.savedAt=Date.now()}catch(e){}
+  try{localStorage.setItem(K_ST,JSON.stringify(st));localStorage.setItem(K_SRS,JSON.stringify(srs));localStorage.setItem(K_META,JSON.stringify(meta))}catch(e){storageOK=false}
+  idbPut();updStore();
+}
+function idbOpen(){return new Promise(res=>{try{const r=indexedDB.open('goetheA1',1);r.onupgradeneeded=()=>r.result.createObjectStore('kv');r.onsuccess=()=>{idb=r.result;res(idb)};r.onerror=()=>res(null)}catch(e){res(null)}})}
+function idbPut(){if(!idb)return;try{idb.transaction('kv','readwrite').objectStore('kv').put(JSON.stringify({st,srs,meta}),'state')}catch(e){}}
+function idbGet(){return new Promise(res=>{if(!idb)return res(null);try{const q=idb.transaction('kv').objectStore('kv').get('state');q.onsuccess=()=>res(q.result?JSON.parse(q.result):null);q.onerror=()=>res(null)}catch(e){res(null)}})}
+function updStore(){
+  const el=document.getElementById('storInfo');if(!el)return;
+  const tm=meta&&meta.savedAt?new Intl.DateTimeFormat('fa-IR',{hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(meta.savedAt)):'—';
+  el.textContent=(storageOK?'✓ پیشرفت در حافظهٔ دستگاه ذخیره می‌شود':'⚠ ذخیره‌سازی در این مرورگر کار نمی‌کند؛ از حالت خصوصی یا پیش‌نمایش فایل خارج شوید یا «خروجی گرفتن» را بزنید')+(storageOK?' · '+(persisted?'ماندگار':'معمولی')+' · آخرین ذخیره '+tm+' · '+Number(Object.keys(st).length).toLocaleString('fa-IR')+' کارت ثبت‌شده · '+(location.protocol==='file:'?'فایل محلی':location.protocol==='content:'?'⚠ باز شده با content (ناپایدار)':location.protocol.replace(':','')):'');
+}
+let st=load(K_ST,{}),srs=load(K_SRS,{}),meta=load(K_META,{});
+meta.days=meta.days||{};meta.hist=meta.hist||{};meta.fav=meta.fav||{};meta.seen=meta.seen||{d:'',k:{}};meta.nw=meta.nw||{d:'',n:0};
+meta.set=Object.assign({rev:0,goal:20,auto:true,theme:matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light'},meta.set);
+let deck=null,sub=null,filter='all',idx=0,list=[],last=null,tt;
+
+const inDeck=c=>(deck===null||c.l===deck)&&(sub===null||c.s===sub);
+const key=c=>c.k||((c.art?c.art+'|':'')+c.de+'|'+(c.fa||''));
+const today=()=>{const d=new Date();return d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate()};
+const sod=ts=>{const d=new Date(ts);return new Date(d.getFullYear(),d.getMonth(),d.getDate()).getTime()};
+const dueAt=r=>r.box>0?sod(r.due):r.due;
+const isDue=c=>{const k=key(c),s=st[k];if(s!=='unknown'&&s!=='learned')return false;const r=srs[k];return r?dueAt(r)<=Date.now():s==='unknown'};
+const cur=()=>list[idx];
+function toast(m){const t=$('toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),1600)}
+
+function schedule(c,g){
+  const k=key(c);let r=srs[k]||{box:0,due:0};
+  if(g==='again'){r.box=0;r.due=Date.now()+6e5}
+  else{r.box=g==='hard'?Math.max(r.box,1):Math.min(r.box+(g==='easy'?2:1),5);const n=g==='hard'?1:STEPS[r.box],d=new Date();r.due=new Date(d.getFullYear(),d.getMonth(),d.getDate()+n).getTime()}
+  srs[k]=r;
+}
+function count(k,t){
+  if(meta.seen.d!==t)meta.seen={d:t,k:{}};
+  if(meta.seen.k[k])return false;
+  meta.seen.k[k]=1;meta.days[t]=(meta.days[t]||0)+1;return true;
+}
+function bump(g,t){const h=meta.hist[t]||(meta.hist[t]={ok:0,no:0,rd:0});h[HK[g]]++}
+function mark(g){
+  const c=cur();if(!c)return;
+  const k=key(c),t=today();
+  const wasNew=!st[k]||st[k]==='read';
+  if(wasNew){if(meta.nw.d!==t)meta.nw={d:t,n:0};meta.nw.n++}
+  last={k,isNew:wasNew,s:g,st:st[k],srs:srs[k]?Object.assign({},srs[k]):undefined,day:t,nw:count(k,t)};
+  st[k]=S[g];schedule(c,g);bump(g,t);
+  save();stats();
+  if(filter==='due'||filter==='today'){
+    if(g==='again')list.splice(Math.min(idx+5,list.length),0,c);
+    list.splice(idx,1);if(idx>=list.length)idx=0;render();
+  }else if(meta.set.auto&&list.length>1)next();else render();
+  setTimeout(()=>{if(meta.nw.d===t&&meta.nw.n>=meta.set.goal&&meta.goalDay!==t){meta.goalDay=t;save();showResult(1)}else if((filter==='due'||filter==='today')&&!list.length&&meta.dueDay!==t){meta.dueDay=t;save();showResult(0)}},350);
+}
+function undo(){
+  if(!last){toast('چیزی برای بازگردانی نیست');return}
+  const {k,day}=last;
+  if(last.st)st[k]=last.st;else delete st[k];
+  if(last.srs)srs[k]=last.srs;else delete srs[k];
+  if(last.isNew&&meta.nw.d===day)meta.nw.n=Math.max(meta.nw.n-1,0);
+  if(last.nw){delete meta.seen.k[k];meta.days[day]=Math.max((meta.days[day]||1)-1,0)}
+  const h=meta.hist[day];if(h&&last.s)h[HK[last.s]]=Math.max(h[HK[last.s]]-1,0);
+  let i=list.findIndex(c=>key(c)===k);
+  if(i<0){const c=cards.find(c=>key(c)===k);if(c){list.splice(idx,0,c);i=idx}}
+  if(i>-1)idx=i;
+  last=null;save();stats();render();toast('بازگردانی شد');
+}
+function ivl(c,g){
+  const b=(srs[key(c)]||{box:0}).box,n=g==='again'?0:g==='hard'?1:STEPS[Math.min(b+(g==='easy'?2:1),5)];
+  return n===0?'۱۰ دقیقه':fa(n)+' روز';
+}
+
+function stats(){
+  let ok=0,no=0,rd=0,due=0;
+  cards.forEach(c=>{const s=st[key(c)];if(s==='learned')ok++;else if(s==='unknown')no++;else if(s==='read')rd++;if(isDue(c))due++});
+  const n=cards.length;
+  $('cOk').textContent=fa(ok);$('cNo').textContent=fa(no);$('cRd').textContent=fa(rd);$('cLeft').textContent=fa(n-ok-no-rd);$('cDue').textContent=fa(due);$('cToday').textContent=fa(todayPool('').length);
+  $('bOk').style.width=ok/n*100+'%';$('bRd').style.width=rd/n*100+'%';$('bNo').style.width=no/n*100+'%';
+  const d=meta.days[today()]||0,g=meta.set.goal;
+  const nn=meta.nw.d===today()?meta.nw.n:0;
+  $('dayN').textContent=fa(nn);const G=g+(meta.extra&&meta.extra.d===today()?meta.extra.n:0);$('dayG').textContent=fa(G);$('dayBar').style.width=Math.min(nn/G*100,100)+'%';
+  let s=0,dt=new Date();if(!d)dt.setDate(dt.getDate()-1);
+  for(;;){const kk=dt.getFullYear()+'-'+(dt.getMonth()+1)+'-'+dt.getDate();if(meta.days[kk]>0){s++;dt.setDate(dt.getDate()-1)}else break}
+  $('streak').textContent=s>0?'🔥 '+fa(s)+' روز پیاپی':'';
+}
+
+function setFilter(f){
+  filter=f;
+  document.querySelectorAll('.chip').forEach(b=>b.classList.toggle('on',b.dataset.f===f));
+  applyFilters();
+}
+function applyFilters(){
+  const q=$('q').value.trim().toLowerCase();
+  if(filter==='today'){list=todayPool(q);idx=0;render();return}
+  list=cards.filter(c=>{
+    const s=st[key(c)]||null;
+    if(filter==='due'&&!isDue(c))return false;
+    if(filter==='new'&&s&&s!=='read')return false;
+    if(filter==='fav'&&!meta.fav[key(c)])return false;
+    if(!inDeck(c))return false;
+    if(['learned','unknown','read'].includes(filter)&&s!==filter)return false;
+    return !q||c.de.toLowerCase().includes(q)||c.fa.includes(q)||(c.art&&c.art.includes(q));
+  });
+  idx=0;render();
+}
+
+const tyH=c=>c.ty&&c.ty!=='واژه'?`<div class="tyc">${esc(c.ty)}</div>`:'';
+const artHtml=c=>c.art?`<span class="art a-${c.art.replace('/','-')}">${esc(c.art)}</span>`:'';
+const deHtml=c=>tyH(c)+artHtml(c)+`<div class="de">${esc(c.de)}</div>`;
+const faHtml=c=>tyH(c)+`<div class="fa">${esc(c.fa)}</div>`;
+const exHtml=c=>c.ex?`<div class="ex">${esc(c.ex)}</div>`:'';
+
+function render(){
+  const f=$('front'),b=$('back'),bd=$('badge');
+  $('card').classList.remove('flipped');updSp();
+  f.className='face front';b.className='face back';
+  if(!list.length){
+    $('fHtml').innerHTML='<div class="fa">'+(filter==='today'?'امروز کاری ندارید 🎉':'کارتی پیدا نشد')+'</div>';
+    $('bHtml').innerHTML=`<div class="fa" style="font-size:1.1rem">${(filter==='due'||filter==='today')?'برای مطالعهٔ بیشتر «همه» یا «جدید» را بزنید':'فیلتر را تغییر دهید یا جستجو را پاک کنید'}</div>`;
+    $('prog').textContent='۰ / ۰';bd.hidden=true;return;
+  }
+  const c=cur(),s=st[key(c)];
+  $('favB').textContent=meta.fav[key(c)]?'★':'☆';meta.pos=key(c);try{localStorage.setItem(K_META,JSON.stringify(meta))}catch(e){}
+  $('prog').textContent=fa(idx+1)+' / '+fa(list.length)+(filter==='today'?'\u200f · '+(()=>{const r=list.filter(x=>{const q=st[key(x)];return q==='learned'||q==='unknown'}).length;return fa(r)+'\u200f مرور · '+fa(list.length-r)+'\u200f جدید'})():'');
+  document.querySelectorAll('[data-g]').forEach(b=>b.lastElementChild.textContent=ivl(c,b.dataset.g));
+  const rev=+meta.set.rev;
+  $('fHtml').innerHTML=rev?faHtml(c):deHtml(c);
+  $('bHtml').innerHTML=(rev?deHtml(c):faHtml(c))+exHtml(c);
+  const T={learned:'✓ یاد گرفتم',unknown:'✗ بلد نیستم',read:'📖 خواندم'};
+  if(s){bd.hidden=false;bd.className='badge '+s;bd.textContent=T[s];f.classList.add('s-'+s);if(s!=='read')b.classList.add('s-'+s)}
+  else bd.hidden=true;
+  if(filter==='today'){const rv=s==='learned'||s==='unknown';bd.hidden=false;bd.className='badge '+(rv?'read':'learned');bd.textContent=rv?'🔁 مرور':'✨ جدید'}
+}
+const flip=()=>{if(list.length){$('card').classList.toggle('flipped');updSp()}};
+function updSp(){const c=cur(),f=$('card').classList.contains('flipped');$('speak').textContent=f&&c&&c.ex?'💬':'🔊';$('g4').hidden=!f||!c;$('showB').hidden=f||!c}
+function grade(g){if(!$('card').classList.contains('flipped')){flip();return}mark(g);if(navigator.vibrate)navigator.vibrate(8)}
+function todayPool(q){
+  q=q||'';
+  const pool=cards.filter(c=>inDeck(c)&&(!q||c.de.toLowerCase().includes(q)||c.fa.includes(q)||(c.art&&c.art.includes(q))));
+  const fresh=pool.filter(c=>{const s=st[key(c)];return !s||s==='read'}).slice(0,Math.max(meta.set.goal+(meta.extra&&meta.extra.d===today()?meta.extra.n:0)-(meta.nw.d===today()?meta.nw.n:0),0));
+  return meta.set.nf?fresh.concat(pool.filter(isDue)):pool.filter(isDue).concat(fresh);
+}
+const next=()=>{if(!list.length)return;idx=(idx+1)%list.length;render()};
+const prev=()=>{if(!list.length)return;idx=(idx-1+list.length)%list.length;render()};
+function shuffle(){for(let i=list.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[list[i],list[j]]=[list[j],list[i]]}idx=0;render();toast('کارت‌ها به‌هم ریخت')}
+
+function speak(e){
+  e.stopPropagation();const c=cur();if(!c)return;
+  if(!('speechSynthesis' in window)){toast('مرورگر شما از تلفظ پشتیبانی نمی‌کند');return}
+  const sent=$('card').classList.contains('flipped')&&c.ex;
+  const u=new SpeechSynthesisUtterance(sent?c.ex:(c.art&&!c.art.includes('/')?c.art+' ':'')+c.de);
+  u.lang='de-DE';u.rate=sent?.8:.85;
+  const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('de'));if(v)u.voice=v;
+  speechSynthesis.cancel();speechSynthesis.speak(u);
+}
+
+function lastDays(n){const a=[],d=new Date();for(let i=n-1;i>=0;i--){const x=new Date(d);x.setDate(d.getDate()-i);a.push({k:x.getFullYear()+'-'+(x.getMonth()+1)+'-'+x.getDate(),l:fa(x.getDate()),d:x})}return a}
+function pgRender(tab){
+  const H=meta.hist,B=$('pgBody');
+  document.querySelectorAll('#seg button').forEach(b=>b.classList.toggle('on',+b.dataset.t===tab));
+  setTimeout(()=>{const n=B.querySelector('.tile.no');if(n)n.onclick=()=>{$('pg').hidden=true;dfRender();$('df').hidden=false}},0);
+  let ok=0,no=0,rd=0;cards.forEach(c=>{const s=st[key(c)];if(s==='learned')ok++;else if(s==='unknown')no++;else if(s==='read')rd++});
+  if(tab===0){
+    const w=lastDays(7);let a=0,b=0;w.forEach(x=>{const h=H[x.k];if(h){a+=h.ok;b+=h.no}});
+    const acc=a+b?Math.round(a/(a+b)*100):null;
+    const v=w.map(x=>meta.days[x.k]||0),g=meta.set.goal,mx=Math.max(g,...v,1);
+    let bars='';
+    v.forEach((n,i)=>{const h=Math.round(n/mx*80),x=14+i*40;bars+=`<rect x="${x}" y="${96-h}" width="26" height="${h}" rx="5" fill="${n>=g?'var(--ok)':'var(--btn2)'}"/><text x="${x+13}" y="110" text-anchor="middle">${w[i].l}</text>${n?`<text x="${x+13}" y="${92-h}" text-anchor="middle">${fa(n)}</text>`:''}`});
+    const gy=96-Math.round(g/mx*80);
+    B.innerHTML=`<div class="tiles">
+      <div class="tile"><small>بررسی‌شده امروز</small><b>${fa(meta.days[today()]||0)}</b></div>
+      <div class="tile"><small>دقت ۷ روز اخیر</small><b>${acc===null?'—':fa(acc)+'٪'}</b></div>
+      <div class="tile ok"><small>یادگرفته</small><b>${fa(ok)}</b></div>
+      <div class="tile rd"><small>در حال یادگیری (خواندم)</small><b>${fa(rd)}</b></div>
+      <div class="tile no"><small>بلد نیستم</small><b>${fa(no)}</b></div>
+      <div class="tile"><small>مرور امروز</small><b>${$('cDue').textContent}</b></div></div>
+      <div class="cbox"><h3>کارت‌های بررسی‌شده در ۷ روز اخیر</h3><svg viewBox="0 0 300 118"><line x1="8" x2="292" y1="${gy}" y2="${gy}" stroke="var(--mu)" stroke-dasharray="3 3" stroke-width=".7"/>${bars}</svg></div>`;
+  }else if(tab===1){
+    const w=lastDays(14);let cum=0;const pts=w.map(x=>{cum+=(H[x.k]?H[x.k].ok:0);return cum});
+    if(!cum){B.innerHTML='<div class="cbox"><div class="emp">هنوز داده‌ای ثبت نشده. از اولین «یاد گرفتم» شروع می‌شود.</div></div>';return}
+    const mx=Math.max(...pts,1),X=i=>14+i*(272/13),Y=v=>100-v/mx*84;
+    const line=pts.map((v,i)=>X(i)+','+Y(v)).join(' ');
+    let lb='';w.forEach((x,i)=>{if(i%2===0)lb+=`<text x="${X(i)}" y="116" text-anchor="middle">${x.l}</text>`});
+    B.innerHTML=`<div class="cbox"><h3>مجموع «یاد گرفتم»ها در ۱۴ روز اخیر</h3><svg viewBox="0 0 300 122"><polygon points="${X(0)},100 ${line} ${X(13)},100" fill="var(--ok)" opacity=".15"/><polyline points="${line}" fill="none" stroke="var(--ok)" stroke-width="2.5" stroke-linejoin="round"/><circle cx="${X(13)}" cy="${Y(cum)}" r="4" fill="var(--ok)"/><text x="${X(13)}" y="${Y(cum)-8}" text-anchor="middle">${fa(cum)}</text>${lb}</svg></div>`;
+  }else{
+    const rows=lastDays(14).reverse().map(x=>{const h=H[x.k]||{ok:0,no:0,rd:0};return `<tr><td>${x.d.toLocaleDateString('fa-IR',{month:'short',day:'numeric'})}</td><td style="color:var(--ok)">${fa(h.ok)}</td><td style="color:var(--no)">${fa(h.no)}</td></tr>`}).join('');
+    B.innerHTML=`<div class="cbox"><table class="tb"><tr><th>روز</th><th>موفق</th><th>دوباره</th></tr>${rows}</table></div>`;
+  }
+}
+function setDeckChip(){$('deckChip').textContent=deck===null?'📚 همهٔ درس‌ها':'📚 درس '+fa(deck+1)+(sub!==null?' · '+LES[deck].s[sub]:'')}
+function dkRender(){
+  const pr=a=>{let ok=0;a.forEach(c=>{if(st[key(c)]==='learned')ok++});return Math.round(ok/a.length*100)};
+  let h=`<div class="row2 ${deck===null?'cur':''}" data-d="-1"><div><b>همهٔ درس‌ها</b><small>${fa(cards.length)} کارت</small></div></div>`;
+  LES.forEach((L,i)=>{
+    const a=cards.filter(c=>c.l===i);if(!a.length)return;const p=pr(a);
+    h+=`<div class="row2 ${deck===i&&sub===null?'cur':''}" data-d="${i}"><div><b>${i<12?'درس '+fa(i+1)+' · ':''}<span dir="ltr">${esc(L.t)}</span></b><small>${esc(L.f)} · ${fa(a.length)} کارت</small><div class="meter"><i style="width:${p}%"></i></div></div><span>${fa(p)}٪</span></div>`;
+    const ch=L.s.map((n,j)=>({n,j,k:a.filter(c=>c.s===j).length})).filter(x=>x.k);
+    if(ch.length>1)h+=`<div class="subs">${ch.map(x=>`<button class="chip ${deck===i&&sub===x.j?'on':''}" data-d="${i}" data-s="${x.j}">${esc(x.n)} · ${fa(x.k)}</button>`).join('')}</div>`;
+  });
+  const D=$('dkList');D.innerHTML=h;
+  D.querySelectorAll('.row2').forEach(r=>r.onclick=()=>{deck=+r.dataset.d<0?null:+r.dataset.d;sub=null;$('dk').hidden=true;setDeckChip();applyFilters()});
+  D.querySelectorAll('.subs .chip').forEach(b=>b.onclick=()=>{deck=+b.dataset.d;sub=+b.dataset.s;$('dk').hidden=true;setDeckChip();applyFilters()});
+}
+function openCard(k,f){deck=null;sub=null;setDeckChip();setFilter(f);const i=list.findIndex(c=>key(c)===k);if(i>-1){idx=i;render()}$('df').hidden=true}
+function dfRender(){
+  const a=cards.filter(c=>st[key(c)]==='unknown');$('dfN').textContent=fa(a.length);
+  const L=$('dfList');
+  L.innerHTML=a.length?a.map(c=>`<div class="row2" data-k="${esc(key(c))}"><div><b dir="ltr">${esc((c.art?c.art+' ':'')+c.de)}</b><small>${esc(c.fa)}</small></div></div>`).join(''):'<div class="emp">کارت سختی ندارید. آفرین!</div>';
+  L.querySelectorAll('.row2').forEach(r=>r.onclick=()=>openCard(r.dataset.k,'unknown'));
+}
+function nextDue(){let m=Infinity;cards.forEach(c=>{const k=key(c),s=st[k];if((s==='learned'||s==='unknown')&&srs[k]&&dueAt(srs[k])>Date.now())m=Math.min(m,dueAt(srs[k]))});if(m===Infinity)return '—';const d=m-Date.now();const dd=Math.round((sod(m)-sod(Date.now()))/DAY);return dd<=0?(d<36e5?'چند دقیقهٔ دیگر':'امروز'):dd===1?'فردا':fa(dd)+' روز دیگر'}
+function showResult(goal){
+  $('rsT').textContent=goal?'به هدف امروز رسیدید!':'مرور امروز تمام شد';
+  $('rsS').textContent='امروز '+fa(meta.days[today()]||0)+' کارت را بررسی کردید';
+  $('rsN').textContent=nextDue();$('rs').hidden=false;
+  $('cf').innerHTML=Array.from({length:28},(_,i)=>`<i style="left:${Math.random()*100}%;background:${['#3d7a5a','#5b8def','#e07a5f','#f2c14e'][i%4]};animation-delay:${Math.random()*.6}s"></i>`).join('');
+}
+let Q=null;
+function qzStart(){
+  const pool=cards.filter(c=>/^(der|die|das)$/.test(c.art)&&inDeck(c));
+  if(pool.length<4){toast('کلمهٔ کافی برای آزمون نیست');return}
+  for(let i=pool.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[pool[i],pool[j]]=[pool[j],pool[i]]}
+  Q={q:pool.slice(0,10),i:0,ok:0,bad:[],lock:false};$('qz').hidden=false;qzShow();
+}
+function qzShow(){
+  const B=$('qzBody');Q.lock=false;
+  if(Q.i>=Q.q.length){
+    B.innerHTML=`<div class="tile" style="text-align:center"><small>نتیجه</small><b>${fa(Q.ok)} از ${fa(Q.q.length)}</b></div>`+(Q.bad.length?`<div class="cbox"><h3>اشتباه‌ها (به مرور اضافه شد)</h3>${Q.bad.map(c=>`<div class="row2" style="cursor:default"><div><b dir="ltr">${esc(c.art+' '+c.de)}</b><small>${esc(c.fa)}</small></div></div>`).join('')}</div>`:'<div class="emp">همه درست بود. آفرین!</div>')+'<button class="sm" id="qzAgain" style="background:var(--btn);color:#f7f3eb;border:0;padding:12px;margin-top:8px">دور تازه</button>';
+    $('qzAgain').onclick=qzStart;return;
+  }
+  const c=Q.q[Q.i];
+  B.innerHTML=`<div class="prog">${fa(Q.i+1)} / ${fa(Q.q.length)}</div><div class="qcard"><div class="fa">${esc(c.fa)}</div><div class="de">${esc(c.de)}</div><div id="qzFb"></div></div><div class="ctrl" id="qzOpts">${['der','die','das'].map(a=>`<button class="qo" data-a="${a}">${a}</button>`).join('')}</div>`;
+  B.querySelectorAll('.qo').forEach(b=>b.onclick=()=>qzAnswer(b));
+}
+function qzAnswer(btn){
+  if(Q.lock)return;Q.lock=true;
+  const c=Q.q[Q.i],a=btn.dataset.a,ok=a===c.art,k=key(c),t=today();
+  count(k,t);bump(ok?'good':'again',t);
+  if(ok)Q.ok++;else{Q.bad.push(c);st[k]='unknown';schedule(c,'again')}
+  document.querySelectorAll('.qo').forEach(b=>{if(b.dataset.a===c.art)b.classList.add('right');else if(b===btn)b.classList.add('wrong')});
+  $('qzFb').style.color=ok?'var(--ok)':'var(--no)';
+  $('qzFb').textContent=(ok?'درست! ':'اشتباه. ')+c.art+' '+c.de;
+  save();stats();
+  setTimeout(()=>{Q.i++;qzShow()},ok?800:1900);
+}
+function theme(){document.documentElement.dataset.theme=meta.set.theme}
+
+const stage=$('stage');let sx=0,dx=0,drag=false,moved=false;
+stage.addEventListener('pointerdown',e=>{if(e.target.closest('.speak'))return;drag=true;moved=false;sx=e.clientX;dx=0;stage.style.transition='none'});
+stage.addEventListener('pointermove',e=>{
+  if(!drag)return;dx=e.clientX-sx;
+  if(Math.abs(dx)>8)moved=true;
+  if(moved){stage.style.transform=`translateX(${dx}px) rotate(${dx/30}deg)`;stage.dataset.dir=dx>0?'r':'l';stage.style.setProperty('--p',Math.min(Math.abs(dx)/110,1))}
+});
+function endDrag(){
+  if(!drag)return;drag=false;stage.style.transition='';
+  if(!moved){flip();return}
+  stage.style.setProperty('--p',0);
+  if(Math.abs(dx)>100&&cur()&&!$('card').classList.contains('flipped')){stage.style.transform='';flip()}
+  else if(Math.abs(dx)>100&&cur()){
+    const s=dx>0?'good':'again';
+    stage.style.transform=`translateX(${dx>0?480:-480}px)`;stage.style.opacity=0;
+    setTimeout(()=>{stage.style.transition='none';stage.style.transform='';stage.style.opacity='';mark(s);void stage.offsetWidth;stage.style.transition=''},170);
+  }else stage.style.transform='';
+}
+stage.addEventListener('pointerup',endDrag);
+stage.addEventListener('pointercancel',()=>{drag=false;stage.style.transition='';stage.style.transform='';stage.style.setProperty('--p',0)});
+
+document.querySelectorAll('[data-g]').forEach(b=>b.onclick=()=>grade(b.dataset.g));
+$('showB').onclick=flip;
+$('srchBtn').onclick=()=>{const q=$('q');q.hidden=!q.hidden;if(!q.hidden)q.focus();else{q.value='';applyFilters()}};
+$('obGo').onclick=()=>{$('ob').hidden=true;meta.ob=1;save()};
+document.querySelectorAll('.chip[data-f]').forEach(b=>b.onclick=()=>setFilter(b.dataset.f));
+$('deckChip').onclick=()=>{dkRender();$('dk').hidden=false};
+$('qzBtn').onclick=qzStart;
+$('closeQz').onclick=()=>{$('qz').hidden=true};
+$('closeDk').onclick=()=>{$('dk').hidden=true};
+$('closeDf').onclick=()=>{$('df').hidden=true};
+$('dfGo').onclick=()=>{deck=null;sub=null;setDeckChip();setFilter('unknown');$('df').hidden=true};
+$('rsOk').onclick=()=>{$('rs').hidden=true;$('cf').innerHTML=''};
+$('rsPg').onclick=()=>{$('rs').hidden=true;$('cf').innerHTML='';$('pg').hidden=false;pgRender(0)};
+$('favB').onclick=e=>{e.stopPropagation();const c=cur();if(!c)return;const k=key(c);if(meta.fav[k]){delete meta.fav[k];toast('از ذخیره‌ها برداشته شد')}else{meta.fav[k]=1;toast('ذخیره شد')}save();$('favB').textContent=meta.fav[k]?'★':'☆'};
+$('q').oninput=applyFilters;
+$('speak').onclick=speak;
+$('flipB').onclick=flip;$('nextB').onclick=next;$('prevB').onclick=prev;
+$('undoB').onclick=undo;$('shufB').onclick=()=>{shuffle();$('panel').hidden=true};
+$('setBtn').onclick=()=>{$('panel').hidden=false};
+$('pgBtn').onclick=()=>{$('pg').hidden=false;pgRender(0)};
+$('closePg').onclick=()=>{$('pg').hidden=true};
+document.querySelectorAll('#seg button').forEach(b=>b.onclick=()=>pgRender(+b.dataset.t));
+$('closeP').onclick=()=>{$('panel').hidden=true};
+$('fsBtn').onclick=()=>{const d=document.documentElement;if(document.fullscreenElement)document.exitFullscreen();else if(d.requestFullscreen)d.requestFullscreen().catch(()=>toast('مرورگر اجازه نداد'));else toast('این مرورگر تمام‌صفحه ندارد؛ از Add to Home Screen استفاده کنید')};
+$('themeBtn').onclick=()=>{meta.set.theme=meta.set.theme==='dark'?'light':'dark';theme();save()};
+$('revSel').onchange=e=>{meta.set.rev=+e.target.value;save();render()};
+$('goalSel').onchange=e=>{meta.set.goal=+e.target.value;save();stats()};
+$('calSel').onchange=e=>{meta.set.cal=e.target.value;save();tick()};
+$('ordSel').onchange=e=>{meta.set.nf=+e.target.value;save();if(filter==='today')applyFilters()};
+$('rsBk').onclick=()=>$('expBtn').click();
+$('obImp').onclick=()=>$('impFile').click();
+$('rsMore').onclick=()=>{const t=today();if(!meta.extra||meta.extra.d!==t)meta.extra={d:t,n:0};meta.extra.n+=10;save();$('rs').hidden=true;$('cf').innerHTML='';stats();setFilter('today')};
+$('autoChk').onchange=e=>{meta.set.auto=e.target.checked;save()};
+
+$('expBtn').onclick=()=>{
+  const blob=new Blob([JSON.stringify({v:3,status:st,srs,meta},null,1)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='goethe-a1-progress.json';a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),1000);toast('فایل پیشرفت ساخته شد');
+};
+$('impBtn').onclick=()=>$('impFile').click();
+$('impFile').onchange=e=>{
+  const f=e.target.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=()=>{try{
+    const d=JSON.parse(r.result);if(!d.status)throw 0;
+    st=d.status;srs=d.srs||{};meta=Object.assign({days:{}},d.meta||{});meta.set=Object.assign({rev:0,goal:20,auto:true,theme:'light'},meta.set);
+    save();$('ob').hidden=true;init();toast('پیشرفت وارد شد');
+  }catch(err){toast('فایل معتبر نیست')}};
+  r.readAsText(f);e.target.value='';
+};
+let armed=0;
+$('clrBtn').onclick=e=>{
+  if(!armed){armed=1;e.target.textContent='مطمئنید؟ دوباره بزنید';setTimeout(()=>{armed=0;e.target.textContent='پاک کردن همه علامت‌ها'},3000);return}
+  armed=0;st={};srs={};meta.days={};meta.hist={};last=null;save();e.target.textContent='پاک کردن همه علامت‌ها';$('q').value='';setFilter('all');stats();toast('همه علامت‌ها پاک شد');
+};
+
+document.addEventListener('keydown',e=>{
+  if(e.target.tagName==='INPUT'||e.target.tagName==='SELECT')return;
+  if(e.code==='Space'){e.preventDefault();flip()}
+  else if(e.code==='ArrowRight')next();
+  else if(e.code==='ArrowLeft')prev();
+  else if(e.key==='1')grade('again');
+  else if(e.key==='2')grade('hard');
+  else if(e.key==='3')grade('good');
+  else if(e.key==='4')grade('easy');
+  else if(e.key==='Enter'&&e.target.id==='card')flip();
+  else if(e.key==='z'||e.key==='Z')undo();
+  else if(e.key==='Escape'){['panel','pg','dk','df','rs','qz'].forEach(i=>$(i).hidden=true)}
+});
+
+function tick(){try{const n=new Date();$('clock').textContent=new Intl.DateTimeFormat('fa-IR-u-ca-'+(meta.set.cal||'persian'),{weekday:'long',day:'numeric',month:'long'}).format(n)+' · '+new Intl.DateTimeFormat('fa-IR',{hour:'2-digit',minute:'2-digit',hour12:false}).format(n)}catch(e){$('clock').textContent=new Date().toLocaleString()}}
+setInterval(tick,10000);
+let curDay=today();
+function dayCheck(){const d=today();if(d!==curDay){curDay=d;stats();if(filter==='today')applyFilters();toast('روز جدید؛ صف امروز به‌روز شد')}}
+setInterval(dayCheck,30000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)dayCheck()});
+function init(){
+  meta.days=meta.days||{};meta.hist=meta.hist||{};meta.fav=meta.fav||{};meta.seen=meta.seen||{d:'',k:{}};meta.nw=meta.nw||{d:'',n:0};
+  cards.forEach((c,i)=>c._i=i);
+  theme();
+  $('revSel').value=meta.set.rev;$('goalSel').value=meta.set.goal;$('autoChk').checked=meta.set.auto;$('ordSel').value=meta.set.nf?1:0;$('calSel').value=meta.set.cal||'persian';tick();
+  stats();setFilter('today');
+  if(!meta.ob&&!Object.keys(st).length)$('ob').hidden=false;
+}
+init();
+if(!storageOK)toast('⚠ ذخیره‌سازی کار نمی‌کند؛ پیشرفت ثبت نمی‌شود');
+idbOpen().then(async()=>{
+  const d=await idbGet();
+  const empty=!Object.keys(st).length&&!Object.keys(meta.days||{}).length;
+  if(d&&empty&&d.st&&Object.keys(d.st).length){
+    st=d.st;srs=d.srs||{};meta=d.meta||{};meta.set=Object.assign({rev:0,goal:20,auto:true,theme:'light'},meta.set);
+    save();init();toast('پیشرفت از حافظهٔ پشتیبان بازیابی شد');
+  }else idbPut();
+  updStore();
+});
+if(navigator.storage&&navigator.storage.persist)navigator.storage.persist().then(g=>{persisted=g;updStore()}).catch(()=>{});
+</script>
+</body>
+</html>
