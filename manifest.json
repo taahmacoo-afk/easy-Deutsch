@@ -1,0 +1,38 @@
+{
+  "name": "easy-Deutsch – Goethe A1",
+  "short_name": "easy-Deutsch",
+  "description": "فلش‌کارت واژگان آلمانی سطح A1 – Goethe Fit in Deutsch 1",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f7f3eb",
+  "theme_color": "#1a3c34",
+  "orientation": "portrait",
+  "lang": "fa",
+  "dir": "rtl",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
