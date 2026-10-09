@@ -1,4 +1,5 @@
-const CACHE_NAME = "easy-deutsch-v1";
+
+const CACHE_NAME = "easy-deutsch-v2";
 
 const FILES_TO_CACHE = [
   "./",
@@ -8,7 +9,7 @@ const FILES_TO_CACHE = [
   "./icon-512.png"
 ];
 
-// نصب و کش کردن فایل‌های اصلی
+// Install: cache the app files
 self.addEventListener("install", event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -17,26 +18,66 @@ self.addEventListener("install", event => {
   );
 });
 
-// فعال‌سازی و پاک کردن کش‌های قدیمی
+// Activate: remove old caches
 self.addEventListener("activate", event => {
   event.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(
-        keys
-          .filter(key => key !== CACHE_NAME)
-          .map(key => caches.delete(key))
+    caches.keys()
+      .then(keys =>
+        Promise.all(
+          keys
+            .filter(key => key !== CACHE_NAME)
+            .map(key => caches.delete(key))
+        )
       )
-    ).then(() => self.clients.claim())
+      .then(() => self.clients.claim())
   );
 });
 
-// استراتژی: اول کش، اگر نبود از شبکه
+// Network first for HTML; cache first for other files
 self.addEventListener("fetch", event => {
-  // فقط درخواست‌های همون دامنه رو مدیریت کن
-  if (event.request.url.startsWith(self.location.origin)) {
+  const request = event.request;
+
+  if (
+    request.method !== "GET" ||
+    !request.url.startsWith(self.location.origin)
+  ) {
+    return;
+  }
+
+  const isHTML =
+    request.mode === "navigate" ||
+    request.destination === "document";
+
+  if (isHTML) {
     event.respondWith(
-      caches.match(event.request)
-        .then(response => response || fetch(event.request))
+      fetch(request)
+        .then(response => {
+          if (response.ok) {
+            const copy = response.clone();
+            caches.open(CACHE_NAME)
+              .then(cache => cache.put(request, copy));
+          }
+          return response;
+        })
+        .catch(() => caches.match(request)
+          .then(response =>
+            response || caches.match("./index.html")
+          )
+        )
+    );
+  } else {
+    event.respondWith(
+      caches.match(request)
+        .then(response =>
+          response || fetch(request).then(networkResponse => {
+            if (networkResponse.ok) {
+              const copy = networkResponse.clone();
+              caches.open(CACHE_NAME)
+                .then(cache => cache.put(request, copy));
+            }
+            return networkResponse;
+          })
+        )
     );
   }
 });
