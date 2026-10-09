@@ -6,10 +6,7 @@
 <meta name="theme-color" content="#1a3c34">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>فلش‌کارت‌های Goethe A1 – Fit in Deutsch 1</title>
-<link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="icon-192.png">
 <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root{--btn:#1a3c34;--btn2:#2d5a4e;--g:#1a3c34;--bg:#f7f3eb;--surf:#fff;--tx:#1a1a1a;--mu:#6b6b6b;--ln:rgba(26,60,52,.14);--ok:#3d7a5a;--ok-bg:#e8f5ef;--no:#c45c4a;--no-bg:#fdecea;--rd:#5b8def;--rd-bg:#eef4ff;--back:#1a3c34;--sh:0 8px 30px rgba(26,60,52,.1);
@@ -31,15 +28,16 @@ button{font-family:inherit;cursor:pointer;border:0;transition:transform .15s,bac
 button:active{transform:scale(.97)}
 button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--rd);outline-offset:2px}
 .ic{width:40px;height:40px;border-radius:50%;background:var(--surf);color:var(--g);font-size:1.05rem;border:1px solid var(--ln)}
-#panel,#pg,#dk,#df,#rs,#qz,#ob{position:fixed;inset:0;z-index:30;background:var(--bg);padding:max(16px,env(safe-area-inset-top)) 16px 16px;overflow:auto;display:flex;flex-direction:column;gap:12px;font-size:.9rem;align-items:center}
-#panel[hidden],#pg[hidden],#dk[hidden],#df[hidden],#rs[hidden],#qz[hidden],#ob[hidden]{display:none}
-#panel>*,#pg>*,#dk>*,#df>*,#rs>*,#qz>*,#ob>*{width:100%;max-width:560px}
+#panel,#pg,#dk,#df,#rs,#qz,#ob,#em,#ex{position:fixed;inset:0;z-index:30;background:var(--bg);padding:max(16px,env(safe-area-inset-top)) 16px 16px;overflow:auto;display:flex;flex-direction:column;gap:12px;font-size:.9rem;align-items:center}
+#panel[hidden],#pg[hidden],#dk[hidden],#df[hidden],#rs[hidden],#qz[hidden],#ob[hidden],#em[hidden],#ex[hidden]{display:none}
+#panel>*,#pg>*,#dk>*,#df>*,#rs>*,#qz>*,#ob>*,#em>*,#ex>*{width:100%;max-width:560px}
 .ph{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:1.05rem}
 #panel label{display:flex;justify-content:space-between;align-items:center;gap:10px}
 select{font-family:inherit;padding:6px 8px;border-radius:8px;border:1px solid var(--ln);background:var(--bg);color:var(--tx)}
 .row{display:flex;gap:8px;flex-wrap:wrap}
 .sm{padding:8px 12px;border-radius:10px;background:var(--bg);color:var(--tx);border:1px solid var(--ln);font-size:.8rem}
-.sm.danger{color:var(--no)}
+.sm.danger{color:#a8382a}
+[data-theme=dark] .sm.danger{color:#ff9f8e}
 .daily{background:var(--surf);border:1px solid var(--ln);border-radius:12px;padding:6px 10px;margin-bottom:6px;font-size:.76rem}
 .daily .l{display:flex;justify-content:space-between;margin-bottom:4px;color:var(--mu)}
 .daily b{color:var(--tx)}
@@ -74,7 +72,7 @@ input[type=text]{width:100%;padding:7px 12px;border-radius:12px;border:1px solid
 .a-der{color:var(--der);background:var(--der-bg)}.a-die{color:var(--die);background:var(--die-bg)}.a-das{color:var(--das);background:var(--das-bg)}
 .a-der-die{color:var(--der);background:linear-gradient(90deg,var(--der-bg) 50%,var(--die-bg) 50%)}
 .badge{position:absolute;top:14px;left:14px;font-size:.72rem;padding:3px 10px;border-radius:20px;font-weight:700;color:#fff}
-.badge.learned{background:var(--ok)}.badge.unknown{background:var(--no)}.badge.read{background:var(--rd)}
+.badge.learned{background:#2f7a55}.badge.unknown{background:#b4483a}.badge.read{background:#2f5fd0}
 .speak{position:absolute;top:12px;right:12px;width:36px;height:36px;border-radius:50%;background:var(--surf);color:var(--tx);border:1px solid var(--ln);z-index:5;font-size:.95rem}
 .sw{position:absolute;top:50%;margin-top:-26px;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:#fff;opacity:0;pointer-events:none;z-index:6}
 .sw.r{left:14px;background:var(--ok)}.sw.l{right:14px;background:var(--no)}
@@ -82,10 +80,10 @@ input[type=text]{width:100%;padding:7px 12px;border-radius:12px;border:1px solid
 .ctrl{display:flex;gap:8px;margin-bottom:8px}
 .ctrl button{flex:1;padding:13px 4px;border-radius:14px;background:var(--btn);color:#f7f3eb;font-size:.9rem;font-weight:700}
 .ctrl button:hover{background:var(--btn2)}
-.ctrl .rd{background:var(--rd)}.ctrl .ok{background:var(--ok)}.ctrl .no{background:var(--no)}
+.ctrl .rd{background:#2f5fd0}.ctrl .ok{background:#2f7a55}.ctrl .no{background:#b4483a}
 .ctrl .ghost{background:var(--surf);color:var(--tx);border:1px solid var(--ln);font-weight:500}
 .hint{font-size:.8rem;color:var(--mu);line-height:2}
-#toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(20px);background:#1a1a1a;color:#fff;padding:9px 16px;border-radius:20px;font-size:.82rem;opacity:0;pointer-events:none;transition:.25s;z-index:20}
+#toast{z-index:60;position:fixed;bottom:20px;left:50%;transform:translateX(-50%) translateY(20px);background:#1a1a1a;color:#fff;padding:9px 16px;border-radius:20px;font-size:.82rem;opacity:0;pointer-events:none;transition:.25s;}
 #toast.on{opacity:1;transform:translateX(-50%)}
 #pg{gap:10px}
 .seg{display:flex;background:var(--ln);border-radius:12px;padding:3px}
@@ -107,6 +105,10 @@ input[type=text]{width:100%;padding:7px 12px;border-radius:12px;border:1px solid
 .row2{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--surf);border:1px solid var(--ln);border-radius:14px;padding:10px 12px;cursor:pointer;margin-bottom:8px}
 .row2.cur{border:2px solid var(--ok)}.row2>div{flex:1}.row2 small{display:block;color:var(--mu);font-size:.75rem;margin:2px 0 5px}.row2 b{font-size:.92rem}
 .tile.no{cursor:pointer}
+.xo{display:block;width:100%;text-align:start;padding:14px;border-radius:14px;background:var(--surf);border:2px solid var(--ln);color:var(--tx);font-size:1rem;margin-bottom:8px}
+.xo.right{border-color:var(--ok);background:var(--ok-bg)}.xo.wrong{border-color:var(--no);background:var(--no-bg)}
+.xi{width:100%;padding:14px;border-radius:14px;border:2px solid var(--ln);background:var(--surf);color:var(--tx);font-size:1.1rem;margin-bottom:8px}
+.uk{display:flex;gap:8px;margin-bottom:8px}.uk .sm{flex:1;font-size:1.1rem;padding:10px}
 input[type=text][hidden]{display:none}
 .big{width:100%;padding:14px;border-radius:14px;background:var(--btn);color:#f7f3eb;font-size:1rem;font-weight:700;margin-bottom:8px}
 .big[hidden],.g4[hidden]{display:none}
@@ -179,6 +181,15 @@ input[type=text][hidden]{display:none}
     </div>
   </div>
 
+  <div id="em" hidden>
+    <div class="ph"><span>آزمون‌ها</span><button class="ic" id="closeEm" aria-label="بستن">✕</button></div>
+    <div class="row2" id="emA"><div><b>آزمون آرتیکل</b><small>der / die / das از اسم‌های یادگرفته‌شده</small></div></div>
+    <div class="row2" id="emX"><div><b>آزمون ۳۰ سؤالی تطبیقی</b><small>واژگان و گرامر تا درسی که خوانده‌اید</small></div></div>
+  </div>
+  <div id="ex" hidden>
+    <div class="ph"><span>آزمون ۳۰ سؤالی</span><button class="ic" id="closeEx" aria-label="بستن">✕</button></div>
+    <div id="exBody"></div>
+  </div>
   <div id="qz" hidden>
     <div class="ph"><span>آزمون آرتیکل</span><button class="ic" id="closeQz" aria-label="بستن">✕</button></div>
     <div id="qzBody"></div>
@@ -920,7 +931,7 @@ const DAY=864e5,STEPS=[0,1,3,7,14,30];
 const $=id=>document.getElementById(id);
 const fa=n=>Number(n).toLocaleString('fa-IR');
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const load=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))||d}catch(e){return d}};
+const load=(k,d)=>{try{const v=JSON.parse(localStorage.getItem(k));return v&&typeof v==='object'&&!Array.isArray(v)?v:d}catch(e){return d}};
 let storageOK=(()=>{try{localStorage.setItem('__t','1');localStorage.removeItem('__t');return true}catch(e){return false}})(),persisted=false,idb=null;
 function save(){
   try{if(meta&&meta.set)meta.savedAt=Date.now()}catch(e){}
@@ -1035,7 +1046,9 @@ const exHtml=c=>c.ex?`<div class="ex">${esc(c.ex)}</div>`:'';
 
 function render(){
   const f=$('front'),b=$('back'),bd=$('badge');
-  $('card').classList.remove('flipped');updSp();
+  const cd=$('card');
+  if(cd.classList.contains('flipped')){cd.style.transition='none';cd.classList.remove('flipped');void cd.offsetWidth;cd.style.transition=''}
+  updSp();
   f.className='face front';b.className='face back';
   if(!list.length){
     $('fHtml').innerHTML='<div class="fa">'+(filter==='today'?'امروز کاری ندارید 🎉':'کارتی پیدا نشد')+'</div>';
@@ -1054,9 +1067,10 @@ function render(){
   else bd.hidden=true;
   if(filter==='today'){const rv=s==='learned'||s==='unknown';bd.hidden=false;bd.className='badge '+(rv?'read':'learned');bd.textContent=rv?'🔁 مرور':'✨ جدید'}
 }
-const flip=()=>{if(list.length){$('card').classList.toggle('flipped');updSp()}};
+let lastFlip=0;
+const flip=()=>{if(list.length){lastFlip=Date.now();$('card').classList.toggle('flipped');updSp()}};
 function updSp(){const c=cur(),f=$('card').classList.contains('flipped');$('speak').textContent=f&&c&&c.ex?'💬':'🔊';$('g4').hidden=!f||!c;$('showB').hidden=f||!c}
-function grade(g){if(!$('card').classList.contains('flipped')){flip();return}mark(g);if(navigator.vibrate)navigator.vibrate(8)}
+function grade(g){if(!$('card').classList.contains('flipped')){flip();return}if(Date.now()-lastFlip<450)return;mark(g);if(navigator.vibrate)navigator.vibrate(8)}
 function todayPool(q){
   q=q||'';
   const pool=cards.filter(c=>inDeck(c)&&(!q||c.de.toLowerCase().includes(q)||c.fa.includes(q)||(c.art&&c.art.includes(q))));
@@ -1140,10 +1154,10 @@ function showResult(goal){
 }
 let Q=null;
 function qzStart(){
-  const pool=cards.filter(c=>/^(der|die|das)$/.test(c.art)&&inDeck(c));
-  if(pool.length<4){toast('کلمهٔ کافی برای آزمون نیست');return}
+  const pool=cards.filter(c=>/^(der|die|das)$/.test(c.art)&&inDeck(c)&&st[key(c)]==='learned');
+  if(pool.length<4){toast('فقط '+fa(pool.length)+' اسم یادگرفته‌شده دارید؛ حداقل ۴ لازم است');return}
   for(let i=pool.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[pool[i],pool[j]]=[pool[j],pool[i]]}
-  Q={q:pool.slice(0,10),i:0,ok:0,bad:[],lock:false};$('qz').hidden=false;qzShow();
+  Q={n:pool.length,q:pool.slice(0,10),i:0,ok:0,bad:[],lock:false};$('qz').hidden=false;qzShow();
 }
 function qzShow(){
   const B=$('qzBody');Q.lock=false;
@@ -1152,7 +1166,7 @@ function qzShow(){
     $('qzAgain').onclick=qzStart;return;
   }
   const c=Q.q[Q.i];
-  B.innerHTML=`<div class="prog">${fa(Q.i+1)} / ${fa(Q.q.length)}</div><div class="qcard"><div class="fa">${esc(c.fa)}</div><div class="de">${esc(c.de)}</div><div id="qzFb"></div></div><div class="ctrl" id="qzOpts">${['der','die','das'].map(a=>`<button class="qo" data-a="${a}">${a}</button>`).join('')}</div>`;
+  B.innerHTML=`<div class="prog">${fa(Q.i+1)} / ${fa(Q.q.length)}</div><div class="emp" style="padding:0 0 8px">از ${fa(Q.n)} اسم یادگرفته‌شده</div><div class="qcard"><div class="fa">${esc(c.fa)}</div><div class="de">${esc(c.de)}</div><div id="qzFb"></div></div><div class="ctrl" id="qzOpts">${['der','die','das'].map(a=>`<button class="qo" data-a="${a}">${a}</button>`).join('')}</div>`;
   B.querySelectorAll('.qo').forEach(b=>b.onclick=()=>qzAnswer(b));
 }
 function qzAnswer(btn){
@@ -1166,6 +1180,157 @@ function qzAnswer(btn){
   save();stats();
   setTimeout(()=>{Q.i++;qzShow()},ok?800:1900);
 }
+/* ===== Exam (30 adaptive questions) ===== */
+const XQ=30;let X=null;
+const SK={v1:'معنی واژه (آلمانی←فارسی)',v2:'معنی واژه (فارسی←آلمانی)',v3:'آرتیکل اسم‌ها',v4:'جای خالی در جمله',v5:'آرتیکل + واژه',v6:'املا و نوشتن',cj:'صرف فعل',md:'مودال‌ها',pf:'گذشته (Perfekt/Präteritum)',cs:'حالت‌ها و آرتیکل',ps:'ملکی‌ها و kein',pl:'جمع اسم‌ها'};
+const shf=a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+const uniq=a=>[...new Set(a)];
+const lo=(w,d)=>{const c=cards.find(c=>c.de.toLowerCase()===w.toLowerCase());return c?c.l+1:d};
+const tlo=t=>Math.max(1,...t.split(' ').map(w=>lo(w,1)));
+const NZ=s=>String(s).toLowerCase().replace(/ä/g,'ae').replace(/ö/g,'oe').replace(/ü/g,'ue').replace(/ß/g,'ss').replace(/[.,!?;:"“”]/g,'').replace(/\s+/g,' ').trim();
+function lev(a,b){const m=a.length,n=b.length,d=Array.from({length:m+1},(_,i)=>[i]);for(let j=1;j<=n;j++)d[0][j]=j;for(let i=1;i<=m;i++)for(let j=1;j<=n;j++)d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));return d[m][n]}
+const mc=(id,ar,sk,lvl,l,p,ins,ans,dis,note,ck)=>({id,ar,sk,lvl,l,fmt:'mc',p,ins,ans,dis:uniq(dis).filter(x=>x!==ans),note,ck});
+const tp=(id,ar,sk,lvl,l,p,ins,acc,note,fz,ck)=>({id,ar,sk,lvl:Math.min(lvl,6),l,fmt:'type',p,ins,acc,ans:acc[0],note,fz,ck});
+const SUBJ=['Ich','Du','Er','Wir','Ihr','Anna und Tom'];
+const rf=v=>{const s=v.replace(/e?n$/,''),t=/[td]$/.test(s),z=/[sßzx]$/.test(s);return[s+'e',s+(t?'est':z?'t':'st'),s+(t?'et':'t'),v,s+(t?'et':'t'),v]};
+const REG=[['wohnen','in Berlin'],['kommen','aus Iran'],['heißen','Müller'],['machen','Sport'],['lernen','Deutsch'],['spielen','Musik'],['arbeiten','in Berlin'],['kochen','Suppe'],['kaufen','Brot'],['brauchen','Hilfe'],['reisen','nach Berlin'],['tanzen','gern'],['hören','Musik']];
+const IRR=[['sein','bin,bist,ist,sind,seid,sind',1,'in Berlin',[1,4],0],['möchten','möchte,möchtest,möchte,möchten,möchtet,möchten',1,'eine Pizza',[0,1,2],1],['sprechen','spreche,sprichst,spricht,sprechen,sprecht,sprechen',1,'Deutsch',[1,2],0],['haben','habe,hast,hat,haben,habt,haben',3,'Hunger',[1,2],0],['essen','esse,isst,isst,essen,esst,essen',3,'Brot',[1,2],0],['lesen','lese,liest,liest,lesen,lest,lesen',3,'ein Buch',[1,2],0],['sehen','sehe,siehst,sieht,sehen,seht,sehen',3,'Anna',[1,2],0],['nehmen','nehme,nimmst,nimmt,nehmen,nehmt,nehmen',4,'den Bus',[1,2],0],['fahren','fahre,fährst,fährt,fahren,fahrt,fahren',4,'nach Berlin',[1,2],0],['schlafen','schlafe,schläfst,schläft,schlafen,schlaft,schlafen',4,'gut',[1,2],0],['laufen','laufe,läufst,läuft,laufen,lauft,laufen',5,'schnell',[1,2],0],['treffen','treffe,triffst,trifft,treffen,trefft,treffen',5,'Anna',[1,2],0],['können','kann,kannst,kann,können,könnt,können',5,'gut schwimmen',[0,1,2],1],['müssen','muss,musst,muss,müssen,müsst,müssen',5,'heute arbeiten',[0,1,2],1],['wollen','will,willst,will,wollen,wollt,wollen',9,'ein Eis essen',[0,1,2],1],['mögen','mag,magst,mag,mögen,mögt,mögen',9,'Pizza',[0,1,2],1],['dürfen','darf,darfst,darf,dürfen,dürft,dürfen',11,'heute kommen',[0,1,2],1],['sollen','soll,sollst,soll,sollen,sollt,sollen',12,'Wasser trinken',[0,1,2],1]];
+const NOLO=new Set(['sein','haben','möchten','sprechen','können','müssen','wollen','dürfen','sollen','mögen']);
+const PF=[['spielen','haben','gespielt',7,'Musik'],['machen','haben','gemacht',7,'Sport'],['lernen','haben','gelernt',7,'Deutsch'],['kaufen','haben','gekauft',7,'Brot'],['wohnen','haben','gewohnt',7,'in Berlin'],['arbeiten','haben','gearbeitet',7,'viel'],['kochen','haben','gekocht',7,'Suppe'],['hören','haben','gehört',7,'Musik'],['gehen','sein','gegangen',10,'nach Hause'],['fahren','sein','gefahren',10,'nach Berlin'],['kommen','sein','gekommen',10,'spät'],['bleiben','sein','geblieben',10,'zu Hause'],['fliegen','sein','geflogen',10,'nach Spanien'],['essen','haben','gegessen',10,'Brot'],['trinken','haben','getrunken',10,'Tee'],['sehen','haben','gesehen',10,'Anna'],['schreiben','haben','geschrieben',10,'eine E-Mail'],['lesen','haben','gelesen',10,'ein Buch'],['schlafen','haben','geschlafen',10,'gut'],['nehmen','haben','genommen',10,'den Bus']];
+const gP=s=>s.split('|').flatMap(x=>{const[g,l]=x.split(':');return l.split(',').map(w=>({w,g}))});
+const NA=gP('m:Bruder,Kaffee,Tisch,Apfel,Computer,Kuchen,Stuhl,Schrank,Garten,Zug,Salat,Fisch|f:Schwester,Lampe,Tasche,Banane,Suppe,Küche,Wohnung,Familie,Tomate,Flasche,Tür,Wurst|n:Buch,Auto,Kind,Brot,Haus,Handy,Fenster,Bett,Zimmer,Ei,Fahrrad,Hotel');
+const LC=gP('m:Garten,Supermarkt,Park|f:Küche,Wohnung,Stadt,Schule|n:Haus,Zimmer,Bad,Hotel,Büro,Restaurant');
+const VH=gP('m:Bus,Zug|f:Bahn,U-Bahn,S-Bahn|n:Auto,Fahrrad,Taxi,Flugzeug,Schiff');
+const PR=gP('m:Arzt,Chef,Freund,Lehrer|f:Ärztin,Freundin,Lehrerin,Chefin');
+const AI={m:'einen',f:'eine',n:'ein'},DT={m:'dem',f:'der',n:'dem'},D5=['dem','der','den','die','das'],D4=['ein','eine','einen','einem'];
+const CS=[['nom',2,2,SK.cs,NA,'Das ist ___ {N}.','آرتیکل نکره (حالت فاعلی)',{m:'ein',f:'eine',n:'ein'},D4,'مذکر و خنثی ein، مؤنث eine.',0],['kein',2,2,SK.ps,NA,'Das ist ___ {N}.','شکل منفی با kein-',{m:'kein',f:'keine',n:'kein'},['kein','keine','keinen','nicht'],'مذکر و خنثی kein، مؤنث keine.',0],['ai',4,3,SK.cs,NA,'Ich brauche ___ {N}.','آرتیکل نکره (مفعولی – Akkusativ)',AI,D4,'در Akkusativ فقط مذکر عوض می‌شود: einen.',1],['ad',4,3,SK.cs,NA,'Ich sehe ___ {N}.','آرتیکل معرفه (مفعولی – Akkusativ)',{m:'den',f:'die',n:'das'},['der','die','das','den','dem'],'Akkusativ: مذکر den، مؤنث die، خنثی das.',1],['an',4,4,SK.ps,NA,'Ich habe ___ {N}.','شکل منفی (مفعولی)',{m:'keinen',f:'keine',n:'kein'},['kein','keine','keinen','keinem'],'منفیِ Akkusativ مذکر: keinen.',0],['gb',6,4,SK.cs,NA,'Hier gibt es ___ {N}.','es gibt + Akkusativ',AI,D4,'بعد از es gibt حالت Akkusativ می‌آید.',0],['di',6,5,SK.cs,LC,'Ich bin in ___ {N}.','آرتیکل معرفه بعد از in (Dativ)',DT,D5,'در Dativ: مذکر و خنثی dem، مؤنث der.',1],['dm',8,4,SK.cs,VH,'Ich fahre mit ___ {N}.','آرتیکل معرفه بعد از mit (Dativ)',DT,D5,'mit همیشه Dativ می‌گیرد.',1],['dz',11,5,SK.cs,PR,'Ich gehe zu ___ {N}.','آرتیکل معرفه بعد از zu (Dativ)',DT,D5,'zu همیشه Dativ می‌گیرد.',0]];
+const PLS='Apfel:Äpfel,Banane:Bananen,Brot:Brote,Brötchen:Brötchen,Ei:Eier,Fisch:Fische,Kartoffel:Kartoffeln,Kuchen:Kuchen,Suppe:Suppen,Tomate:Tomaten,Wurst:Würste,Flasche:Flaschen,Glas:Gläser,Tasse:Tassen,Saft:Säfte,Wein:Weine,Bruder:Brüder,Schwester:Schwestern,Mutter:Mütter,Vater:Väter,Sohn:Söhne,Tochter:Töchter,Kind:Kinder,Mann:Männer,Frau:Frauen,Freund:Freunde,Freundin:Freundinnen,Tante:Tanten,Familie:Familien,Person:Personen,Buch:Bücher,Haus:Häuser,Tisch:Tische,Stuhl:Stühle,Bett:Betten,Lampe:Lampen,Schrank:Schränke,Tür:Türen,Bus:Busse,Zug:Züge,Taxi:Taxis,Hotel:Hotels,Handy:Handys,Tag:Tage,Woche:Wochen,Monat:Monate,Jahr:Jahre,Stunde:Stunden,Uhr:Uhren,Stadt:Städte,Straße:Straßen,Hand:Hände,Arm:Arme,Bein:Beine,Auge:Augen,Ohr:Ohren,Kopf:Köpfe,Zahn:Zähne,Fuß:Füße,Berg:Berge,Hobby:Hobbys,Spiel:Spiele,Arzt:Ärzte,Land:Länder,Kurs:Kurse,Preis:Preise,Name:Namen,Nummer:Nummern,Sprache:Sprachen,Film:Filme,Schule:Schulen';
+const um=s=>{const m=[...s.matchAll(/au|a|o|u/g)].pop();return m?s.slice(0,m.index)+({au:'äu',a:'ä',o:'ö',u:'ü'})[m[0]]+s.slice(m.index+m[0].length):s};
+const plc=s=>{const e=s.endsWith('e'),c=[s,s+'s',um(s)];if(e)c.push(s+'n',um(s)+'n');else c.push(s+'e',s+'en',s+'er',um(s)+'e',um(s)+'er');if(!/(e|el|er)$/.test(s))c.push(s+'n');return c};
+const H=[[1,1,SK.ps?'ضمایر':'ضمایر','___ heiße Anna.','Ich','Du/Er/Wir','فعل heiße با ich می‌آید.'],[1,2,'سؤال‌ها','___ wohnst du?','Wo','Wer/Was/Woher','برای پرسیدن مکان: wo.'],[1,2,'سؤال‌ها','___ kommst du? – Aus Iran.','Woher','Wo/Wer/Was','پاسخ «aus Iran» مبدأ را می‌گوید: woher.'],[1,3,'ساختار جمله','Welcher Satz ist richtig?','Wie heißt du?','Wie du heißt?/Heißt wie du?/Heißt du wie?','در سؤال با W فعل جایگاه دوم است.'],[1,3,'ساختار جمله','Welcher Satz ist richtig?','Kommst du aus Iran?','Aus kommst du Iran?/Kommst aus du Iran?/Iran aus kommst du?','در سؤال بله/خیر فعل اول می‌آید.'],[1,3,'حروف اضافه','Ich komme ___ Iran.','aus','in/bei/mit','برای مبدأ: aus.'],[1,2,'حروف اضافه','Ich wohne ___ Berlin.','in','aus/mit/zu','برای محل زندگی: in.'],[2,2,'ساخت واژه','Lehrer → die ___','Lehrerin','Lehrerinn/Lehrere/Lehrerein','شکل مؤنث شغل‌ها با -in ساخته می‌شود.'],[2,2,'ساخت واژه','Freund → die ___','Freundin','Freundine/Freunde/Freundein','شکل مؤنث با -in ساخته می‌شود.'],[3,3,'امر','___ bitte langsam!','Sprechen Sie','Sprich/Sprecht/Sie sprechen','برای Sie فعل اول و بعد Sie می‌آید.','امر برای «Sie» (sprechen)'],[3,3,'امر','___ bitte Wasser!','Trink','Trinkst/Trinkt/Trinken','امر du: ریشهٔ فعل بدون پسوند.','امر برای «du» (trinken)'],[3,3,'ساختار جمله','Welcher Satz ist richtig?','Heute esse ich Fisch.','Heute ich esse Fisch./Ich heute esse Fisch./Heute esse Fisch ich.','فعل همیشه جایگاه دوم است.'],[4,3,'حروف اضافه','Ich stehe ___ 7 Uhr auf.','um','am/im/in','ساعت دقیق با um.'],[4,3,'منفی‌سازی','Ich komme heute ___ ins Büro.','nicht','kein/keine/keinen','nicht فعل را منفی می‌کند.','«امروز به دفتر نمی‌آیم»'],[4,4,'ساختار جمله','Welcher Satz ist richtig?','Ich stehe um 7 Uhr auf.','Ich aufstehe um 7 Uhr./Ich auf stehe um 7 Uhr./Um 7 Uhr ich stehe auf.','پیشوند فعل جداشدنی آخر جمله می‌رود.'],[4,4,'حروف اضافه','Ich arbeite ___ Lehrer.','als','für/bei/um','برای شغل: als.','«به‌عنوان معلم کار می‌کنم»'],[4,4,'حروف اضافه','Ich wohne ___ meinen Eltern.','bei','zu/auf/in','bei = نزدِ کسی.'],[5,3,'حروف اضافه','Ich habe ___ Montag Kurs.','am','im/um/in','روزهای هفته با am.'],[5,3,'حروف اضافه','Ich gehe ___ den Park.','in','im/am/aus','حرکت به مکان: in + Akkusativ.'],[5,4,'ساختار جمله','Welcher Satz ist richtig?','Ich muss heute arbeiten.','Ich muss arbeiten heute./Ich arbeiten muss heute./Ich heute muss arbeiten.','فعل مودال جایگاه دوم، مصدر آخر جمله.'],[6,3,'ضمایر','Sprichst du kein Deutsch? – ___, ich spreche Deutsch.','Doch','Ja/Nein/Nicht','پاسخ مثبت به پرسش منفی: doch.','ja / nein / doch'],[6,4,'حروف اضافه','Ich wohne ___ Land.','auf dem','auf der/an dem/zu dem','«auf dem Land» = در روستا.','«در روستا زندگی می‌کنم»'],[7,3,'گذشته (Perfekt/Präteritum)','Gestern ___ ich im Kino.','war','bin/habe/wurde','Präteritum فعل sein: war.'],[7,4,'گذشته (Perfekt/Präteritum)','Welcher Satz ist richtig?','Ich habe Fußball gespielt.','Ich habe gespielt Fußball./Ich gespielt habe Fußball./Ich bin Fußball gespielt.','Perfekt: haben جایگاه دوم، Partizip II آخر.'],[7,3,'حروف اضافه','Ich bin ___ 5. Mai geboren.','am','im/um/in','تاریخ با am.'],[8,3,'ضمایر','Das ist Anna. Ich sehe ___.','sie','ihr/er/es','مفعول مؤنث: sie.'],[8,3,'ضمایر','Das ist mein Bruder. Ich kenne ___.','ihn','er/ihm/es','مفعول مذکر: ihn.'],[8,3,'ربط‌دهنده‌ها','Ich bin müde, ___ ich muss noch arbeiten.','aber','und/oder/denn','aber = اما.','ربط‌دهندهٔ «اما»'],[8,3,'حروف اضافه','Ich fahre ___ dem Bus.','mit','in/auf/zu','وسیلهٔ نقلیه: mit + Dativ.','«با اتوبوس می‌روم»'],[9,3,'ربط‌دهنده‌ها','Möchtest du Tee ___ Kaffee?','oder','aber/denn/und','oder = یا.','ربط‌دهندهٔ «یا»'],[9,4,'ربط‌دهنده‌ها','Ich bleibe zu Hause, ___ ich bin krank.','denn','oder/aber/und','denn = زیرا.','ربط‌دهندهٔ «زیرا»'],[9,3,'ساخت واژه','Haus + Tür = ?','die Haustür','der Haustür/das Haustür/die Türhaus','کلمهٔ مرکب جنسیتِ جزء آخر را می‌گیرد.'],[10,4,'گذشته (Perfekt/Präteritum)','Wir ___ nach Spanien geflogen.','sind','haben/hat/ist','فعل‌های حرکت با sein.'],[10,4,'گذشته (Perfekt/Präteritum)','Ich ___ gern nach Italien reisen.','würde','werde/wurde/würdest','برای آرزو: würde + مصدر.','Konjunktiv II – آرزو'],[10,3,'سؤال‌ها','___ Land gefällt dir? (das Land)','Welches','Welcher/Welche/Welchen','Land خنثی است: welches.'],[10,3,'حروف اضافه','Im Sommer fahren wir ___ Spanien.','nach','in/auf/zu','کشورهای بدون آرتیکل: nach.','«به اسپانیا»'],[10,3,'حروف اضافه','Ich war ___ Januar in Berlin.','im','am/um/in','ماه‌ها با im.'],[11,3,'امر','___ bitte leise!','Seid','Sei/Sind/Seiden','امر ihr از sein: Seid.','امر برای «ihr» (sein)'],[11,3,'ضمایر','Wie geht es ___?','dir','dich/du/dein','geht es با Dativ می‌آید: dir.','«du» در حالت Dativ'],[11,4,'ضمایر','Der Kopf tut ___ weh.','mir','mich/ich/mein','weh tun با Dativ: mir.','«ich» در حالت Dativ'],[11,3,'حروف اضافه','Ich gehe ___ Arzt.','zum','beim/im/am','به سوی شخص: zu + dem = zum.'],[11,3,'مودال‌ها','Hier ___ man nicht rauchen.','darf','muss/will/mag','ممنوعیت: darf nicht.','«سیگار کشیدن اینجا ممنوع است»'],[12,3,'گذشته (Perfekt/Präteritum)','Gestern ___ ich keine Zeit.','hatte','habe/war/hast','Präteritum فعل haben: hatte.'],[12,4,'حالت‌ها و آرتیکل','Das ist ___ Buch.','Annas','Anna/Annaes/von Annas','با نام‌ها پسوند -s اضافه می‌شود.','«کتابِ Anna»'],[12,3,'مودال‌ها','Du ___ mehr Wasser trinken.','sollst','darfst/willst/kannst','توصیه/وظیفه: sollen.','توصیه'],[12,3,'حروف اضافه','___ der Arbeit gehe ich nach Hause.','Nach','Vor/Um/Am','پس از = nach.','«پس از کار»']];
+const TOPICS={1:'فعل‌های با قاعده، sein، ضمایر، سؤال‌ها، aus/in',2:'Nomen auf -in، ein/kein، ملکی‌ها',3:'sein/haben، تغییر واکه، Imperativ، جمع اسم‌ها',4:'جداشدنی‌ها، nicht، Akkusativ، um/als/für/bei',5:'können/müssen، Satzklammer، in+Akk، am+Tag',6:'ja/nein/doch، auf/in+Dativ، es gibt',7:'Perfekt (haben)، Präteritum sein، am+Datum',8:'ضمایر Akkusativ، aber/und، mit+Dativ',9:'mögen/wollen، Nomen+Nomen، oder/denn',10:'Perfekt بی‌قاعده/sein، Konjunktiv II، welch-، im+ماه',11:'dürfen، Dativ، Imperativ ihr، unser-، bei/zu',12:'Präteritum haben، sollen، Genitiv نام‌ها، vor/nach'};
+function buildPool(N,mode){
+  const V=[],G=[],sc=cards.filter(c=>c.l+1<=N),wd=c=>(c.art&&!c.art.includes('/')?c.art+' ':'')+c.de,isN=c=>/^(der|die|das)$/.test(c.art);
+  if(mode!=='g')sc.forEach(c=>{
+    const k=key(c),w=wd(c),L=c.l+1,same=sc.filter(x=>x!==c&&x.ty===c.ty&&x.fa!==c.fa&&wd(x)!==w),oth=sc.filter(x=>x!==c&&x.fa!==c.fa&&wd(x)!==w),pk=f=>shf(same.length>=3?same:same.concat(shf(oth))).slice(0,3).map(x=>f(x)),nt=w+' = '+c.fa;
+    V.push(mc('v1:'+k,'v',SK.v1,1,L,w,'معنی را انتخاب کنید',c.fa,pk(x=>x.fa),nt,k));
+    V.push(mc('v2:'+k,'v',SK.v2,2,L,c.fa,'معادل آلمانی را انتخاب کنید',w,pk(wd),nt,k));
+    if(isN(c)){
+      V.push(mc('v3:'+k,'v',SK.v3,3,L,c.de+'  ('+c.fa+')','آرتیکل درست کدام است؟',c.art,['der','die','das'],nt,k));
+      V.push(mc('v5:'+k,'v',SK.v5,5,L,c.fa,'آرتیکل و واژهٔ درست را انتخاب کنید',w,[...['der','die','das'].filter(a=>a!==c.art).map(a=>a+' '+c.de),...shf(same.filter(isN)).slice(0,1).map(wd)],nt,k));
+    }
+    if(c.ex){const re=new RegExp('(^|[^A-Za-zÄÖÜäöüß])('+c.de.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')(?![A-Za-zÄÖÜäöüß])','i'),m=c.ex.match(re);
+      if(m){const up=/^[A-ZÄÖÜ]/.test(m[2]),ad=x=>up?x[0].toUpperCase()+x.slice(1):x[0].toLowerCase()+x.slice(1);
+        V.push(mc('v4:'+k,'v',SK.v4,4,L,c.ex.replace(re,(s,a)=>a+'___'),'کلمهٔ جا افتاده را انتخاب کنید',m[2],pk(x=>ad(x.de)),nt,k))}}
+    V.push(tp('v6:'+k,'v',SK.v6,c.de.length<=6?5:6,L,c.fa,'به آلمانی بنویسید'+(isN(c)?' (با آرتیکل)':''),[w],nt,1,k));
+  });
+  if(mode!=='v'){
+    const add=it=>{if(it.l<=N)G.push(it)};
+    const cj=(inf,F,tl,tail,hard,modal)=>{const l=Math.max(tl,tlo(tail),NOLO.has(inf)?1:lo(inf,1));F.forEach((f,i)=>{const p=SUBJ[i]+' ___ '+tail+'.',sk=modal?SK.md:SK.cj,lv=hard===null?(i%3===0?1:2):(hard.includes(i)?4:3),nt=inf+': '+F.join(' · ');
+      add(mc('cj:'+inf+i,'g',sk,lv,l,p,'شکل درست فعل «'+inf+'»',f,[...F.filter((x,j)=>j!==i),inf],nt));
+      add(tp('cjt:'+inf+i,'g',sk,lv+1,l,p,'شکل درست فعل «'+inf+'» را بنویسید',[f],nt,0))})};
+    REG.forEach(([v,t])=>cj(v,rf(v),1,t,null,0));
+    IRR.forEach(([v,F,tl,t,h,m])=>cj(v,F.split(','),tl,t,h,m));
+    PF.forEach(([inf,aux,pp,tl,tail])=>{const l=Math.max(tl,tlo(tail)),h=aux==='haben',A=h?[['Ich','habe'],['Er','hat'],['Wir','haben']]:[['Ich','bin'],['Er','ist'],['Wir','sind']],o=h?['bin','ist','sind']:['habe','hat','haben'],sg=h?3:4,s=inf.slice(0,-2),nt=inf+' → '+aux+' + '+pp;
+      A.forEach(([S,a],j)=>{add(mc('pfa:'+inf+j,'g',SK.pf,sg,l,S+' ___ '+tail+' '+pp+'.','haben یا sein؟',a,[o[j],...A.map(x=>x[1]),...o],nt));
+        add(tp('pft:'+inf+j,'g',SK.pf,sg+2,l,S+' '+a+' '+tail+' ___. ('+inf+')','Partizip II را بنویسید',[pp],nt,0))});
+      add(mc('pfp:'+inf,'g',SK.pf,sg,l,'Er '+(h?'hat':'ist')+' '+tail+' ___. ('+inf+')','Partizip II کدام است؟',pp,['ge'+s+'t','ge'+inf,inf,'ge'+s+'en','ge'+s],nt))});
+    [['sein','war,warst,war,waren,wart,waren','bin,bist,ist,sind,seid,sind',7,'müde'],['haben','hatte,hattest,hatte,hatten,hattet,hatten','habe,hast,hat,haben,habt,haben',12,'keine Zeit']].forEach(([inf,P,Pr,tl,tail])=>{const F=P.split(','),R=Pr.split(',');F.forEach((f,i)=>{const sl=i<5?SUBJ[i].toLowerCase():SUBJ[i],p='Gestern ___ '+sl+' '+tail+'.',nt=inf+': '+F.join(' · ');
+      add(mc('pr:'+inf+i,'g',SK.pf,3,tl,p,'گذشتهٔ ساده (Präteritum) «'+inf+'»',f,[R[i],...F],nt));
+      add(tp('prt:'+inf+i,'g',SK.pf,5,tl,p,'Präteritum «'+inf+'» را بنویسید',[f],nt,0))})});
+    const gn={m:'der',f:'die',n:'das'};
+    CS.forEach(([id,tl,lv,sk,NL,t,ins,A,D,nt,ty])=>NL.forEach(({w,g},ix)=>{const a=A[g];if(!a)return;const l=Math.max(tl,lo(w,tl)),p=t.replace('{N}',w),n2=gn[g]+' '+w+' → '+nt;
+      add(mc('cs:'+id+w,'g',sk,lv,l,p,ins,a,D,n2));
+      if(ty&&ix%3===0)add(tp('cst:'+id+w,'g',sk,lv+2,l,p,ins+' – بنویسید',[a],n2,0))}));
+    [['ich','mein',2],['du','dein',2],['er','sein',2],['sie (او – مؤنث)','ihr',2],['wir','unser',11]].forEach(([who,b,tl])=>NA.forEach(({w,g},ix)=>{if(ix%2)return;const e=g==='f'?'e':'',a=b+e;
+      add(mc('ps:'+b+w,'g',SK.ps,tl>2?4:3,Math.max(tl,lo(w,tl)),'Das ist ___ '+w+'.','ملکی: «'+who+'»',a,[...['mein','dein','sein','ihr','unser'].map(x=>x+e),b+(g==='f'?'':'e')],'«'+who+'» + '+gn[g]+' '+w+' → '+a))}));
+    PLS.split(',').forEach(s=>{const[sg,pl]=s.split(':'),c=cards.find(c=>c.de===sg&&/^(der|die|das)$/.test(c.art));if(!c)return;const l=Math.max(3,c.l+1),p='Plural: '+c.art+' '+sg,nt=c.art+' '+sg+' → die '+pl;
+      add(mc('pl:'+sg,'g',SK.pl,3,l,p,'جمع درست را انتخاب کنید',pl,plc(sg),nt));
+      add(tp('plt:'+sg,'g',SK.pl,5,l,p,'جمع را بنویسید (بدون die)',[pl],nt,0))});
+    H.forEach(([l,lv,sk,p,a,d,nt,ins],i)=>add(mc('h'+i,'g',sk,lv,l,p,ins||(/^Welche/.test(p)?'جملهٔ درست را انتخاب کنید':'گزینهٔ درست را انتخاب کنید'),a,d.split('/'),nt)));
+  }
+  return{V,G};
+}
+function nextQ(){
+  const S=X,i=S.asked.length,openNow=S.open.includes(i),ls=S.asked.slice(-3).map(a=>a.sk),blk=ls.length===3&&ls.every(s=>s===ls[0])?ls[0]:null,used=new Set(S.asked.map(a=>a.id)),vN=S.asked.filter(a=>a.ar==='v').length,gN=i-vN;
+  const area=S.mode==='v'?'v':S.mode==='g'?'g':(vN<gN?'v':vN>gN?'g':Math.random()<.5?'v':'g'),oa=area==='v'?'g':'v',fmt=openNow?'type':'mc';
+  const pick=(ar,f,b)=>{let best=null,bd=1e9;for(const it of ar==='v'?S.V:S.G){if(used.has(it.id)||(b&&it.sk===blk)||(f&&it.fmt!==f))continue;const d=Math.abs(it.lvl-S.level)+Math.random()*.6-(S.prior.includes(it.id)?.7:0);if(d<bd){bd=d;best=it}}return best};
+  for(const[ar,f,b]of[[area,fmt,1],[area,null,1],[oa,fmt,1],[oa,null,1],[area,null,0],[oa,null,0]]){const it=pick(ar,f,b);if(it)return it}
+  return null;
+}
+const lvf=n=>Number(n.toFixed(1)).toLocaleString('fa-IR',{minimumFractionDigits:1}),sgn=n=>n>0?'+'+fa(n):n<0?'-'+fa(-n):fa(0);
+function exSave(){const s=Object.assign({},X);delete s.V;delete s.G;meta.exam=s;save()}
+function exOpen(){$('ex').hidden=false;meta.exam&&meta.exam.cur?exMenu():exMenu()}
+function exClose(){$('ex').hidden=true}
+function exMenu(){
+  const auto=Math.max(1,...cards.filter(c=>st[key(c)]).map(c=>c.l+1)),N=meta.xM?meta.xN:auto,B=$('exBody'),r=meta.exam&&meta.exam.cur?meta.exam:null;
+  const info=n=>{const nv=cards.filter(c=>c.l+1<=n).length;return fa(nv)+' واژه · مباحث گرامر: '+Array.from({length:n},(_,i)=>TOPICS[i+1]).join('؛ ')};
+  const hist=(meta.xh||[]).slice(0,3).map(h=>`<div class="row2" style="cursor:default"><div><b>${new Intl.DateTimeFormat('fa-IR-u-ca-persian',{month:'short',day:'numeric'}).format(new Date(h.t))} · تا درس ${fa(h.N)}</b><small>${fa(h.ok)} از ${fa(h.n)} درست · سطح نهایی ${lvf(h.lv)}</small></div></div>`).join('');
+  B.innerHTML=(r?`<button class="big" id="xRes" style="background:var(--ok)">ادامهٔ آزمون (سؤال ${fa(r.asked.length+1)} از ${fa(XQ)})</button>`:'')+`<div class="tile"><small>تا کدام درس خوانده‌اید؟</small><select id="xN" style="font-size:1.1rem;width:100%;margin-top:6px">${Array.from({length:12},(_,i)=>`<option value="${i+1}" ${i+1===N?'selected':''}>تا درس ${fa(i+1)}</option>`).join('')}</select></div><div class="tile" style="margin-top:8px"><small>محتوای آزمون</small><select id="xMode" style="font-size:1rem;width:100%;margin-top:6px"><option value="b">واژگان + گرامر</option><option value="v">فقط واژگان</option><option value="g">فقط گرامر</option></select></div><div class="emp" id="xInfo" style="text-align:start;line-height:1.8"></div><button class="big" id="xGo">شروع آزمون ۳۰ سؤالی</button>${hist?'<h3 style="margin:12px 0 6px">آزمون‌های اخیر</h3>'+hist:''}`;
+  const upd=()=>{$('xInfo').textContent=info(+$('xN').value)};upd();$('xMode').value=meta.xmode||'b';
+  $('xN').onchange=()=>{meta.xN=+$('xN').value;meta.xM=1;save();upd()};
+  $('xMode').onchange=()=>{meta.xmode=$('xMode').value;save()};
+  $('xGo').onclick=()=>exStart(+$('xN').value,$('xMode').value);
+  if(r)$('xRes').onclick=exResume;
+}
+const openPos=()=>{for(;;){const o=shf([...Array(XQ).keys()].slice(1)).slice(0,8).sort((a,b)=>a-b);let r=1,m=1;for(let i=1;i<o.length;i++){r=o[i]===o[i-1]+1?r+1:1;m=Math.max(m,r)}if(m<=3)return o}};
+function exStart(N,mode){
+  const P=buildPool(N,mode);if(P.V.length+P.G.length<XQ){toast('برای این محدوده سؤال کافی نیست');return}
+  const open=openPos();
+  X={N,mode,level:3,streak:0,asked:[],lv:[],open,cur:null,lock:false,V:P.V,G:P.G,prior:meta.xp||[],t:Date.now()};
+  X.cur=nextQ();exSave();exShow();
+}
+function exResume(){const S=meta.exam,P=buildPool(S.N,S.mode);X=Object.assign({},S,{V:P.V,G:P.G,lock:false,prior:meta.xp||[]});exShow()}
+function exShow(){
+  const S=X,B=$('exBody');S.lock=false;S.adv=false;
+  if(!S.cur||S.asked.length>=XQ){exFinish();return}
+  const it=S.cur,i=S.asked.length+1,o=it.fmt==='mc'?(it.o||(it.o=shf([it.ans,...shf(it.dis).slice(0,3)]))):null;
+  B.innerHTML=`<div class="prog">سؤال ${fa(i)} از ${fa(XQ)}</div><div class="meter"><i style="width:${(i-1)/XQ*100}%"></i></div><div class="emp" style="padding:8px 0">[وضعیت: سؤال ${fa(i)}/${fa(XQ)} | سطح فعلی: ${lvf(S.level)} | استریک: ${sgn(S.streak)}]</div><div class="qcard"><div class="emp" style="padding:0 0 8px">${esc(it.ins)}</div><div class="de" dir="auto" style="font-size:1.4rem">${esc(it.p)}</div><div id="xfb" style="min-height:1.6em;margin-top:10px;font-weight:700"></div></div>${o?o.map((t,j)=>`<button class="xo" dir="auto" data-j="${j}">${'ABCD'[j]}) ${esc(t)}</button>`).join(''):`<input id="xin" class="xi" dir="ltr" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="پاسخ"><div class="uk">${['ä','ö','ü','ß'].map(c=>`<button class="sm" data-u="${c}">${c}</button>`).join('')}</div><button class="big" id="xok">تأیید</button>`}<div class="row" style="margin-top:6px"><button class="sm" id="xnext" hidden>ادامه</button><button class="sm danger" id="xend">پایان آزمون</button></div>`;
+  if(o)B.querySelectorAll('.xo').forEach(b=>b.onclick=()=>exAns(o[+b.dataset.j],b));
+  else{const inp=$('xin');inp.focus();inp.onkeydown=e=>{if(e.key==='Enter')exAns(inp.value)};$('xok').onclick=()=>exAns(inp.value);B.querySelectorAll('[data-u]').forEach(b=>b.onclick=()=>{inp.setRangeText(b.dataset.u,inp.selectionStart,inp.selectionEnd,'end');inp.focus()})}
+  let arm=0;$('xend').onclick=e=>{if(!S.asked.length){exMenu();return}if(!arm){arm=1;e.target.textContent='مطمئنید؟ دوباره بزنید';setTimeout(()=>{arm=0;e.target.textContent='پایان آزمون'},3000);return}S.cur=null;exFinish()};
+}
+function exAns(a){
+  const S=X,it=S.cur;if(S.lock||(it.fmt==='type'&&!String(a).trim()))return;S.lock=true;
+  const ok=it.fmt==='mc'?a===it.ans:it.acc.some(x=>{const u=NZ(a),v=NZ(x);return u===v||(it.fz&&v.length>=5&&lev(u,v)<=1)});
+  if(ok){S.streak=S.streak>0?S.streak+1:1;S.level+=S.streak===2?1:.5}else{S.streak=S.streak<0?S.streak-1:-1;S.level-=S.streak===-2?1:.5}
+  S.level=Math.min(6,Math.max(1,S.level));S.lv.push(S.level);
+  S.asked.push({id:it.id,sk:it.sk,ar:it.ar,lvl:it.lvl,ok,l:it.l});
+  if(!ok){if(it.ck){const c=cards.find(c=>key(c)===it.ck);if(c){st[it.ck]='unknown';schedule(c,'again')}}else meta.xp=[...(meta.xp||[]),it.id].slice(-100)}
+  else if(!it.ck&&meta.xp)meta.xp=meta.xp.filter(x=>x!==it.id);
+  if(it.ck){bump(ok?'good':'again',today());count(it.ck,today())}
+  document.querySelectorAll('.xo').forEach(b=>{b.disabled=true;const t=it.o[+b.dataset.j];if(t===it.ans)b.classList.add('right');else if(t===a)b.classList.add('wrong')});
+  const inp=$('xin');if(inp){inp.disabled=true;$('xok').hidden=true}
+  $('xfb').innerHTML=ok?'<span style="color:var(--ok)">درست است. ✓</span>':`<span style="color:var(--no)">غلط است. پاسخ صحیح: <bdi dir="ltr">${esc(it.ans)}</bdi></span>${it.note?`<div class="emp" style="padding:4px 0 0;font-weight:400">${esc(it.note)}</div>`:''}`;
+  S.cur=S.asked.length>=XQ?null:nextQ();exSave();
+  const go=()=>{if(X===S&&!S.adv){S.adv=true;exShow()}};
+  $('xnext').hidden=false;$('xnext').onclick=go;if(ok)setTimeout(go,850);
+}
+const SG={[SK.cj]:'جدول صرف را بنویسید و برای هر فعل ۳ جمله بسازید',[SK.md]:'با هر مودال ۳ جمله بسازید (فعل مودال جایگاه ۲، مصدر آخر)',[SK.pf]:'برای هر فعل Partizip II را با haben/sein ۳ بار بنویسید',[SK.cs]:'برای ۱۰ اسم، جمله‌های einen/eine/ein و dem/der بسازید',[SK.ps]:'ملکی‌ها را برای مذکر/مؤنث/خنثی بنویسید',[SK.pl]:'جمع‌ها را روی کارت‌ها مرور کنید',[SK.v3]:'آزمون آرتیکل (🎯) را تکرار کنید','حروف اضافه':'هر حرف اضافه را با ۲ جملهٔ نمونه حفظ کنید','ساختار جمله':'فعل در جایگاه دوم را با ۱۰ جملهٔ تازه تمرین کنید','ضمایر':'ضمایر را در حالت‌های Nominativ/Akkusativ/Dativ بنویسید','امر':'امر را برای du/ihr/Sie با ۵ فعل تمرین کنید'};
+function exFinish(){
+  const S=X,A=S.asked,n=A.length;if(!n){meta.exam=null;save();exMenu();return}
+  const ok=A.filter(a=>a.ok).length,pct=Math.round(ok/n*100),fr=a=>a.length?a.filter(x=>x.ok).length/a.length:0,h=Math.ceil(n/2),tr=fr(A.slice(h))-fr(A.slice(0,h)),trend=n<6?'—':tr>.1?'رو به بهبود':tr<-.1?'کاهشی':'تقریباً ثابت';
+  const K={};A.forEach(a=>{const v=K[a.sk]||(K[a.sk]={o:0,t:0,e:0});v.t++;if(a.ok)v.o++;else if(a.lvl<=2)v.e=1});
+  const sk=Object.entries(K).map(([k,v])=>({k,...v,r:v.o/v.t})).sort((a,b)=>a.r-b.r),root=sk.filter(s=>s.t-s.o>=2||s.e),rnd=sk.filter(s=>s.t-s.o===1&&!s.e),str=sk.filter(s=>s.t>=3&&s.r>=.8).reverse().slice(0,4),weak=sk.filter(s=>s.r<.7).slice(0,3);
+  const ar=x=>{const f=A.filter(a=>a.ar===x);return f.length?fa(f.filter(a=>a.ok).length)+' از '+fa(f.length):'—'},lv=S.level,band=pct>=85&&lv>=4.5?0:pct>=70?1:pct>=50?2:3;
+  const AS=['سطح A1 در این محدوده مسلط است؛ آمادهٔ حرکت به درس‌های بعدی هستید.','A1 تقریباً مسلط است؛ چند نقطهٔ ضعف مشخص مانده که با مرور کوتاه رفع می‌شود.','A1 در حال شکل‌گیری است؛ بخشی از پایه‌ها هنوز تثبیت نشده.','پایه‌های این درس‌ها هنوز تثبیت نشده و به مرور جدی نیاز دارند.'];
+  const CN=['عملکرد عالی بود. بهتر است همین ریتم را با درس بعدی ادامه بدهید. یک مرور کوتاه روز بعد، یادگیری را پایدار می‌کند. به‌زودی آزمون را برای محدودهٔ بزرگ‌تر بگیرید.','نتیجه خوب است و پایهٔ محکمی دارید. روی همان مهارت‌های ضعیف چند روز تمرین کوچک بگذارید. با مرور واژه‌های اشتباه، آزمون بعدی بهتر می‌شود.','مسیر درست است؛ فقط به تکرار بیشتری نیاز دارید. اول مهارت‌های ضعیف را مرور کنید و بعد دوباره آزمون بدهید. پیشرفت در چند روز ملموس خواهد شد.','نگران نشوید؛ این آزمون برای پیدا کردن نقطهٔ شروع بود. درس‌های اول را آرام با کارت‌ها مرور کنید و بعد دوباره امتحان کنید. با تمرین منظم، نتیجه بهتر می‌شود.'];
+  const pts=S.lv.map((v,i)=>[10+i/Math.max(1,S.lv.length-1)*280,60-(v-1)/5*50]),spark=`<svg viewBox="0 0 300 70"><polyline points="${pts.map(p=>p.join(',')).join(' ')}" fill="none" stroke="var(--ok)" stroke-width="2.5" stroke-linejoin="round"/></svg>`;
+  const li=a=>a.length?'<ul style="padding-inline-start:18px;line-height:1.9">'+a.join('')+'</ul>':'<div class="emp">—</div>';
+  const row=s=>`<li>${esc(s.k)} <small>(${fa(s.o)}/${fa(s.t)})</small></li>`;
+  $('exBody').innerHTML=`<div class="tile" style="text-align:center"><small>📊 گزارش نهایی آزمون</small><b>${fa(ok)} از ${fa(n)} (${fa(pct)}٪)</b></div>
+  <div class="cbox" style="margin-top:8px"><h3>۱. خلاصهٔ عملکرد</h3>صحیح ${fa(ok)} · غلط ${fa(n-ok)} · روند: ${trend} · سطح نهایی: ${lvf(lv)}${spark}</div>
+  <div class="cbox" style="margin-top:8px"><h3>۲. تحلیل موضوعی</h3>واژگان: ${ar('v')} · گرامر: ${ar('g')}${li(sk.map(s=>`<li>${esc(s.k)}: ${fa(s.o)}/${fa(s.t)}</li>`))}</div>
+  <div class="cbox" style="margin-top:8px"><h3>۳. خطاها</h3><b>ریشه‌ای:</b>${li(root.map(row))}<b>تصادفی:</b>${li(rnd.map(row))}</div>
+  <div class="cbox" style="margin-top:8px"><h3>۴. نقاط قوت</h3>${li(str.map(row))}</div>
+  <div class="cbox" style="margin-top:8px"><h3>۵. نقشهٔ مرور</h3>${li(weak.map(s=>`<li><b>${esc(s.k)}</b>: ${esc(SG[s.k]||'کارت‌های امروز را مرور کنید')}</li>`))}واژه‌های اشتباه به صف مرور اضافه شد.</div>
+  <div class="cbox" style="margin-top:8px"><h3>۶. ارزیابی A1</h3>${AS[band]}</div>
+  <div class="cbox" style="margin-top:8px"><h3>۷. جمع‌بندی</h3>${CN[band]}</div>
+  <div class="row" style="margin-top:10px"><button class="sm" id="xRv">مرور واژه‌های اشتباه</button><button class="sm" id="xNew">آزمون جدید</button><button class="sm" id="xCl">بستن</button></div>`;
+  meta.xh=[{t:Date.now(),N:S.N,mode:S.mode,ok,n,lv:+lv.toFixed(1)},...(meta.xh||[])].slice(0,30);meta.exam=null;save();stats();
+  $('xRv').onclick=()=>{exClose();setFilter('unknown')};$('xNew').onclick=exMenu;$('xCl').onclick=exClose;X=null;
+}
+
 function theme(){document.documentElement.dataset.theme=meta.set.theme}
 
 const stage=$('stage');let sx=0,dx=0,drag=false,moved=false;
@@ -1195,7 +1360,7 @@ $('srchBtn').onclick=()=>{const q=$('q');q.hidden=!q.hidden;if(!q.hidden)q.focus
 $('obGo').onclick=()=>{$('ob').hidden=true;meta.ob=1;save()};
 document.querySelectorAll('.chip[data-f]').forEach(b=>b.onclick=()=>setFilter(b.dataset.f));
 $('deckChip').onclick=()=>{dkRender();$('dk').hidden=false};
-$('qzBtn').onclick=qzStart;
+$('qzBtn').onclick=()=>{$('em').hidden=false};$('emA').onclick=()=>{$('em').hidden=true;qzStart()};$('emX').onclick=()=>{$('em').hidden=true;exOpen()};$('closeEm').onclick=()=>{$('em').hidden=true};$('closeEx').onclick=exClose;
 $('closeQz').onclick=()=>{$('qz').hidden=true};
 $('closeDk').onclick=()=>{$('dk').hidden=true};
 $('closeDf').onclick=()=>{$('df').hidden=true};
@@ -1234,7 +1399,7 @@ $('impFile').onchange=e=>{
   const r=new FileReader();
   r.onload=()=>{try{
     const d=JSON.parse(r.result);if(!d.status)throw 0;
-    st=d.status;srs=d.srs||{};meta=Object.assign({days:{}},d.meta||{});meta.set=Object.assign({rev:0,goal:20,auto:true,theme:'light'},meta.set);
+    const O=x=>x&&typeof x==='object'&&!Array.isArray(x);if(!O(d.status))throw 0;st={};Object.keys(d.status).forEach(k=>{if(['learned','unknown','read'].includes(d.status[k]))st[k]=d.status[k]});srs=O(d.srs)?d.srs:{};meta=Object.assign({days:{}},O(d.meta)?d.meta:{});meta.set=Object.assign({rev:0,goal:20,auto:true,theme:'light'},meta.set);
     save();$('ob').hidden=true;init();toast('پیشرفت وارد شد');
   }catch(err){toast('فایل معتبر نیست')}};
   r.readAsText(f);e.target.value='';
@@ -1247,6 +1412,7 @@ $('clrBtn').onclick=e=>{
 
 document.addEventListener('keydown',e=>{
   if(e.target.tagName==='INPUT'||e.target.tagName==='SELECT')return;
+  if(e.key!=='Escape'&&['panel','pg','dk','df','rs','qz','ob','em','ex'].some(i=>!$(i).hidden))return;
   if(e.code==='Space'){e.preventDefault();flip()}
   else if(e.code==='ArrowRight')next();
   else if(e.code==='ArrowLeft')prev();
@@ -1256,7 +1422,7 @@ document.addEventListener('keydown',e=>{
   else if(e.key==='4')grade('easy');
   else if(e.key==='Enter'&&e.target.id==='card')flip();
   else if(e.key==='z'||e.key==='Z')undo();
-  else if(e.key==='Escape'){['panel','pg','dk','df','rs','qz'].forEach(i=>$(i).hidden=true)}
+  else if(e.key==='Escape'){['panel','pg','dk','df','rs','qz','em','ex'].forEach(i=>$(i).hidden=true)}
 });
 
 function tick(){try{const n=new Date();$('clock').textContent=new Intl.DateTimeFormat('fa-IR-u-ca-'+(meta.set.cal||'persian'),{weekday:'long',day:'numeric',month:'long'}).format(n)+' · '+new Intl.DateTimeFormat('fa-IR',{hour:'2-digit',minute:'2-digit',hour12:false}).format(n)}catch(e){$('clock').textContent=new Date().toLocaleString()}}
@@ -1273,6 +1439,12 @@ function init(){
   if(!meta.ob&&!Object.keys(st).length)$('ob').hidden=false;
 }
 init();
+const OVS=['panel','pg','dk','df','rs','qz','ob','em','ex'],ovVis=()=>OVS.filter(i=>!$(i).hidden);
+let ovN=ovVis().length,popping=false;
+if(ovN)history.pushState({ov:1},'');
+new MutationObserver(()=>{const n=ovVis().length;if(n>ovN)history.pushState({ov:1},'');else if(n<ovN&&!popping)history.back();popping=false;ovN=n}).observe(document.body,{subtree:true,attributes:true,attributeFilter:['hidden']});
+addEventListener('popstate',()=>{const v=ovVis();if(v.length){popping=true;$(v[v.length-1]).hidden=true}});
+OVS.forEach(i=>{const e=$(i);e.setAttribute('role','dialog');e.setAttribute('aria-modal','true')});
 if(!storageOK)toast('⚠ ذخیره‌سازی کار نمی‌کند؛ پیشرفت ثبت نمی‌شود');
 idbOpen().then(async()=>{
   const d=await idbGet();
@@ -1284,15 +1456,6 @@ idbOpen().then(async()=>{
   updStore();
 });
 if(navigator.storage&&navigator.storage.persist)navigator.storage.persist().then(g=>{persisted=g;updStore()}).catch(()=>{});
-</script>
-<script>
-  if ("serviceWorker" in navigator) {
-    window.addEventListener("load", () => {
-      navigator.serviceWorker.register("./sw.js")
-        .then(reg => console.log("Service Worker registered:", reg.scope))
-        .catch(err => console.log("Service Worker registration failed:", err));
-    });
-  }
 </script>
 </body>
 </html>
