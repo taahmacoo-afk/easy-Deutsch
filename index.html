@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#1a3c34">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <title>فلش‌کارت‌های Goethe A1 – Fit in Deutsch 1</title>
@@ -155,6 +157,7 @@ input[type=text][hidden]{display:none}
   <div id="panel" hidden>
     <div class="ph"><span>تنظیمات</span><button class="ic" id="closeP" aria-label="بستن">✕</button></div>
     <div class="hint" id="storInfo"></div>
+    <div class="hint" id="verInfo"></div>
     <label>جهت کارت
       <select id="revSel"><option value="0">آلمانی ← فارسی</option><option value="1">فارسی ← آلمانی</option></select></label>
     <label>کارت جدید در هر روز
@@ -926,6 +929,7 @@ const cards = [
 ];
 const LES=[{"t": "Super!", "f": "اطلاعات شخصی، الفبا، اعداد", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Menschen", "f": "خانواده، افراد، اعداد تا ۱۰۰", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Essen und Trinken", "f": "غذا، نوشیدنی، رنگ، قیمت", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Mein Leben", "f": "شغل، ساعت، کار", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Freizeit", "f": "سرگرمی، روزها، ماه‌ها", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Meine Stadt, meine Wohnung", "f": "شهر و خانه", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Wie, wo und wann?", "f": "آب‌وهوا، تاریخ، آموزش", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Unterwegs", "f": "حمل‌ونقل و جهت‌یابی", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Unter Freunden", "f": "رستوران، خرید، اینترنت", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Ich war noch nie ...", "f": "فصل‌ها و مسافرت", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Bist du fit?", "f": "بدن، سلامتی، ورزش", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Beruf und Leben", "f": "کار و مناسبت‌ها", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}];
 
+const APP_V='v3.1 · 2026-10-10';
 const K_ST='goetheA1_status_v2',K_SRS='goetheA1_srs_v3',K_META='goetheA1_meta_v3';
 const HK={again:'no',hard:'ok',good:'ok',easy:'ok'},S={again:'unknown',hard:'learned',good:'learned',easy:'learned'};
 const DAY=864e5,STEPS=[0,1,3,7,14,30];
@@ -1446,7 +1450,7 @@ setInterval(dayCheck,30000);document.addEventListener('visibilitychange',()=>{if
 function init(){
   meta.days=meta.days||{};meta.hist=meta.hist||{};meta.fav=meta.fav||{};meta.seen=meta.seen||{d:'',k:{}};meta.nw=meta.nw||{d:'',n:0};
   cards.forEach((c,i)=>c._i=i);
-  theme();
+  theme();$('verInfo').textContent='نسخهٔ برنامه: '+APP_V;
   $('revSel').value=meta.set.rev;$('goalSel').value=meta.set.goal;$('autoChk').checked=meta.set.auto;$('ordSel').value=meta.set.nf?1:0;$('calSel').value=meta.set.cal||'persian';tick();
   stats();setFilter('today');
   if(!meta.ob&&!Object.keys(st).length)$('ob').hidden=false;
@@ -1458,6 +1462,11 @@ if(ovN)history.pushState({ov:1},'');
 new MutationObserver(()=>{const n=ovVis().length;if(n>ovN)history.pushState({ov:1},'');else if(n<ovN&&!popping)history.back();popping=false;ovN=n}).observe(document.body,{subtree:true,attributes:true,attributeFilter:['hidden']});
 addEventListener('popstate',()=>{const v=ovVis();if(v.length){popping=true;$(v[v.length-1]).hidden=true}});
 OVS.forEach(i=>{const e=$(i);e.setAttribute('role','dialog');e.setAttribute('aria-modal','true')});
+if('serviceWorker' in navigator&&location.protocol.startsWith('http')){
+  const had=!!navigator.serviceWorker.controller;
+  navigator.serviceWorker.register('./sw.js').catch(()=>{});
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(had)toast('نسخهٔ جدید آماده شد؛ برنامه را یک بار ببندید و دوباره باز کنید')});
+}
 if(!storageOK)toast('⚠ ذخیره‌سازی کار نمی‌کند؛ پیشرفت ثبت نمی‌شود');
 idbOpen().then(async()=>{
   const d=await idbGet();
