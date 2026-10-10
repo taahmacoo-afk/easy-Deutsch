@@ -113,6 +113,7 @@ input[type=text][hidden]{display:none}
 .big{width:100%;padding:14px;border-radius:14px;background:var(--btn);color:#f7f3eb;font-size:1rem;font-weight:700;margin-bottom:8px}
 .big[hidden],.g4[hidden]{display:none}
 #ob{z-index:31;justify-content:center}
+.why{font-size:.72rem;opacity:.7;margin-top:16px}
 .tyc{display:table;margin:0 auto 8px;font-size:.7rem;color:var(--mu);border:1px solid var(--ln);border-radius:20px;padding:1px 10px}
 .back .tyc{color:#f7f3eb;border-color:rgba(255,255,255,.35)}
 .subs{display:flex;flex-wrap:wrap;gap:6px;margin:-2px 0 10px}
@@ -582,7 +583,7 @@ const cards = [
   {de:"Dienstag", art:"der", fa:"سه‌شنبه", ex:"", ty:"اسم", l:4, s:0, k:"der|Dienstag|سه‌شنبه"},
   {de:"Disco", art:"die", fa:"دیسکو", ex:"Sie geht gern in die Diskothek.", ty:"اسم", l:4, s:0, k:"die|Disco|دیسکو"},
   {de:"Donnerstag", art:"der", fa:"پنج‌شنبه", ex:"", ty:"اسم", l:4, s:0, k:"der|Donnerstag|پنج‌شنبه"},
-  {de:"einkaufen", art:"", fa:"خرید کردن", ex:"Wer kauft bei euch ein?", ty:"فعل", l:4, s:1, k:"einkaufen|خرید کردن#L5"},
+  {de:"einkaufen", art:"", fa:"خرید کردن", ex:"Wer kauft bei euch ein?", ty:"فعل", l:4, s:1, k:"einkaufen|خرید کردن"},
   {de:"einladen", art:"", fa:"دعوت کردن", ex:"Ich lade dich ein.", ty:"فعل", l:4, s:1, k:"einladen|دعوت کردن"},
   {de:"falsch", art:"", fa:"اشتباه", ex:"", ty:"صفت", l:4, s:2},
   {de:"Februar", art:"der", fa:"فوریه", ex:"", ty:"اسم", l:4, s:0, k:"der|Februar|فوریه"},
@@ -839,7 +840,7 @@ const cards = [
   {de:"arm", art:"", fa:"فقیر", ex:"", ty:"صفت", l:9, s:2},
   {de:"besichtigen", art:"", fa:"بازدید کردن", ex:"", ty:"فعل", l:9, s:1},
   {de:"Blick", art:"der", fa:"چشم‌انداز", ex:"", ty:"اسم", l:9, s:0},
-  {de:"Buch", art:"das", fa:"کتاب", ex:"Die Bücher sind schon im Rucksack.", ty:"اسم", l:9, s:0, k:"das|Buch|کتاب#L10"},
+  {de:"Buch", art:"das", fa:"کتاب", ex:"Die Bücher sind schon im Rucksack.", ty:"اسم", l:9, s:0, k:"das|Buch|کتاب"},
   {de:"Doppelzimmer", art:"das", fa:"اتاق دو‌تخته", ex:"", ty:"اسم", l:9, s:0},
   {de:"Erwachsene", art:"der/die", fa:"بزرگسال", ex:"Dieser Film ist nur für Erwachsene.", ty:"اسم", l:9, s:0, k:"der/die|Erwachsene|بزرگسال"},
   {de:"fehlen", art:"", fa:"نبودن", ex:"", ty:"فعل", l:9, s:1},
@@ -902,7 +903,7 @@ const cards = [
   {de:"Rauchen", art:"das", fa:"سیگارکشیدن", ex:"", ty:"اسم", l:10, s:0},
   {de:"Raum", art:"der", fa:"اتاق", ex:"", ty:"اسم", l:10, s:0},
   {de:"schwer", art:"", fa:"سخت", ex:"Ich finde die Hausaufgaben sehr schwer.", ty:"صفت", l:10, s:2, k:"schwer|سخت / سنگین"},
-  {de:"schwimmen", art:"", fa:"شنا کردن", ex:"Ich kann gut schwimmen.", ty:"فعل", l:10, s:1, k:"schwimmen|شنا کردن#L11"},
+  {de:"schwimmen", art:"", fa:"شنا کردن", ex:"Ich kann gut schwimmen.", ty:"فعل", l:10, s:1, k:"schwimmen|شنا کردن"},
   {de:"seit", art:"", fa:"از (زمان) تا حالا", ex:"", ty:"حرف اضافه", l:10, s:6},
   {de:"sofort", art:"", fa:"بلافاصله", ex:"Warte, ich komme sofort!", ty:"قید", l:10, s:3, k:"sofort|فوراً"},
   {de:"sollen", art:"", fa:"مجبور بودن", ex:"", ty:"فعل", l:10, s:1},
@@ -915,7 +916,7 @@ const cards = [
   {de:"Arbeitsplatz", art:"der", fa:"محل کار", ex:"", ty:"اسم", l:11, s:0},
   {de:"glücklich", art:"", fa:"شاد", ex:"Ich war in Deutschland sehr glücklich.", ty:"صفت", l:11, s:2, k:"glücklich|خوشبخت"},
   {de:"Information", art:"die", fa:"اطلاعات", ex:"Hier kann man Informationen bekommen.", ty:"اسم", l:11, s:0, k:"die|Information|اطلاعات"},
-  {de:"lernen", art:"", fa:"یاد گرفتن", ex:"ich muss noch Vokabeln lernen.", ty:"فعل", l:11, s:1, k:"lernen|یاد گرفتن#L12"},
+  {de:"lernen", art:"", fa:"یاد گرفتن", ex:"ich muss noch Vokabeln lernen.", ty:"فعل", l:11, s:1, k:"lernen|یاد گرفتن"},
   {de:"Leute", art:"die", fa:"مردم", ex:"In unserem Haus wohnen viele Leute.", ty:"اسم", l:11, s:0, k:"die|Leute|مردم"},
   {de:"Liebe", art:"die", fa:"عشق", ex:"", ty:"اسم", l:11, s:0},
   {de:"Problem", art:"das", fa:"مشکل", ex:"Hast du Probleme?", ty:"اسم", l:11, s:0, k:"das|Problem|مشکل"},
@@ -964,7 +965,18 @@ function schedule(c,g){
   const k=key(c);let r=srs[k]||{box:0,due:0};
   if(g==='again'){r.box=0;r.due=Date.now()+6e5}
   else{r.box=g==='hard'?Math.max(r.box,1):Math.min(r.box+(g==='easy'?2:1),5);const n=g==='hard'?1:STEPS[r.box],d=new Date();r.due=new Date(d.getFullYear(),d.getMonth(),d.getDate()+n).getTime()}
-  srs[k]=r;
+  r.g=g;r.at=Date.now();r.src='review';srs[k]=r;
+}
+function soft(c,src){
+  const k=key(c);if(st[k]!=='learned')return false;
+  const r=srs[k]||{box:1,due:0},d=new Date();
+  r.box=Math.max(1,r.box-1);r.due=new Date(d.getFullYear(),d.getMonth(),d.getDate()+1).getTime();r.g='miss';r.at=Date.now();r.src=src;srs[k]=r;return true;
+}
+const GL={again:'دوباره',hard:'سخت',good:'خوب',easy:'آسان',miss:'اشتباه'};
+function why(c){
+  const r=srs[key(c)];if(!r||!r.g||!r.at)return '';
+  const a=Math.round((sod(Date.now())-sod(r.at))/DAY),dd=Math.round((dueAt(r)-sod(Date.now()))/DAY);
+  return `<div class="why">آخرین نتیجه: ${GL[r.g]}${r.src==='exam'?' (آزمون)':r.src==='quiz'?' (آزمون آرتیکل)':''} · ${a<=0?'امروز':a===1?'دیروز':fa(a)+' روز پیش'} · موعد مرور: ${dd<=0?'امروز':dd===1?'فردا':fa(dd)+' روز دیگر'}</div>`;
 }
 function count(k,t){
   if(meta.seen.d!==t)meta.seen={d:t,k:{}};
@@ -1061,7 +1073,7 @@ function render(){
   document.querySelectorAll('[data-g]').forEach(b=>b.lastElementChild.textContent=ivl(c,b.dataset.g));
   const rev=+meta.set.rev;
   $('fHtml').innerHTML=rev?faHtml(c):deHtml(c);
-  $('bHtml').innerHTML=(rev?deHtml(c):faHtml(c))+exHtml(c);
+  $('bHtml').innerHTML=(rev?deHtml(c):faHtml(c))+exHtml(c)+why(c);
   const T={learned:'✓ یاد گرفتم',unknown:'✗ بلد نیستم',read:'📖 خواندم'};
   if(s){bd.hidden=false;bd.className='badge '+s;bd.textContent=T[s];f.classList.add('s-'+s);if(s!=='read')b.classList.add('s-'+s)}
   else bd.hidden=true;
@@ -1074,8 +1086,9 @@ function grade(g){if(!$('card').classList.contains('flipped')){flip();return}if(
 function todayPool(q){
   q=q||'';
   const pool=cards.filter(c=>inDeck(c)&&(!q||c.de.toLowerCase().includes(q)||c.fa.includes(q)||(c.art&&c.art.includes(q))));
-  const fresh=pool.filter(c=>{const s=st[key(c)];return !s||s==='read'}).slice(0,Math.max(meta.set.goal+(meta.extra&&meta.extra.d===today()?meta.extra.n:0)-(meta.nw.d===today()?meta.nw.n:0),0));
-  return meta.set.nf?fresh.concat(pool.filter(isDue)):pool.filter(isDue).concat(fresh);
+  const fresh=Array.from(new Map(pool.filter(c=>{const s=st[key(c)];return !s||s==='read'}).map(c=>[key(c),c])).values()).slice(0,Math.max(meta.set.goal+(meta.extra&&meta.extra.d===today()?meta.extra.n:0)-(meta.nw.d===today()?meta.nw.n:0),0));
+  const seen=new Set(),U=a=>a.filter(c=>{const k=key(c);if(seen.has(k))return false;seen.add(k);return true}),due=U(pool.filter(isDue)),fr=U(fresh);
+  return meta.set.nf?fr.concat(due):due.concat(fr);
 }
 const next=()=>{if(!list.length)return;idx=(idx+1)%list.length;render()};
 const prev=()=>{if(!list.length)return;idx=(idx-1+list.length)%list.length;render()};
@@ -1162,7 +1175,7 @@ function qzStart(){
 function qzShow(){
   const B=$('qzBody');Q.lock=false;
   if(Q.i>=Q.q.length){
-    B.innerHTML=`<div class="tile" style="text-align:center"><small>نتیجه</small><b>${fa(Q.ok)} از ${fa(Q.q.length)}</b></div>`+(Q.bad.length?`<div class="cbox"><h3>اشتباه‌ها (به مرور اضافه شد)</h3>${Q.bad.map(c=>`<div class="row2" style="cursor:default"><div><b dir="ltr">${esc(c.art+' '+c.de)}</b><small>${esc(c.fa)}</small></div></div>`).join('')}</div>`:'<div class="emp">همه درست بود. آفرین!</div>')+'<button class="sm" id="qzAgain" style="background:var(--btn);color:#f7f3eb;border:0;padding:12px;margin-top:8px">دور تازه</button>';
+    B.innerHTML=`<div class="tile" style="text-align:center"><small>نتیجه</small><b>${fa(Q.ok)} از ${fa(Q.q.length)}</b></div>`+(Q.bad.length?`<div class="cbox"><h3>اشتباه‌ها (فردا مرور می‌شوند)</h3>${Q.bad.map(c=>`<div class="row2" style="cursor:default"><div><b dir="ltr">${esc(c.art+' '+c.de)}</b><small>${esc(c.fa)}</small></div></div>`).join('')}</div>`:'<div class="emp">همه درست بود. آفرین!</div>')+'<button class="sm" id="qzAgain" style="background:var(--btn);color:#f7f3eb;border:0;padding:12px;margin-top:8px">دور تازه</button>';
     $('qzAgain').onclick=qzStart;return;
   }
   const c=Q.q[Q.i];
@@ -1173,7 +1186,7 @@ function qzAnswer(btn){
   if(Q.lock)return;Q.lock=true;
   const c=Q.q[Q.i],a=btn.dataset.a,ok=a===c.art,k=key(c),t=today();
   count(k,t);bump(ok?'good':'again',t);
-  if(ok)Q.ok++;else{Q.bad.push(c);st[k]='unknown';schedule(c,'again')}
+  if(ok)Q.ok++;else{Q.bad.push(c);soft(c,'quiz')}
   document.querySelectorAll('.qo').forEach(b=>{if(b.dataset.a===c.art)b.classList.add('right');else if(b===btn)b.classList.add('wrong')});
   $('qzFb').style.color=ok?'var(--ok)':'var(--no)';
   $('qzFb').textContent=(ok?'درست! ':'اشتباه. ')+c.art+' '+c.de;
@@ -1296,7 +1309,7 @@ function exAns(a){
   if(ok){S.streak=S.streak>0?S.streak+1:1;S.level+=S.streak===2?1:.5}else{S.streak=S.streak<0?S.streak-1:-1;S.level-=S.streak===-2?1:.5}
   S.level=Math.min(6,Math.max(1,S.level));S.lv.push(S.level);
   S.asked.push({id:it.id,sk:it.sk,ar:it.ar,lvl:it.lvl,ok,l:it.l});
-  if(!ok){if(it.ck){const c=cards.find(c=>key(c)===it.ck);if(c){st[it.ck]='unknown';schedule(c,'again')}}else meta.xp=[...(meta.xp||[]),it.id].slice(-100)}
+  if(!ok){if(it.ck){const c=cards.find(c=>key(c)===it.ck);if(c)soft(c,'exam')}else meta.xp=[...(meta.xp||[]),it.id].slice(-100)}
   else if(!it.ck&&meta.xp)meta.xp=meta.xp.filter(x=>x!==it.id);
   if(it.ck){bump(ok?'good':'again',today());count(it.ck,today())}
   document.querySelectorAll('.xo').forEach(b=>{b.disabled=true;const t=it.o[+b.dataset.j];if(t===it.ans)b.classList.add('right');else if(t===a)b.classList.add('wrong')});
@@ -1323,12 +1336,12 @@ function exFinish(){
   <div class="cbox" style="margin-top:8px"><h3>۲. تحلیل موضوعی</h3>واژگان: ${ar('v')} · گرامر: ${ar('g')}${li(sk.map(s=>`<li>${esc(s.k)}: ${fa(s.o)}/${fa(s.t)}</li>`))}</div>
   <div class="cbox" style="margin-top:8px"><h3>۳. خطاها</h3><b>ریشه‌ای:</b>${li(root.map(row))}<b>تصادفی:</b>${li(rnd.map(row))}</div>
   <div class="cbox" style="margin-top:8px"><h3>۴. نقاط قوت</h3>${li(str.map(row))}</div>
-  <div class="cbox" style="margin-top:8px"><h3>۵. نقشهٔ مرور</h3>${li(weak.map(s=>`<li><b>${esc(s.k)}</b>: ${esc(SG[s.k]||'کارت‌های امروز را مرور کنید')}</li>`))}واژه‌های اشتباه به صف مرور اضافه شد.</div>
+  <div class="cbox" style="margin-top:8px"><h3>۵. نقشهٔ مرور</h3>${li(weak.map(s=>`<li><b>${esc(s.k)}</b>: ${esc(SG[s.k]||'کارت‌های امروز را مرور کنید')}</li>`))}واژه‌های اشتباهی که قبلاً خوانده بودید فردا مرور می‌شوند؛ واژه‌های ندیده تغییری نمی‌کنند.</div>
   <div class="cbox" style="margin-top:8px"><h3>۶. ارزیابی A1</h3>${AS[band]}</div>
   <div class="cbox" style="margin-top:8px"><h3>۷. جمع‌بندی</h3>${CN[band]}</div>
-  <div class="row" style="margin-top:10px"><button class="sm" id="xRv">مرور واژه‌های اشتباه</button><button class="sm" id="xNew">آزمون جدید</button><button class="sm" id="xCl">بستن</button></div>`;
+  <div class="row" style="margin-top:10px"><button class="sm" id="xRv">برو به صف امروز</button><button class="sm" id="xNew">آزمون جدید</button><button class="sm" id="xCl">بستن</button></div>`;
   meta.xh=[{t:Date.now(),N:S.N,mode:S.mode,ok,n,lv:+lv.toFixed(1)},...(meta.xh||[])].slice(0,30);meta.exam=null;save();stats();
-  $('xRv').onclick=()=>{exClose();setFilter('unknown')};$('xNew').onclick=exMenu;$('xCl').onclick=exClose;X=null;
+  $('xRv').onclick=()=>{exClose();setFilter('today')};$('xNew').onclick=exMenu;$('xCl').onclick=exClose;X=null;
 }
 
 function theme(){document.documentElement.dataset.theme=meta.set.theme}
