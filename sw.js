@@ -1,5 +1,4 @@
-
-const CACHE_NAME = "easy-deutsch-v4";
+const CACHE_NAME = "easy-deutsch-v5";
 
 const FILES_TO_CACHE = [
   "./",
@@ -31,6 +30,13 @@ self.addEventListener("activate", event => {
       )
       .then(() => self.clients.claim())
   );
+});
+
+// Listen for SKIP_WAITING message from the page
+self.addEventListener("message", event => {
+  if (event.data && event.data.type === "SKIP_WAITING") {
+    self.skipWaiting();
+  }
 });
 
 // Network first for HTML; cache first for other files
