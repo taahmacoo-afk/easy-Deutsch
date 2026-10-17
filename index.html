@@ -30,9 +30,9 @@ button{font-family:inherit;cursor:pointer;border:0;transition:transform .15s,bac
 button:active{transform:scale(.97)}
 button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--rd);outline-offset:2px}
 .ic{width:40px;height:40px;border-radius:50%;background:var(--surf);color:var(--g);font-size:1.05rem;border:1px solid var(--ln)}
-#panel,#pg,#dk,#df,#rs,#qz,#ob,#em,#ex,#hs{position:fixed;inset:0;z-index:30;background:var(--bg);padding:max(16px,env(safe-area-inset-top)) 16px 16px;overflow:auto;display:flex;flex-direction:column;gap:12px;font-size:.9rem;align-items:center}
-#panel[hidden],#pg[hidden],#dk[hidden],#df[hidden],#rs[hidden],#qz[hidden],#ob[hidden],#em[hidden],#ex[hidden],#hs[hidden]{display:none}
-#panel>*,#pg>*,#dk>*,#df>*,#rs>*,#qz>*,#ob>*,#em>*,#ex>*,#hs>*{width:100%;max-width:560px}
+#panel,#pg,#dk,#df,#rs,#qz,#ob,#em,#ex,#hs,#vm,#vs{position:fixed;inset:0;z-index:30;background:var(--bg);padding:max(16px,env(safe-area-inset-top)) 16px 16px;overflow:auto;display:flex;flex-direction:column;gap:12px;font-size:.9rem;align-items:center}
+#panel[hidden],#pg[hidden],#dk[hidden],#df[hidden],#rs[hidden],#qz[hidden],#ob[hidden],#em[hidden],#ex[hidden],#hs[hidden],#vm[hidden],#vs[hidden]{display:none}
+#panel>*,#pg>*,#dk>*,#df>*,#rs>*,#qz>*,#ob>*,#em>*,#ex>*,#hs>*,#vm>*,#vs>*{width:100%;max-width:560px}
 .ph{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:1.05rem}
 #panel label{display:flex;justify-content:space-between;align-items:center;gap:10px}
 select{font-family:inherit;padding:6px 8px;border-radius:8px;border:1px solid var(--ln);background:var(--bg);color:var(--tx)}
@@ -107,7 +107,15 @@ input[type=text]{width:100%;padding:7px 12px;border-radius:12px;border:1px solid
 .row2{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--surf);border:1px solid var(--ln);border-radius:14px;padding:10px 12px;cursor:pointer;margin-bottom:8px}
 .row2.cur{border:2px solid var(--ok)}.row2>div{flex:1}.row2 small{display:block;color:var(--mu);font-size:.75rem;margin:2px 0 5px}.row2 b{font-size:.92rem}
 .tile.no{cursor:pointer}
-#hs{z-index:35}
+#hs{z-index:35}#vs{z-index:36}
+.vl{display:flex;align-items:center;gap:8px;padding:7px 0;border-top:1px solid var(--ln);text-align:start}
+.vl .sm{padding:6px 10px;flex:none}.vt{font-size:.7rem;color:var(--mu);flex:none;width:62px}.vl span[dir=ltr]{flex:1;font-size:.98rem}
+.vg{border-collapse:collapse;font-size:.72rem;min-width:100%}.vg th,.vg td{width:30px;min-width:30px;height:32px;text-align:center;border:1px solid var(--ln);padding:0}
+.vg th.w0{background:rgba(255,160,110,.28)}.vg th.w1{background:rgba(120,200,130,.28)}.vg th.w2{background:rgba(120,150,235,.28)}
+.vg .vn{background:var(--surf);width:28px}.vg .td{outline:2px solid var(--no);outline-offset:-2px}
+.vg .vc{background:var(--ok-bg);font-weight:700}.vg .vp{background:var(--surf);border:2px dashed var(--ok);font-weight:700}.vg .vy{background:#f5d949;color:#222;font-weight:700}.vg .vb{background:#111}
+.vg sup{font-size:.6rem;color:#2f7fe0}
+.ic[data-dot="1"]{position:relative}.ic[data-dot="1"]::after{content:'';position:absolute;top:5px;right:5px;width:9px;height:9px;border-radius:50%;background:#e24a3b}
 .dd{margin-bottom:6px}.dd summary{cursor:pointer;padding:11px 12px;background:var(--surf);border:1px solid var(--ln);border-radius:12px;list-style:none;font-size:.86rem}
 .dd summary::-webkit-details-marker{display:none}.dd[open] summary{border-color:var(--ok)}.dd .row2{margin:6px 0 0 0}
 .xo{display:block;width:100%;text-align:start;padding:14px;border-radius:14px;background:var(--surf);border:2px solid var(--ln);color:var(--tx);font-size:1rem;margin-bottom:8px}
@@ -189,6 +197,14 @@ input[type=text][hidden]{display:none}
     </div>
   </div>
 
+  <div id="vm" hidden>
+    <div class="ph"><span>روش ۱۲۴ · افعال</span><button class="ic" id="closeVm" aria-label="بستن">✕</button></div>
+    <div id="vmBody"></div>
+  </div>
+  <div id="vs" hidden>
+    <div class="ph"><span>جلسهٔ روش ۱۲۴</span><button class="ic" id="closeVs" aria-label="بستن">✕</button></div>
+    <div id="vsBody"></div>
+  </div>
   <div id="hs" hidden>
     <div class="ph"><span>تاریخچهٔ کارت</span><button class="ic" id="closeHs" aria-label="بستن">✕</button></div>
     <div id="hsBody"></div>
@@ -196,6 +212,7 @@ input[type=text][hidden]{display:none}
   <div id="em" hidden>
     <div class="ph"><span>آزمون‌ها</span><button class="ic" id="closeEm" aria-label="بستن">✕</button></div>
     <div class="row2" id="emA"><div><b>آزمون آرتیکل</b><small>der / die / das از اسم‌های یادگرفته‌شده</small></div></div>
+    <div class="row2" id="emV"><div><b>روش ۱۲۴ (افعال)</b><small>یادگیری ۴ جمله‌ای فعل‌ها با جدول ۴ روزه</small></div></div>
     <div class="row2" id="emX"><div><b>آزمون ۳۰ سؤالی تطبیقی</b><small>واژگان و گرامر تا درسی که خوانده‌اید</small></div></div>
   </div>
   <div id="ex" hidden>
@@ -937,7 +954,7 @@ const cards = [
 ];
 const LES=[{"t": "Super!", "f": "اطلاعات شخصی، الفبا، اعداد", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Menschen", "f": "خانواده، افراد، اعداد تا ۱۰۰", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Essen und Trinken", "f": "غذا، نوشیدنی، رنگ، قیمت", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Mein Leben", "f": "شغل، ساعت، کار", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Freizeit", "f": "سرگرمی، روزها، ماه‌ها", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Meine Stadt, meine Wohnung", "f": "شهر و خانه", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Wie, wo und wann?", "f": "آب‌وهوا، تاریخ، آموزش", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Unterwegs", "f": "حمل‌ونقل و جهت‌یابی", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Unter Freunden", "f": "رستوران، خرید، اینترنت", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Ich war noch nie ...", "f": "فصل‌ها و مسافرت", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Bist du fit?", "f": "بدن، سلامتی، ورزش", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}, {"t": "Beruf und Leben", "f": "کار و مناسبت‌ها", "s": ["اسم", "فعل", "صفت", "قید", "عدد", "ضمیر", "حرف اضافه", "حرف ربط", "عبارت", "سایر"]}];
 
-const APP_V='v3.3 · 2026-10-11';
+const APP_V='v4.0 · 2026-10-17';
 const K_ST='goetheA1_status_v2',K_SRS='goetheA1_srs_v3',K_META='goetheA1_meta_v3';
 const HK={again:'no',hard:'ok',good:'ok',easy:'ok'},S={again:'unknown',hard:'learned',good:'learned',easy:'learned'};
 const DAY=864e5,STEPS=[0,1,3,7,14,30];
@@ -989,7 +1006,7 @@ const GL={again:'دوباره',hard:'سخت',good:'خوب',easy:'آسان',miss:
 const fmtD=ts=>new Intl.DateTimeFormat('fa-IR-u-ca-persian',{weekday:'short',day:'numeric',month:'short'}).format(new Date(ts));
 function fb(c,g){const r=srs[key(c)];if(!r)return;const dd=Math.round((sod(dueAt(r))-sod(Date.now()))/DAY);toast(GL[g]+' ✓ · مرور بعدی: '+(g==='again'?'۱۰ دقیقه دیگر':dd<=0?'امروز':dd===1?'فردا ('+fmtD(dueAt(r))+')':fa(dd)+' روز دیگر ('+fmtD(dueAt(r))+')'))}
 function showHist(c){
-  const k=key(c),r=srs[k],L=(meta.log||{})[k]||[],tm=ts=>new Intl.DateTimeFormat('fa-IR-u-ca-persian',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(ts)),VA={btn:'دکمه',swipe:'کشیدن',key:'کیبورد'},SR={review:'مرور',exam:'آزمون',quiz:'آزمون آرتیکل'};
+  const k=key(c),r=srs[k],L=(meta.log||{})[k]||[],tm=ts=>new Intl.DateTimeFormat('fa-IR-u-ca-persian',{month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date(ts)),VA={btn:'دکمه',swipe:'کشیدن',key:'کیبورد'},SR={review:'مرور',exam:'آزمون',quiz:'آزمون آرتیکل',v124:'روش ۱۲۴'};
   $('hsBody').innerHTML=`<div class="tile"><small dir="ltr">${esc((c.art&&!c.art.includes('/')?c.art+' ':'')+c.de)}</small><b>${r?(r.box>0?'مرحله '+fa(r.box)+' · موعد '+fmtD(dueAt(r)):'مرحله ۰ · موعد '+tm(r.due)):'هنوز درجه‌ای ثبت نشده'}</b></div><div class="emp" style="padding:8px 0;text-align:start">اولین مواجهه: ${(meta.first||{})[k]?tm((meta.first||{})[k]):'قبل از نسخهٔ ۳٫۳ (ثبت نشده)'}</div>`+(L.length?L.slice().reverse().map(e=>`<div class="row2" style="cursor:default"><div><b>${GL[e.g]} · ${SR[e.s]||e.s}${e.v?' ('+VA[e.v]+')':''}</b><small>${tm(e.t)} · مرحله ${fa(e.b0)} ← ${fa(e.b1)} · موعد ${e.b1>0?fmtD(e.d):tm(e.d)}</small></div></div>`).join(''):'<div class="emp">هنوز سابقه‌ای برای این کارت ثبت نشده؛ ثبت از این نسخه شروع می‌شود.</div>');
   $('hs').hidden=false;
 }
@@ -1109,9 +1126,9 @@ const flip=()=>{if(list.length){lastFlip=Date.now();$('card').classList.toggle('
 function updSp(){const c=cur(),f=$('card').classList.contains('flipped');$('speak').textContent=f&&c&&c.ex?'💬':'🔊';$('g4').hidden=!f||!c;$('showB').hidden=f||!c}
 function grade(g,via){if(!$('card').classList.contains('flipped')){flip();return}if(Date.now()-lastFlip<450)return;mark(g,via||'btn');if(navigator.vibrate)navigator.vibrate(8)}
 function todayPool(q){
-  q=q||'';
+  q=q||'';const VX=v124Keys();
   const pool=cards.filter(c=>inDeck(c)&&(!q||c.de.toLowerCase().includes(q)||c.fa.includes(q)||(c.art&&c.art.includes(q))));
-  const fresh=Array.from(new Map(pool.filter(c=>{const s=st[key(c)];return !s||s==='read'}).map(c=>[key(c),c])).values()).slice(0,Math.max(meta.set.goal+(meta.extra&&meta.extra.d===today()?meta.extra.n:0)-(meta.nw.d===today()?meta.nw.n:0),0));
+  const fresh=Array.from(new Map(pool.filter(c=>{const s=st[key(c)];return (!s||s==='read')&&!VX.has(key(c))}).map(c=>[key(c),c])).values()).slice(0,Math.max(meta.set.goal+(meta.extra&&meta.extra.d===today()?meta.extra.n:0)-(meta.nw.d===today()?meta.nw.n:0),0));
   const seen=new Set(),U=a=>a.filter(c=>{const k=key(c);if(seen.has(k))return false;seen.add(k);return true}),due=U(pool.filter(isDue)),fr=U(fresh);
   return meta.set.nf?fr.concat(due):due.concat(fr);
 }
@@ -1165,7 +1182,7 @@ function pgRender(tab){
         const d0=new Date(o.getFullYear(),o.getMonth(),o.getDate()-i).getTime(),R=dayCards(d0),q=H[dayKey(d0)];
         if(!R.length&&!q)continue;
         const nn=R.filter(x=>x.n).length,acc=q&&q.ok+q.no?fa(Math.round(q.ok/(q.ok+q.no)*100))+'٪':'—',lb=i===0?'امروز':i===1?'دیروز':fmtD(d0);
-        h+=`<details class="dd" ${i===0?'open':''}><summary><b>${lb}</b> · ✨ ${fa(nn)} جدید · 🔁 ${fa(R.length-nn)} مرور · دقت ${acc}</summary>${R.map(x=>rowH(x.c,`${x.n?'✨ اولین مواجهه · ':''}${GL[x.e.g]} · مرحله ${fa(x.e.b0)} ← ${fa(x.e.b1)} · مرور بعدی ${x.e.b1>0?fmtD(x.e.d):'۱۰ دقیقه بعد'}`)).join('')||'<div class="emp">ثبت ریز کارت‌ها از نسخهٔ ۳٫۳ شروع شده است.</div>'}</details>`;
+        h+=`<details class="dd" ${i===0?'open':''}><summary><b>${lb}</b> · ✨ ${fa(nn)} جدید · 🔁 ${fa(R.length-nn)} مرور · دقت ${acc}</summary>${R.map(x=>rowH(x.c,`${x.n?'✨ اولین مواجهه · ':''}${x.e.s==='v124'?(x.e.g==='again'?'فراموش شد':'بلد بود')+' · روش ۱۲۴'+(x.e.g==='again'?'':' · مرور بعدی '+fmtD(x.e.d)):GL[x.e.g]+' · مرحله '+fa(x.e.b0)+' ← '+fa(x.e.b1)+' · مرور بعدی '+(x.e.b1>0?fmtD(x.e.d):'۱۰ دقیقه بعد')}`)).join('')||'<div class="emp">ثبت ریز کارت‌ها از نسخهٔ ۳٫۳ شروع شده است.</div>'}</details>`;
       }
       B.innerHTML=h||'<div class="cbox"><div class="emp">هنوز چیزی ثبت نشده. بعد از اولین درجه‌دادن، هر روز اینجا ثبت می‌شود.</div></div>';
     }else{
@@ -1386,6 +1403,127 @@ function exFinish(){
   $('xRv').onclick=()=>{exClose();setFilter('today')};$('xNew').onclick=exMenu;$('xCl').onclick=exClose;X=null;
 }
 
+/* ===== Method 124 (verbs) ===== */
+const VS=[['antworten','antworte','antwortest','auf die Frage','nicht auf die Frage'],['buchstabieren','buchstabiere','buchstabierst','meinen Namen','meinen Namen nicht'],['fragen','frage','fragst','den Lehrer','den Lehrer nicht'],['grüßen','grüße','grüßt','den Nachbarn','den Nachbarn nicht'],['heißen','heiße','heißt','Müller','nicht Müller'],['kennen','kenne','kennst','die Stadt','die Stadt nicht'],['kommen','komme','kommst','aus Deutschland','nicht aus Deutschland'],['machen','mache','machst','Sport','keinen Sport'],['möchten','möchte','möchtest','einen Kaffee','keinen Kaffee'],['sein','bin','bist','müde','nicht müde'],['sprechen','spreche','sprichst','Deutsch','kein Deutsch'],['stehen','stehe','stehst','an der Haltestelle','nicht an der Haltestelle'],['studieren','studiere','studierst','in Berlin','nicht in Berlin'],['werden','werde','wirst','müde','nicht müde'],['wiederholen','wiederhole','wiederholst','das Wort','das Wort nicht'],['wohnen','wohne','wohnst','in Berlin','nicht in Berlin'],['zeigen','zeige','zeigst','das Foto','das Foto nicht'],['arbeiten','arbeite','arbeitest','in einer Firma','nicht in einer Firma'],['lieben','liebe','liebst','meine Familie','meine Familie nicht'],['zuordnen','ordne','ordnest','das Wort','das Wort nicht','zu'],['beginnen','beginne','beginnst','um acht Uhr','nicht um acht Uhr'],['brauchen','brauche','brauchst','Hilfe','keine Hilfe'],['einkaufen','kaufe','kaufst','Brot','kein Brot','ein'],['essen','esse','isst','Fisch','keinen Fisch'],['finden','finde','findest','das Buch gut','das Buch nicht gut'],['frühstücken','frühstücke','frühstückst','um sieben Uhr','nicht um sieben Uhr'],['haben','habe','hast','Hunger','keinen Hunger'],['hören','höre','hörst','Musik','keine Musik'],['kaufen','kaufe','kaufst','ein Brot','kein Brot'],['kochen','koche','kochst','Suppe','keine Suppe'],['kosten','@Das Buch|kostet','zehn Euro','nicht zehn Euro'],['kriegen','kriege','kriegst','eine E-Mail','keine E-Mail'],['sagen','sage','sagst','die Wahrheit','die Wahrheit nicht'],['schmecken','@Die Suppe|schmeckt','gut','nicht gut'],['schreiben','schreibe','schreibst','eine E-Mail','keine E-Mail'],['trinken','trinke','trinkst','Tee','keinen Tee'],['besuchen','besuche','besuchst','meine Oma','meine Oma nicht'],['einladen','lade','lädst','Freunde','keine Freunde','ein'],['feiern','feiere','feierst','ein Fest','kein Fest'],['fernsehen','sehe','siehst','abends','abends nicht','fern'],['gehen','gehe','gehst','ins Kino','nicht ins Kino'],['können','kann','kannst','gut schwimmen','nicht gut schwimmen'],['lernen','lerne','lernst','Deutsch','kein Deutsch'],['lesen','lese','liest','ein Buch','kein Buch'],['müssen','muss','musst','heute arbeiten','heute nicht arbeiten'],['öffnen','öffne','öffnest','das Fenster','das Fenster nicht'],['schließen','schließe','schließt','die Tür','die Tür nicht'],['schwimmen','schwimme','schwimmst','im Meer','nicht im Meer'],['spielen','spiele','spielst','Gitarre','keine Gitarre'],['treffen','treffe','triffst','meine Freunde','meine Freunde nicht'],['wandern','wandere','wanderst','in den Bergen','nicht in den Bergen'],['waschen','wasche','wäschst','die Hände','die Hände nicht'],['wissen','weiß','weißt','die Antwort','die Antwort nicht'],['grillen','grille','grillst','Fleisch','kein Fleisch'],['schicken','schicke','schickst','eine E-Mail','keine E-Mail'],['suchen','suche','suchst','einen Parkplatz','keinen Parkplatz'],['ausfüllen','fülle','füllst','das Formular','das Formular nicht','aus'],['leben','lebe','lebst','in Deutschland','nicht in Deutschland'],['regnen','@Es|regnet','heute','heute nicht'],['scheinen','@Die Sonne|scheint','heute','heute nicht'],['unterschreiben','unterschreibe','unterschreibst','den Vertrag','den Vertrag nicht'],['abfahren','fahre','fährst','um acht Uhr','nicht um acht Uhr','ab'],['ankommen','komme','kommst','um zehn Uhr','nicht um zehn Uhr','an'],['bleiben','bleibe','bleibst','zu Hause','nicht zu Hause'],['erzählen','erzähle','erzählst','eine Geschichte','keine Geschichte'],['fahren','fahre','fährst','mit dem Bus','nicht mit dem Bus'],['fliegen','fliege','fliegst','nach Berlin','nicht nach Berlin'],['mieten','miete','mietest','eine Wohnung','keine Wohnung'],['mitkommen','komme','kommst','zur Party','nicht zur Party','mit'],['reisen','reise','reist','nach Italien','nicht nach Italien'],['sehen','sehe','siehst','einen Film','keinen Film'],['warten','warte','wartest','auf den Bus','nicht auf den Bus'],['besichtigen','besichtige','besichtigst','das Museum','das Museum nicht'],['fehlen','@Der Schlüssel|fehlt','','nicht'],['liegen','@Das Buch|liegt','auf dem Tisch','nicht auf dem Tisch'],['übernachten','übernachte','übernachtest','im Hotel','nicht im Hotel'],['verkaufen','verkaufe','verkaufst','mein Auto','mein Auto nicht'],['ankreuzen','kreuze','kreuzt','die Antwort','die Antwort nicht','an'],['aufstehen','stehe','stehst','um sieben Uhr','nicht um sieben Uhr','auf'],['aussehen','@Das Essen|sieht','gut','nicht gut','aus'],['danken','danke','dankst','dem Lehrer','dem Lehrer nicht'],['dürfen','darf','darfst','hier parken','hier nicht parken'],['geben','gebe','gibst','Anna das Buch','Anna das Buch nicht'],['gehören','@Das Auto|gehört','meinem Bruder','nicht meinem Bruder'],['glauben','glaube','glaubst','die Geschichte','die Geschichte nicht'],['lachen','lache','lachst','viel','nicht viel'],['laufen','laufe','läufst','im Park','nicht im Park'],['legen','lege','legst','das Buch auf den Tisch','das Buch nicht auf den Tisch'],['meinen','meine','meinst','das ernst','das nicht ernst'],['sollen','soll','sollst','mehr Wasser trinken','nicht mehr Wasser trinken'],['tun','tue','tust','etwas für die Gesundheit','nichts für die Gesundheit'],['verstehen','verstehe','verstehst','die Frage','die Frage nicht']];
+const fr=n=>fa(n)+'\u200f';
+const VSM=new Map(VS.map(e=>[e[0],e]));
+const lf=s=>s[0].toLowerCase()+s.slice(1),cf=s=>s[0].toUpperCase()+s.slice(1),jn=(...a)=>a.filter(x=>x).join(' ');
+function vForms(e){
+  let S,vs,vq,rest,neg,pre;
+  if(e[1][0]==='@'){[S,vs]=e[1].slice(1).split('|');vq=vs;rest=e[2];neg=e[3];pre=e[4]||''}
+  else{S='Ich';vs=e[1];vq=e[2];rest=e[3];neg=e[4];pre=e[5]||''}
+  const qs=S==='Ich'?'du':lf(S),ps=lf(S);
+  return{S:jn(S,vs,rest,pre)+'.',Q:cf(jn(vq,qs,rest,pre))+'?',P:'Ja, '+jn(ps,vs,rest,pre)+'.',N:'Nein, '+jn(ps,vs,neg,pre)+'.'};
+}
+const V4=()=>{const v=meta.v124||(meta.v124={});v.b=v.b||[];v.n=v.n||0;v.cfg=Object.assign({size:20,fd:4,r:3,rf:2,auto:0},v.cfg);return v};
+const vByKey=()=>{const m=new Map();cards.forEach(c=>{if(c.ty==='فعل'&&VSM.has(c.de)&&!m.has(key(c)))m.set(key(c),c)});return m};
+const vAct=()=>V4().b.filter(b=>!b.done);
+const v124Keys=()=>new Set(vAct().flatMap(b=>b.k));
+const vReps=(b,testNo)=>testNo>=3?V4().cfg.rf:V4().cfg.r;
+const vDue=()=>vAct().filter(b=>b.due<=Date.now());
+function vBadge(){try{$('qzBtn').dataset.dot=(vDue().length||V4().sess)?'1':''}catch(e){}}
+function say(t){if(!('speechSynthesis' in window))return;const u=new SpeechSynthesisUtterance(t);u.lang='de-DE';u.rate=.85;const v=speechSynthesis.getVoices().find(v=>v.lang.startsWith('de'));if(v)u.voice=v;speechSynthesis.speak(u)}
+function sayAll(a){if(!('speechSynthesis' in window))return;speechSynthesis.cancel();a.forEach(say)}
+function vNew(size){
+  const V=V4();if(vAct().length>=4){toast('حداکثر ۴ دستهٔ فعال');return false}
+  const used=new Set(V.b.flatMap(b=>b.k)),pool=[...vByKey().keys()].filter(k=>!used.has(k));
+  if(!pool.length){toast('فعل جدیدی برای دسته‌بندی نمانده');return false}
+  V.n++;const ks=pool.slice(0,size),t0=sod(Date.now());
+  V.b.push({id:V.n,k:ks,st:0,pend:ks.slice(),due:t0,ev:[],start:t0});save();vBadge();return true;
+}
+function vSess(){return V4().sess}
+function vStart(id){
+  const V=V4(),b=V.b.find(x=>x.id===id);if(!b)return;
+  if(V.sess&&V.sess.id!==id){toast('اول جلسهٔ نیمه‌تمام را تمام کنید');return}
+  if(!V.sess){const L=b.st===0;V.sess={id,ph:L?'learn':'test',q:L?b.k.slice():shf(b.pend),i:0,pass:1,passes:L?V.cfg.r:1,known:[],forgot:[],rev:false,tn:b.st};
+    if(L){meta.first=meta.first||{};b.k.forEach(k=>{if(!meta.first[k]&&!st[k])meta.first[k]=Date.now()})}save()}
+  $('vs').hidden=false;vShow();
+}
+function vCardHtml(c,full){
+  const f=vForms(VSM.get(c.de)),L=[['جمله','S'],['سؤال','Q'],['جواب مثبت','P'],['جواب منفی','N']];
+  return`<div class="qcard"><div class="fa" style="font-size:1.8rem">${esc(c.fa)}</div>${full?`<div class="de" dir="ltr" style="margin:6px 0 10px">${esc(c.de)}</div>`+L.map(([n,k])=>`<div class="vl"><button class="sm" data-say="${k}" aria-label="تلفظ">🔊</button><span class="vt">${n}</span><span dir="ltr">${esc(f[k])}</span></div>`).join(''):'<div class="emp" style="padding-top:14px">جمله، سؤال، جواب مثبت و جواب منفی را با این فعل بگویید</div>'}</div>`;
+}
+function vShow(){
+  const V=V4(),S=V.sess,B=$('vsBody');if(!S){$('vs').hidden=true;vRender();return}
+  const b=V.b.find(x=>x.id===S.id),by=vByKey(),k=S.q[S.i],c=by.get(k);
+  if(!c){vNext();return}
+  const test=S.ph==='test',title=S.ph==='learn'?`یادگیری · دور ${fr(S.pass)} از ${fr(S.passes)}`:S.ph==='rep'?`تکرار فراموش‌شده‌ها · دور ${fr(S.pass)} از ${fr(S.passes)}`:`مرور شمارهٔ ${fr(S.tn)} · تست`;
+  B.innerHTML=`<div class="prog">${title}</div><div class="meter"><i style="width:${S.i/S.q.length*100}%"></i></div><div class="emp" style="padding:6px 0">فعل ${fr(S.i+1)} از ${fr(S.q.length)}${test?` · بلد: ${fr(S.known.length)} · فراموش: ${fr(S.forgot.length)}`:''}</div><div id="vcard">${vCardHtml(c,!test||S.rev)}</div><div id="vact" style="margin-top:8px"></div>`;
+  const act=$('vact');
+  if(test&&!S.rev)act.innerHTML='<button class="big" id="vrev">نمایش پاسخ</button>';
+  else if(test)act.innerHTML='<div class="ctrl"><button class="no" id="vno">✗ فراموش کردم</button><button class="ok" id="vyes">✓ بلدم</button></div>';
+  else act.innerHTML=`<div class="ctrl"><button class="ghost" id="vauto">🔊 ${V.cfg.auto?'خودکار: روشن':'خودکار: خاموش'}</button><button id="vnext">بعدی ›</button></div>`;
+  B.querySelectorAll('[data-say]').forEach(x=>x.onclick=()=>say(vForms(VSM.get(c.de))[x.dataset.say]));
+  if($('vrev'))$('vrev').onclick=()=>{S.rev=true;save();vShow()};
+  if($('vyes'))$('vyes').onclick=()=>vAns(k,1);
+  if($('vno'))$('vno').onclick=()=>vAns(k,0);
+  if($('vnext'))$('vnext').onclick=()=>vNext();
+  if($('vauto'))$('vauto').onclick=()=>{V.cfg.auto=V.cfg.auto?0:1;save();vShow()};
+  if(!test&&V.cfg.auto){const f=vForms(VSM.get(c.de));sayAll([c.de,f.S,f.Q,f.P,f.N])}
+}
+function vAns(k,ok){
+  const S=V4().sess,c=vByKey().get(k),t=Date.now();if(!c)return;
+  if(ok){S.known.push(k);if(!st[k]||st[k]==='read'||st[k]==='unknown')st[k]='learned';schedule(c,'easy','v124','test')}
+  else{S.forgot.push(k);const r=srs[k];logEv(k,{t,g:'again',s:'v124',v:'test',b0:r?r.box:0,b1:r?r.box:0,d:r?r.due:0})}
+  S.rev=false;S.i++;save();vNext(true);
+}
+function vNext(adv){
+  const V=V4(),S=V.sess;if(!S)return;const b=V.b.find(x=>x.id===S.id);
+  if(!adv&&S.ph!=='test')S.i++;
+  if(S.i>=S.q.length){
+    if(S.ph==='test'){
+      if(S.forgot.length){S.ph='rep';S.q=shf(S.forgot);S.i=0;S.pass=1;S.passes=vReps(b,S.tn)}else return vFinish();
+    }else if(S.pass<S.passes){S.pass++;S.i=0;S.q=shf(S.q)}
+    else return vFinish();
+  }
+  save();vShow();
+}
+function vFinish(){
+  const V=V4(),S=V.sess,b=V.b.find(x=>x.id===S.id),t0=sod(Date.now());
+  if(S.ph==='learn'){b.ev.push({d:t0,n:b.k.length,r:S.passes});b.st=1;b.pend=b.k.slice()}
+  else{
+    const nPend=b.pend.length;b.ev.push({d:t0,n:nPend,r:vReps(b,S.tn)});
+    b.pend=S.forgot.slice();b.st++;
+    if(!b.pend.length){b.done=true;b.doneAt=t0;b.ev.push({d:t0,n:0,r:V.cfg.rf,fin:1})}
+  }
+  const d=new Date(t0);b.due=new Date(d.getFullYear(),d.getMonth(),d.getDate()+V.cfg.fd).getTime();
+  const sum=S.ph==='learn'?`یادگیری ${fr(b.k.length)} فعل تمام شد.`:b.done?`دسته کامل شد! همهٔ فعل‌ها بلد شدند 🎉`:`${fr(S.known.length)} فعل بلد، ${fr(S.forgot.length)} فعل فراموش‌شده تکرار شد.`;
+  V.sess=null;save();vBadge();stats();
+  $('vsBody').innerHTML=`<div class="tile" style="text-align:center"><small>پایان جلسه</small><b>${sum}</b></div>${b.done?'':`<div class="emp">جلسهٔ بعدی: ${fmtD(b.due)}</div>`}<button class="big" id="vend" style="margin-top:10px">بازگشت</button>`;
+  $('vend').onclick=()=>{$('vs').hidden=true;vRender()};
+}
+function vOpen(){$('vm').hidden=false;vRender()}
+function vGrid(){
+  const V=V4(),t0=sod(Date.now()),o=new Date(t0),wk=ts=>{const d=new Date(ts);return new Date(d.getFullYear(),d.getMonth(),d.getDate()-(d.getDay()+1)%7).getTime()},rws=V.b.filter(x=>!x.done||t0-x.doneAt<=14*864e5),w0=wk(t0),back=Math.round((t0-w0)/864e5),s1=rws.length?wk(Math.min(...rws.map(x=>x.start))):w0,s2=new Date(o.getFullYear(),o.getMonth(),o.getDate()-back-14).getTime(),start=Math.max(s1,s2);
+  const sd=new Date(start),days=Array.from({length:21},(_,i)=>new Date(sd.getFullYear(),sd.getMonth(),sd.getDate()+i).getTime()),idx=ts=>Math.round((sod(ts)-start)/864e5),WD=['ش','۱','۲','۳','۴','۵','ج'];
+  let h='<table class="vg" dir="ltr"><tr><th></th>'+days.map((d,i)=>`<th class="w${(i/7)|0}${d===t0?' td':''}">${WD[i%7]}</th>`).join('')+'</tr>';
+  const rows=rws;
+  rows.forEach(b=>{
+    const cells={},ev=b.ev.slice();
+    ev.forEach(e=>{cells[idx(e.d)]={n:e.n,r:e.r,fin:e.fin}});
+    if(!b.done){const nx=idx(b.due);if(!cells[nx])cells[nx]={n:b.st===0?b.k.length:b.pend.length,r:b.st===0?V.cfg.r:vReps(b,b.st),plan:1}}
+    const ks=Object.keys(cells).map(Number),lo=Math.min(...ks),hi=Math.max(...ks);
+    h+=`<tr><th class="vn">${fr(b.id)}</th>`+days.map((d,i)=>{const c=cells[i];if(c)return`<td class="${c.fin?'vy':c.plan?'vp':'vc'}${d===t0?' td':''}">${c.n}<sup>${c.r}</sup></td>`;return`<td class="${i>lo&&i<hi?'vb':''}${d===t0?' td':''}"></td>`}).join('')+'</tr>';
+  });
+  return rows.length?`<div dir="ltr" style="overflow-x:auto">${h}</table></div><div class="emp" style="text-align:start;padding-top:6px">عدد = تعداد فعل · عدد کوچک = تعداد تکرار · نقطه‌چین = جلسهٔ بعدی · مشکی = استراحت · زرد = پایان دسته</div>`:'<div class="emp">هنوز دسته‌ای نساخته‌اید.</div>';
+}
+function vRender(){
+  const V=V4(),B=$('vmBody'),by=vByKey(),used=new Set(V.b.flatMap(b=>b.k)),left=[...by.keys()].filter(k=>!used.has(k)).length,act=vAct(),due=vDue();
+  const name=b=>`دستهٔ ${fr(b.id)} — ${fr(b.k.length)} فعل`;
+  let h='';
+  if(V.sess){const b=V.b.find(x=>x.id===V.sess.id);h+=`<button class="big" id="vResume" style="background:var(--ok)">ادامهٔ جلسهٔ نیمه‌تمام (${b?name(b):''})</button>`}
+  h+=`<div class="cbox"><h3>جلسه‌های امروز</h3>${due.length?due.map(b=>`<div class="row2" data-go="${b.id}"><div><b>${name(b)}</b><small>${b.st===0?'یادگیری · '+fa(V.cfg.r)+' دور':'مرور شمارهٔ '+fa(b.st)+' · '+fa(b.pend.length)+' فعل'}${sod(Date.now())>b.due?' · عقب‌افتاده':''}</small></div><span>شروع ›</span></div>`).join(''):'<div class="emp">امروز جلسه‌ای ندارید.</div>'}</div><div style="height:8px"></div>`;
+  h+=`<div class="cbox"><h3>دسته‌های فعال (${fr(act.length)} از ۴)</h3>${act.map(b=>`<div class="row2" style="cursor:default"><div><b>${name(b)}</b><small>${b.st===0?'آمادهٔ یادگیری':'مانده: '+fa(b.pend.length)+' فعل · جلسهٔ بعدی '+fmtD(b.due)}</small></div><button class="sm danger" data-del="${b.id}">حذف</button></div>`).join('')||'<div class="emp">دستهٔ فعالی ندارید.</div>'}<div class="row" style="margin-top:8px;align-items:center"><select id="vSize" aria-label="اندازهٔ دسته">${[20,30,40,50].map(n=>`<option ${n===V.cfg.size?'selected':''}>${n}</option>`).join('')}</select><button class="sm" id="vNew" ${act.length>=4?'disabled':''}>+ دستهٔ جدید</button></div><div class="emp" style="text-align:start">فعل‌های شروع‌نشده: ${fr(left)}${act.length>=4?' · ۴ دستهٔ فعال داریم؛ بعد از پایان یکی، دستهٔ جدید بسازید.':act.length&&due.length?' · بهتر است دستهٔ جدید را روزی بسازید که جلسهٔ دیگری ندارید.':''}</div></div><div style="height:8px"></div>`;
+  h+=`<div class="cbox"><h3>جدول ۳ هفته‌ای</h3>${vGrid()}</div><details class="dd" style="margin-top:8px"><summary>تنظیمات روش ۱۲۴</summary><div class="cbox" style="margin-top:6px;display:grid;gap:10px"><label>فاصلهٔ جلسه‌ها (روز) <select id="cFd">${[3,4,5,6,7].map(n=>`<option ${n===V.cfg.fd?'selected':''}>${n}</option>`).join('')}</select></label><label>تکرار در یادگیری و مرورها <select id="cR">${[2,3,4,5].map(n=>`<option ${n===V.cfg.r?'selected':''}>${n}</option>`).join('')}</select></label><label>تکرار از مرور سوم به بعد <select id="cRf">${[1,2,3,4].map(n=>`<option ${n===V.cfg.rf?'selected':''}>${n}</option>`).join('')}</select></label></div></details>`;
+  B.innerHTML=h;
+  if($('vResume'))$('vResume').onclick=()=>{$('vs').hidden=false;vShow()};
+  B.querySelectorAll('[data-go]').forEach(r=>r.onclick=()=>vStart(+r.dataset.go));
+  let arm=0;B.querySelectorAll('[data-del]').forEach(x=>x.onclick=()=>{if(!arm){arm=1;x.textContent='مطمئنید؟';setTimeout(()=>{arm=0;x.textContent='حذف'},3000);return}const i=V.b.findIndex(b=>b.id===+x.dataset.del);if(i>-1){if(V.sess&&V.sess.id===V.b[i].id)V.sess=null;V.b.splice(i,1);save();vBadge();vRender()}});
+  $('vSize').onchange=e=>{V.cfg.size=+e.target.value;save()};
+  $('vNew').onclick=()=>{if(vNew(V.cfg.size))vRender()};
+  [['cFd','fd'],['cR','r'],['cRf','rf']].forEach(([id,k])=>$(id).onchange=e=>{V.cfg[k]=+e.target.value;save();vRender()});
+}
+
 function theme(){document.documentElement.dataset.theme=meta.set.theme}
 
 const stage=$('stage');let sx=0,dx=0,drag=false,moved=false;
@@ -1415,7 +1553,7 @@ $('srchBtn').onclick=()=>{const q=$('q');q.hidden=!q.hidden;if(!q.hidden)q.focus
 $('obGo').onclick=()=>{$('ob').hidden=true;meta.ob=1;save()};
 document.querySelectorAll('.chip[data-f]').forEach(b=>b.onclick=()=>setFilter(b.dataset.f));
 $('deckChip').onclick=()=>{dkRender();$('dk').hidden=false};
-$('qzBtn').onclick=()=>{$('em').hidden=false};$('emA').onclick=()=>{$('em').hidden=true;qzStart()};$('emX').onclick=()=>{$('em').hidden=true;exOpen()};$('closeEm').onclick=()=>{$('em').hidden=true};$('closeEx').onclick=exClose;$('closeHs').onclick=()=>{$('hs').hidden=true};
+$('qzBtn').onclick=()=>{$('em').hidden=false};$('emA').onclick=()=>{$('em').hidden=true;qzStart()};$('emX').onclick=()=>{$('em').hidden=true;exOpen()};$('closeEm').onclick=()=>{$('em').hidden=true};$('closeEx').onclick=exClose;$('closeHs').onclick=()=>{$('hs').hidden=true};$('emV').onclick=()=>{$('em').hidden=true;vOpen()};$('closeVm').onclick=()=>{$('vm').hidden=true;vBadge()};$('closeVs').onclick=()=>{$('vs').hidden=true;if(window.speechSynthesis)speechSynthesis.cancel();vRender();vBadge()};
 $('audBtn').onclick=()=>{let ok=0,bad=0,none=0;cards.forEach(c=>{const k=key(c),r=srs[k];if(!r)return;const L=(meta.log||{})[k];if(!L||!L.length){none++;return}const e=L[L.length-1],s=st[k];let good=r.due===e.d&&r.box===e.b1;if(good&&e.g!=='again'&&e.g!=='miss'){const d=new Date(e.t),n=e.g==='hard'?1:STEPS[e.b1];good=r.due===new Date(d.getFullYear(),d.getMonth(),d.getDate()+n).getTime()}if(good&&((s==='learned'&&r.box<1)||(s==='unknown'&&r.box>0)))good=false;good?ok++:bad++});toast('سالم: '+fa(ok)+' · ناسازگار: '+fa(bad)+' · بدون سابقه (قدیمی): '+fa(none))};
 $('closeQz').onclick=()=>{$('qz').hidden=true};
 $('closeDk').onclick=()=>{$('dk').hidden=true};
@@ -1468,7 +1606,7 @@ $('clrBtn').onclick=e=>{
 
 document.addEventListener('keydown',e=>{
   if(e.target.tagName==='INPUT'||e.target.tagName==='SELECT')return;
-  if(e.key!=='Escape'&&['panel','pg','dk','df','rs','qz','ob','em','ex','hs'].some(i=>!$(i).hidden))return;
+  if(e.key!=='Escape'&&['panel','pg','dk','df','rs','qz','ob','em','ex','hs','vm','vs'].some(i=>!$(i).hidden))return;
   if(e.code==='Space'){e.preventDefault();flip()}
   else if(e.code==='ArrowRight')next();
   else if(e.code==='ArrowLeft')prev();
@@ -1478,7 +1616,7 @@ document.addEventListener('keydown',e=>{
   else if(e.key==='4')grade('easy','key');
   else if(e.key==='Enter'&&e.target.id==='card')flip();
   else if(e.key==='z'||e.key==='Z')undo();
-  else if(e.key==='Escape'){['panel','pg','dk','df','rs','qz','em','ex','hs'].forEach(i=>$(i).hidden=true)}
+  else if(e.key==='Escape'){['panel','pg','dk','df','rs','qz','em','ex','hs','vm','vs'].forEach(i=>$(i).hidden=true)}
 });
 
 function tick(){try{const n=new Date();$('clock').textContent=new Intl.DateTimeFormat('fa-IR-u-ca-'+(meta.set.cal||'persian'),{weekday:'long',day:'numeric',month:'long'}).format(n)+' · '+new Intl.DateTimeFormat('fa-IR',{hour:'2-digit',minute:'2-digit',hour12:false}).format(n)}catch(e){$('clock').textContent=new Date().toLocaleString()}}
@@ -1491,15 +1629,15 @@ function init(){
   cards.forEach((c,i)=>c._i=i);
   theme();$('verInfo').textContent='نسخهٔ برنامه: '+APP_V;
   $('revSel').value=meta.set.rev;$('goalSel').value=meta.set.goal;$('autoChk').checked=meta.set.auto;$('ordSel').value=meta.set.nf?1:0;$('calSel').value=meta.set.cal||'persian';tick();
-  stats();setFilter('today');
+  stats();setFilter('today');vBadge();
   if(!meta.ob&&!Object.keys(st).length)$('ob').hidden=false;
 }
 init();
-const OVS=['panel','pg','dk','df','rs','qz','ob','em','ex','hs'],ovVis=()=>OVS.filter(i=>!$(i).hidden);
-let ovN=ovVis().length,popping=false;
+const OVS=['panel','pg','dk','df','rs','qz','ob','em','ex','hs','vm','vs'],ovVis=()=>OVS.filter(i=>!$(i).hidden);
+let ovN=ovVis().length,popping=false,selfBack=0;
 if(ovN)history.pushState({ov:1},'');
-new MutationObserver(()=>{const n=ovVis().length;if(n>ovN)history.pushState({ov:1},'');else if(n<ovN&&!popping)history.back();popping=false;ovN=n}).observe(document.body,{subtree:true,attributes:true,attributeFilter:['hidden']});
-addEventListener('popstate',()=>{const v=ovVis();if(v.length){popping=true;$(v[v.length-1]).hidden=true}});
+new MutationObserver(()=>{const n=ovVis().length;if(n>ovN)history.pushState({ov:1},'');else if(n<ovN&&!popping){selfBack++;history.back()}popping=false;ovN=n}).observe(document.body,{subtree:true,attributes:true,attributeFilter:['hidden']});
+addEventListener('popstate',()=>{if(selfBack>0){selfBack--;return}const v=ovVis();if(v.length){popping=true;$(v[v.length-1]).hidden=true}});
 OVS.forEach(i=>{const e=$(i);e.setAttribute('role','dialog');e.setAttribute('aria-modal','true')});
 if('serviceWorker' in navigator&&location.protocol.startsWith('http')){
   const had=!!navigator.serviceWorker.controller;
