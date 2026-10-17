@@ -1640,9 +1640,30 @@ new MutationObserver(()=>{const n=ovVis().length;if(n>ovN)history.pushState({ov:
 addEventListener('popstate',()=>{if(selfBack>0){selfBack--;return}const v=ovVis();if(v.length){popping=true;$(v[v.length-1]).hidden=true}});
 OVS.forEach(i=>{const e=$(i);e.setAttribute('role','dialog');e.setAttribute('aria-modal','true')});
 if('serviceWorker' in navigator&&location.protocol.startsWith('http')){
-  const had=!!navigator.serviceWorker.controller;
-  navigator.serviceWorker.register('./sw.js').catch(()=>{});
-  navigator.serviceWorker.addEventListener('controllerchange',()=>{if(had)toast('نسخهٔ جدید آماده شد؛ برنامه را یک بار ببندید و دوباره باز کنید')});
+  let refreshing=false;
+  navigator.serviceWorker.addEventListener('controllerchange',()=>{
+    if(refreshing)return;
+    refreshing=true;
+    toast('نسخهٔ جدید در حال اعمال است...');
+    setTimeout(()=>window.location.reload(),800);
+  });
+  navigator.serviceWorker.register('./sw.js')
+    .then(registration=>{
+      // هر ۳ دقیقه چک کن نسخه جدید آمده یا نه
+      setInterval(()=>registration.update(),3*60*1000);
+      // اگر الان نسخه جدیدی منتظر است
+      if(registration.waiting)registration.waiting.postMessage({type:'SKIP_WAITING'});
+      registration.addEventListener('updatefound',()=>{
+        const newWorker=registration.installing;
+        if(!newWorker)return;
+        newWorker.addEventListener('statechange',()=>{
+          if(newWorker.state==='installed'&&navigator.serviceWorker.controller){
+            newWorker.postMessage({type:'SKIP_WAITING'});
+          }
+        });
+      });
+    })
+    .catch(err=>console.error('SW registration failed:',err));
 }
 if(!storageOK)toast('⚠ ذخیره‌سازی کار نمی‌کند؛ پیشرفت ثبت نمی‌شود');
 idbOpen().then(async()=>{

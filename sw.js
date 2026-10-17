@@ -1,4 +1,4 @@
-const CACHE_NAME = "easy-deutsch-v5";
+const CACHE_NAME = "easy-deutsch-v6";
 
 const FILES_TO_CACHE = [
   "./",
